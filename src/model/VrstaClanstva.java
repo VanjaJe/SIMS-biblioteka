@@ -9,10 +9,14 @@ public class VrstaClanstva {
 	private int maxBrKnjiga;
 	private int maxBrDana;
 	private List<Cenovnik> cenovnici;
-	private List<ClanskaKarta> clanskeKarte;
 	
-	
-	
+	public VrstaClanstva(VrstaClana tipClanstva, int maxBrKnjiga, int maxBrDana, List<Cenovnik> cenovnici) {
+		super();
+		this.tipClanstva = tipClanstva;
+		this.maxBrKnjiga = maxBrKnjiga;
+		this.maxBrDana = maxBrDana;
+		this.cenovnici = cenovnici;
+	}
 	public VrstaClana getTipClanstva() {
 		return tipClanstva;
 	}
@@ -36,11 +40,5 @@ public class VrstaClanstva {
 	}
 	public void setCenovnici(List<Cenovnik> cenovnici) {
 		this.cenovnici = cenovnici;
-	}
-	public List<ClanskaKarta> getClanskeKarte() {
-		return clanskeKarte;
-	}
-	public void setClanskeKarte(List<ClanskaKarta> clanskeKarte) {
-		this.clanskeKarte = clanskeKarte;
 	}
 }

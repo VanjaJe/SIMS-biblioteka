@@ -13,9 +13,16 @@
         <lozinka>nikola</lozinka>
         <tipKorisnika>CLAN</tipKorisnika>
       </korisnickiNalog>
+      <popust>0</popust>
       <clanskaKarta>
         <datumUclanjivanja>2023-04-01</datumUclanjivanja>
         <brojClanskeKarte>12</brojClanskeKarte>
+      	<vrstaClanstva>
+      		<tipClanstva>OBICAN</tipClanstva>
+      		<maxBrKnjiga>5</maxBrKnjiga>
+      		<maxBrDana>35</maxBrDana>
+      		<cenovnici>null</cenovnici>
+      	</vrstaClanstva>
       </clanskaKarta>
       <placanja>
         <placanje>

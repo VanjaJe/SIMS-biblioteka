@@ -1,15 +1,13 @@
 package Pogled.paneli;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.EventObject;
 import java.util.List;
 import java.util.Random;
 
@@ -18,37 +16,33 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
 import javax.swing.text.NumberFormatter;
 
 import Pogled.FormaDugme;
-import Pogled.PocetniProzor;
-import Pogled.PocetniProzorBiblioteka;
 import Pogled.TekstPolje;
-import Pogled.tabela.naslovi.TabelaModelNaslovi;
-import Pogled.tabela.naslovi.TabelaNaslovi;
 import enums.TipKorisnika;
 import enums.VrstaClana;
-import izuzeci.BadCredentialsException;
-import izuzeci.MissingValueException;
 import izuzeci.ResultEmptyException;
-import kontroler.NaslovKontroler;
 import kontroler.RegistracijaKontroler;
-import model.Naslov;
+import model.Cenovnik;
+import model.Clan;
+import model.ClanskaKarta;
+import model.KorisnickiNalog;
 import model.Placanje;
+import model.VrstaClanstva;
 import net.miginfocom.swing.MigLayout;
-import observer.Observer;
 import util.PogledUtil;
 
 public class PanelRegistracija extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TekstPolje Ime;
 	private TekstPolje Prezime;
-	private JFormattedTextField Telefon;
+	private TekstPolje Telefon;
 	private TekstPolje Email;
-	private JFormattedTextField Jmbg;
+	private TekstPolje Jmbg;
 	private TekstPolje DatumRodjenja;
 	private TekstPolje Korisnicko;
 	private TekstPolje Lozinka;
@@ -70,8 +64,6 @@ public class PanelRegistracija extends JPanel {
 	
 	private void inicijalizujPolja() {
 		
-		Font fntNaslov = PogledUtil.getMaliNaslovFont();
-		Font fntLabela = PogledUtil.getLabelaFont();
 		Font fntTekstPolje = PogledUtil.getTeksPoljeFont();
 		Color clrPrimarna = PogledUtil.getPrimarnaBoja();
 		Color clrForeground = PogledUtil.getForegroundColor();
@@ -87,7 +79,7 @@ public class PanelRegistracija extends JPanel {
         JLabel telefonLabel = new JLabel("Telefon:");
         JLabel emailLabel = new JLabel("Email:");
         JLabel jmbgLabel = new JLabel("JMBG:");
-        JLabel datumRodjenjaLabel = new JLabel("Datum rodjenja:");
+        JLabel datumRodjenjaLabel = new JLabel("Datum rodjenja (yyyy-MM-dd):");
         JLabel korisnickoLabel = new JLabel("Korisnidko ime:");
         JLabel lozinkaLabel = new JLabel("Lozinka:");
         JLabel tipLabel = new JLabel("Tip:");
@@ -95,11 +87,9 @@ public class PanelRegistracija extends JPanel {
 		
         Ime = new TekstPolje("", fntTekstPolje, 100, 30);
         Prezime = new TekstPolje("", fntTekstPolje, 100, 30);
-        Telefon =  new JFormattedTextField(formatter);
-        Telefon.setColumns(15);
+        Telefon = new TekstPolje("", fntTekstPolje, 100, 30);
         Email = new TekstPolje("", fntTekstPolje, 100, 30);
-        Jmbg =  new JFormattedTextField(formatter);
-        Jmbg.setColumns(15);
+        Jmbg =  new TekstPolje("", fntTekstPolje, 100, 30);
         DatumRodjenja = new TekstPolje("", fntTekstPolje, 100, 30);
         Korisnicko = new TekstPolje("", fntTekstPolje, 100, 30);
         Lozinka = new TekstPolje("", fntTekstPolje, 100, 30);
@@ -117,7 +107,11 @@ public class PanelRegistracija extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				registruj();
+				try {
+					registruj();
+				} catch (ResultEmptyException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -143,10 +137,10 @@ public class PanelRegistracija extends JPanel {
 		add(btnRegistracija, "span2, split2, align center");
 	}
 	
-	public void registruj() {
+	public void registruj() throws ResultEmptyException {
 		//id
 		Random random = new Random();
-        int id = random.nextInt();
+        long id = random.nextLong();
 
         //ime
     	String ime = Ime.getText();
@@ -155,24 +149,24 @@ public class PanelRegistracija extends JPanel {
     	String prezime = Prezime.getText();
 
     	//telefon
-    	String telefon;
-        Object vrednost = Telefon.getValue();
-        if (vrednost != null) {
-            telefon = String.valueOf(vrednost);
-        }
+    	String telefon = Telefon.getText();
 
     	//email
     	String email = Email.getText();
 
     	//jmbg
-    	String jmbg;
-        vrednost = Telefon.getValue();
-        if (vrednost != null) {
-            jmbg = String.valueOf(vrednost);
-        }
+    	String jmbg = Jmbg.getText();
 
     	//datum rodjenja
     	String datRodj = DatumRodjenja.getText();
+    	LocalDate datum = null;
+    	try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            datum = LocalDate.parse(datRodj, formatter);
+    	} catch(Exception e) {
+			JOptionPane.showMessageDialog(this, "Niste uneli datum u ispravnom formatu. Pokusajte sa yyyy-MM-dd");
+    		return;
+    	}
 
     	//korisnicko ime
     	String korisnicko = Korisnicko.getText();
@@ -194,18 +188,45 @@ public class PanelRegistracija extends JPanel {
 		//tip clanstva
 		String selectedValue = (String) Tip.getSelectedItem();
 		VrstaClana vrsta;
+		VrstaClanstva vrstaClanstva;
+		int popust = 0;
 		if (selectedValue.equals(VrstaClana.DETE.toString())) {
 			vrsta = VrstaClana.DETE;
+			popust = 300;
+			vrstaClanstva = new VrstaClanstva(vrsta, 3, 15, new ArrayList<Cenovnik>());
 		} else if (selectedValue.equals(VrstaClana.PENZIONER.toString())) {
 			vrsta = VrstaClana.PENZIONER;
+			vrstaClanstva = new VrstaClanstva(vrsta, 5, 25, new ArrayList<Cenovnik>());
+			popust = 200;
 		} else if (selectedValue.equals(VrstaClana.STUDENT.toString())) {
 			vrsta = VrstaClana.STUDENT;
+			vrstaClanstva = new VrstaClanstva(vrsta, 5, 35, new ArrayList<Cenovnik>());
+			popust = 100;
 		} else {
 			vrsta = VrstaClana.OBICAN;
+			vrstaClanstva = new VrstaClanstva(vrsta, 3, 30, new ArrayList<Cenovnik>());
 		}
 		
-		//validacija!!!!!!
-
+		List<Clan> clanovi = registracijaKontroler.dobaviClanove();
+		System.out.println(clanovi.size());
+		for(Clan clan : clanovi) {
+			if(clan.getJmbg().equals(jmbg)) {
+				JOptionPane.showMessageDialog(this, "korisnik sa ovim jmbg-om se vec nalazi u sistemu!");
+				return;
+			}
+			if(clan.getKorisnickiNalog().getKorisnickoIme().equals(korisnicko)) {
+				JOptionPane.showMessageDialog(this, "ovo korisnicko ime je zauzeto");
+				return;
+			}
+		}
+		Clan noviKorisnik = new Clan(id, ime, prezime, telefon, jmbg, email, datum, 
+				new KorisnickiNalog(korisnicko, lozinka, TipKorisnika.CLAN), popust, 
+				new ClanskaKarta(todayString, brClKarte, vrstaClanstva), placanja);
+		
+		//dodaj clana u sistem
+		//zahtev za izradu clanske karte
+		//cekanje...
+		//clanska karta izradjena
 	}
 	
 }
