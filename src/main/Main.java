@@ -19,7 +19,5 @@ public class Main {
 		}
 		PrijavaProzor prijavaProzor = new PrijavaProzor();
 		prijavaProzor.setVisible(true);
-
 	}
-
 }

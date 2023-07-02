@@ -1,0 +1,14 @@
+<clanskeKarte>
+    <claskaKarta>
+        <datumUcanjvanja>01.04.2023.</datumUcanjvanja>
+        <brojClanskeKarte>12</brojClanskeKarte>
+        <placanja>
+            <placanje>
+                <razlog>aaa</razlog>
+                <datum>01.01.2022.</datum>
+                <iznos>1000</iznos>
+                <tipNadoknade>OSTECENA_KNJIGA</tipNadoknade>
+            </placanje>
+        </placanja>
+    </claskaKarta>
+</clanskeKarte>
