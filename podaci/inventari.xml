@@ -1,0 +1,10 @@
+<inventari>
+    <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+    </inventar>
+    <inventar>
+        <naziv>Knjige na engleskom</naziv>
+        <identifikacioniBroj>1B</identifikacioniBroj>
+    </inventar>
+</inventari>

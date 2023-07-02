@@ -1,0 +1,20 @@
+<clanovi>
+    <clan>
+        <id>3</id>
+        <ime>Nikola</ime>
+        <prezime>Nikolic</prezime>
+        <telefon>678678</telefon>
+        <jmbg>987654321</jmbg>
+        <email>nikola@maildrop.cc</email>
+        <datumRodjenja>1990-07-04</datumRodjenja>
+        <korisnickiNalog>
+            <lozinka>nikola</lozinka>
+            <korisnickoIme>nikola</korisnickoIme>
+            <tipKorisnika>CLAN</tipKorisnika>
+        </korisnickiNalog>
+        <claskaKarta>
+            <datumUcanjvanja>01.04.2023.</datumUcanjvanja>
+            <brojClanskeKarte>12</brojClanskeKarte>
+        </claskaKarta>
+    </clan>
+</clanovi>

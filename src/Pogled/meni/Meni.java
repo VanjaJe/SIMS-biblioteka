@@ -21,7 +21,7 @@ public class Meni extends JPanel {
 	
 	public Meni() {
 		setPreferredSize(new Dimension(300, 100));
-		setBackground(new Color(16, 97, 4));
+		setBackground(new Color(228,242,242,255));
 		setLayout(new MigLayout("", "[300]", "50"));
 		
 		JLabel lblImage = new JLabel("");

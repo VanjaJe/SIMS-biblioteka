@@ -89,7 +89,6 @@ public class Korisnik{
 		this.datumRodjenja = datumRodjenja;
 	}
 
-
 	public KorisnickiNalog getKorisnickiNalog() {
 		return korisnickiNalog;
 	}
@@ -97,7 +96,6 @@ public class Korisnik{
 	public void setKorisnickiNalog(KorisnickiNalog korisnickiNalog) {
 		this.korisnickiNalog = korisnickiNalog;
 	}
-	
 	
 	public String getJmbg() {
 		return jmbg;

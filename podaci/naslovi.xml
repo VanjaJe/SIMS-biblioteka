@@ -2,20 +2,37 @@
   <naslovi>
     <naslov>
       <naslovDela>Zov divljine</naslovDela>
-      <opis>Uzbudljiva pri?a o psu Bucku koji se suo?ava s divljim svijetom Aljaske.</opis>
+      <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
       <udk>821.111(73)-312.4</udk>
       <isbn>978-953-220-000-1</isbn>
       <autori>
         <autor>
           <ime>Jack</ime>
           <prezime>London</prezime>
-          <datumRodjenja>12. sije?nja 1876.</datumRodjenja>
+          <datumRodjenja>12. oktobar 1876.</datumRodjenja>
         </autor>
       </autori>
+      <primerci>
+        <primerak>
+          <inventarniBroj>12</inventarniBroj>
+          <jezik>Srpski</jezik>
+          <format>a</format>
+          <tipKoricenja>MEKO</tipKoricenja>
+          <stanje>DOSTUPAN</stanje>
+          <izdavac>
+            <naziv>Laguna</naziv>
+            <datumOsnivanja>01.01.1999.</datumOsnivanja>
+          </izdavac>
+          <inventar>
+            <naziv>Knjige na srpskom</naziv>
+            <identifikacioniBroj>1A</identifikacioniBroj>
+          </inventar>
+        </primerak>
+      </primerci>
     </naslov>
     <naslov>
       <naslovDela>Gospodar prstenova</naslovDela>
-      <opis>Epska fantasti?na pri?a o putovanju hobita Froda Bagginsa u uni?tenje Jedinstvenog
+      <opis>Epska fantasticna prica o putovanju hobita Froda Bagginsa u unistenje Jedinstvenog
           Prstena.</opis>
       <udk>821.111(73)-312.9</udk>
       <isbn>978-953-220-001-8</isbn>
@@ -23,22 +40,56 @@
         <autor>
           <ime>J.R.R.</ime>
           <prezime>Tolkien</prezime>
-          <datumRodjenja>3. sije?nja 1892.</datumRodjenja>
+          <datumRodjenja>3. avgust 1892.</datumRodjenja>
         </autor>
       </autori>
+      <primerci>
+        <primerak>
+          <inventarniBroj>13</inventarniBroj>
+          <jezik>Engleski</jezik>
+          <format>a</format>
+          <tipKoricenja>TVRDO</tipKoricenja>
+          <stanje>DOSTUPAN</stanje>
+          <izdavac>
+            <naziv>Laguna</naziv>
+            <datumOsnivanja>01.01.1999.</datumOsnivanja>
+          </izdavac>
+          <inventar>
+            <naziv>Knjige na engleskom</naziv>
+            <identifikacioniBroj>1B</identifikacioniBroj>
+          </inventar>
+        </primerak>
+      </primerci>
     </naslov>
     <naslov>
       <naslovDela>Rat i mir</naslovDela>
-      <opis>Klasik svjetske knji?evnosti koji opisuje povijest Rusije tijekom Napoleonskih ratova.</opis>
+      <opis>Klasik svjetske knjizevnosti koji opisuje povijest Rusije tijekom Napoleonskih ratova.</opis>
       <udk>821.161.1(73)-312.4</udk>
       <isbn>978-953-220-002-5</isbn>
       <autori>
         <autor>
           <ime>Lev</ime>
           <prezime>Tolstoj</prezime>
-          <datumRodjenja>9. rujna 1828.</datumRodjenja>
+          <datumRodjenja>9. jun 1828.</datumRodjenja>
         </autor>
       </autori>
+      <primerci>
+        <primerak>
+          <inventarniBroj>15</inventarniBroj>
+          <jezik>Srpski</jezik>
+          <format>a</format>
+          <tipKoricenja>TVRDO</tipKoricenja>
+          <stanje>DOSTUPAN</stanje>
+          <izdavac>
+            <naziv>Laguna</naziv>
+            <datumOsnivanja>01.01.1999.</datumOsnivanja>
+          </izdavac>
+          <inventar>
+            <naziv>Knjige na srpskom</naziv>
+            <identifikacioniBroj>1A</identifikacioniBroj>
+          </inventar>
+        </primerak>
+      </primerci>
     </naslov>
   </naslovi>
 </sviNaslovi>
