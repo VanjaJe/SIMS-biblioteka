@@ -3,16 +3,16 @@ package model;
 import java.util.Date;
 
 public class ClanskaKarta {
-	private Date datumUclanjivanja;
+	private String datumUclanjivanja;
 	private String brojClanskeKarte;
 	private VrstaClanstva vrstaClanstva;
 	
 	
 	
-	public Date getDatumUclanjivanja() {
+	public String getDatumUclanjivanja() {
 		return datumUclanjivanja;
 	}
-	public void setDatumUclanjivanja(Date datumUclanjivanja) {
+	public void setDatumUclanjivanja(String datumUclanjivanja) {
 		this.datumUclanjivanja = datumUclanjivanja;
 	}
 	public String getBrojClanskeKarte() {

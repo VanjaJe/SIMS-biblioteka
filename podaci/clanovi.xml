@@ -1,20 +1,30 @@
-<clanovi>
+<sviClanovi>
+  <clanovi>
     <clan>
-        <id>3</id>
-        <ime>Nikola</ime>
-        <prezime>Nikolic</prezime>
-        <telefon>678678</telefon>
-        <jmbg>987654321</jmbg>
-        <email>nikola@maildrop.cc</email>
-        <datumRodjenja>1990-07-04</datumRodjenja>
-        <korisnickiNalog>
-            <lozinka>nikola</lozinka>
-            <korisnickoIme>nikola</korisnickoIme>
-            <tipKorisnika>CLAN</tipKorisnika>
-        </korisnickiNalog>
-        <claskaKarta>
-            <datumUcanjvanja>01.04.2023.</datumUcanjvanja>
-            <brojClanskeKarte>12</brojClanskeKarte>
-        </claskaKarta>
+      <id>3</id>
+      <ime>Nikola</ime>
+      <prezime>Nikolic</prezime>
+      <telefon>678678</telefon>
+      <jmbg>987654321</jmbg>
+      <email>nikola@maildrop.cc</email>
+      <datumRodjenja>1990-07-04</datumRodjenja>
+      <korisnickiNalog>
+        <korisnickoIme>nikola</korisnickoIme>
+        <lozinka>nikola</lozinka>
+        <tipKorisnika>CLAN</tipKorisnika>
+      </korisnickiNalog>
+      <clanskaKarta>
+        <datumUclanjivanja>2023-04-01</datumUclanjivanja>
+        <brojClanskeKarte>12</brojClanskeKarte>
+      </clanskaKarta>
+      <placanja>
+        <placanje>
+          <razlog>Ostecena knjiga</razlog>
+          <datum>2023-06-15</datum>
+          <iznos>35.0</iznos>
+          <tipNadoknade>OSTECENA_KNJIGA</tipNadoknade>
+        </placanje>
+      </placanja>
     </clan>
-</clanovi>
+  </clanovi>
+</sviClanovi>
