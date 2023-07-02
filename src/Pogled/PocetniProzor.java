@@ -23,10 +23,10 @@ public class PocetniProzor extends JFrame implements WindowListener {
 	protected List<JPanel> paneli;
 	
 	public PocetniProzor() {
-		setSize(new Dimension(1300, 800));
-		setTitle("Sistem za upravljanje restoranom");
+		setSize(new Dimension(1000, 600));
+		setTitle("Sistem za upravljanje bibliotekom");
 		setLocationRelativeTo(null);
-		setResizable(false);
+		setResizable(true);
 		setLayout(new BorderLayout());
 		addWindowListener(this);
 	}

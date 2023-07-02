@@ -2,6 +2,7 @@ package kontroler;
 
 import izuzeci.BadCredentialsException;
 import izuzeci.MissingValueException;
+import izuzeci.ResultEmptyException;
 import model.Korisnik;
 import model.PrijavljenKorisnik;
 import model.podaci.SviKorisnici;
@@ -33,4 +34,14 @@ public class LogInKontroler {
 	private boolean checkIfNullOrEmpty(String input) {
 		return input == null || input.equals("");
 	}
+
+	public static Korisnik dobaviKorisnikaPoKorImenu(String korisnickoIme) throws ResultEmptyException {
+		Korisnik korisnik = SviKorisnici.getInstance().dobaviKorisnikaPoKorisnickomImenu(korisnickoIme);
+		if (korisnik == null) {
+			throw new ResultEmptyException("Ne postoji korisnik sa korisnickim imenom " + korisnickoIme);
+		}
+		
+		return korisnik;
+	}
+
 }

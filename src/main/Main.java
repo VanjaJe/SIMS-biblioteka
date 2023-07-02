@@ -14,7 +14,7 @@ public class Main {
 		try {
 			serijalizacija.ucitaj();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("problem");
 			e.printStackTrace();
 		}
 		PrijavaProzor prijavaProzor = new PrijavaProzor();

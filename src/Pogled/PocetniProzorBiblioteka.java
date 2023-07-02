@@ -1,21 +1,20 @@
 package Pogled;
 
+import izuzeci.ResultEmptyException;
 
 public class PocetniProzorBiblioteka {
 
 	public PocetniProzorBiblioteka() {}
 	
-	public PocetniProzor napraviPocetniProzor(String uloga) {
+	public PocetniProzor napraviPocetniProzor(String uloga) throws ResultEmptyException {
 		switch (uloga) {
-		case "Specijalni biblitekar":
-//			return new PocetniProzorVlasnik();
-			System.out.println("spec");
-		case "Obicni biblitekar":
-//			return new PocetniProzorMenadzer();
-			System.out.println("obic");
+		case "Obicni bibliotekar":
+			return new PocetniProzorBibliotekar();
+		case "Specijalni bibliotekar":
+		return new PocetniProzorSpecBibliotekar();
 		case "Clan":
-//			return new PocetniProzorSef();
-			System.out.println("clan");
+			return new PocetniProzorClan();
+
 		default:
 			return new PocetniProzor();
 		}

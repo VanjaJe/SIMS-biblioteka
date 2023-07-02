@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import izuzeci.BadCredentialsException;
 import izuzeci.MissingValueException;
+import izuzeci.ResultEmptyException;
 import kontroler.LogInKontroler;
 import net.miginfocom.swing.MigLayout;
 //import pogled.pocetni_prozor.PocetniProzor;
@@ -73,6 +74,9 @@ public class PrijavaProzor extends JFrame {
 					JOptionPane.showMessageDialog(null, e.getMessage(), e.getNaslov(), JOptionPane.ERROR_MESSAGE);
 				} catch (BadCredentialsException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage(), e.getNaslov(), JOptionPane.ERROR_MESSAGE);	
+				} catch (ResultEmptyException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		});
