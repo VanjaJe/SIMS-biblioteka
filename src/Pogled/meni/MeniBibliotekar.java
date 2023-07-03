@@ -8,10 +8,10 @@ public class MeniBibliotekar extends Meni {
 	private static final long serialVersionUID = -4213576067747275882L;
 	private MeniStavka stavkaRezervacije;
 	private MeniStavka stavkaOdjava;
-	private MeniStavka stavkaRegistracija;
-	private MeniStavka stavkaVracanje;	
+	private MeniStavka stavkaRegistracija;	
 	private MeniStavka stavkaIzvestaj;	
-	
+	private MeniStavka stavkaVracanje;
+
 	public MeniBibliotekar() {
 		super();
 		

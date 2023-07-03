@@ -133,5 +133,18 @@
         </autor>
       </autori>
     </naslov>
+    <naslov>
+      <naslovDela>Hobit</naslovDela>
+      <opis>avantura hobita sa zmajevima</opis>
+      <udk>asdlfj</udk>
+      <isbn>99</isbn>
+      <autori>
+        <autor>
+          <ime>J.R.R.</ime>
+          <prezime>Tolkien</prezime>
+          <datumRodjenja>3. avgust 1892.</datumRodjenja>
+        </autor>
+      </autori>
+    </naslov>
   </naslovi>
 </sviNaslovi>

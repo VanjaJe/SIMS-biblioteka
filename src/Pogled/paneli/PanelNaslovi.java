@@ -65,49 +65,6 @@ public class PanelNaslovi extends JPanel implements Observer {
 		
 		naslovKontroler = new NaslovKontroler();
 		this.naslovi=naslovKontroler.dobaviNaslove();
-//		tipJelaKontroler = new TipJelaKontroler();
-//		try {
-//			this.jelovnik = jeloKontroler.dobaviJelaSaCenama();
-//		} catch (ResultEmptyException e) {
-//			JOptionPane.showMessageDialog(null, e.getMessage(), e.getNaslov(), JOptionPane.INFORMATION_MESSAGE);
-//		}
-		//Labela lblNaslov = new Labela("Jelovnik restorana", fntNaslov, clrForeground);
-		
-//		JLabel lblImage = new JLabel("");
-//		lblImage.setPreferredSize(new Dimension(80, 80));
-//		Image image = new ImageIcon(this.getClass().getResource("/menu96.png")).getImage();
-//		lblImage.setIcon(new ImageIcon(image));
-//		
-//		this.naziviTipovaJela = tipJelaKontroler.dobaviNaziveTipovaJela();
-//		
-//		Labela lblTipJela = new Labela("Tip jela:", fntTekstPolje, clrForeground);
-//		PadajucaLista plTipoviZaposlenih = new PadajucaLista(naziviTipovaJela, 
-//				clrPrimarna, clrForeground, fntTekstPolje, 140, 30);
-//
-//		FormaDugme btnDodajJelo = new FormaDugme("Dodaj jelo", clrPrimarna, clrForeground, 150, 20);
-//		btnDodajJelo.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				DijalogDodavanjeJela dijalogDodavanjeJela = new DijalogDodavanjeJela(jeloKontroler, naziviTipovaJela, (TabelaModelJelovnik) tabelaJelovnik.getModel());
-//				dijalogDodavanjeJela.setVisible(true);
-//			}
-//		});
-//		
-//		FormaDugme btnPretrazi = new FormaDugme("Pretraži", clrPrimarna, clrForeground, 75, 20);
-//		
-		//setLayout(new MigLayout("","20[]20[]", "20[]30[]40[]"));
-		
-//		add(lblNaslov, "wrap, span2, align center");
-//		add(lblImage, "wrap, span2, align center");
-//		add(lblTipJela, "cell 0 2, align left");
-//		add(plTipoviZaposlenih, "cell 0 2, align left");
-//		add(btnPretrazi, "cell 0 2, gapleft 10, align left");
-//		add(btnDodajJelo, "cell 1 2, wrap, align right");
-//		if (PrijavljenKorisnik.getInstance().getUloga() != Uloga.SEF_KUHINJE) {
-//			btnDodajJelo.setVisible(false);
-//
-//		}
 		this.inicijalizujTabeluKnjiga();
 	}
 	
