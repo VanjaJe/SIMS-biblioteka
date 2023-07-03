@@ -130,7 +130,7 @@
       <jezik>srpski</jezik>
       <format>a</format>
       <tipKoricenja>MEKO</tipKoricenja>
-      <stanje>DOSTUPAN</stanje>
+      <stanje>IZNAJMLJEN</stanje>
       <izdavac>
         <naziv>Delfi</naziv>
         <datumOsnivanja>01.11.1998.</datumOsnivanja>
@@ -163,7 +163,7 @@
       <jezik>a</jezik>
       <format>a</format>
       <tipKoricenja>MEKO</tipKoricenja>
-      <stanje>DOSTUPAN</stanje>
+      <stanje>IZNAJMLJEN</stanje>
       <izdavac>
         <naziv>Laguna</naziv>
         <datumOsnivanja>01.01.1999.</datumOsnivanja>

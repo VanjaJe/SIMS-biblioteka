@@ -6,8 +6,15 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import enums.Stanje;
 import enums.TipNadoknade;
@@ -68,6 +75,8 @@ public class IznajmljivanjeKontroler {
 		}
 		return primerci;
 	}
+	
+	
 	public List<Iznajmljivanje> dobaviPrimerke() throws ResultEmptyException {
 		for (Iznajmljivanje iznajmljivanje : SvaIznajmljivanja.getInstance().getIznajmljivanja()) {
 			if(SviPrimerci.instance.dobaviStanjePrimerka(iznajmljivanje.getPrimerak().getInventarniBroj())
@@ -126,6 +135,52 @@ public class IznajmljivanjeKontroler {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public HashMap<String, Integer> filtrirajNaslove() {
+		HashMap<String, Integer> izvestaj = new HashMap<String, Integer>();
+		
+		for (Iznajmljivanje iznajmljivanje : SvaIznajmljivanja.getInstance().getIznajmljivanja()) {
+			if (izvestaj.containsKey(iznajmljivanje.getPrimerak().getNaslov().getIsbn())) {
+				izvestaj.put(iznajmljivanje.getPrimerak().getNaslov().getIsbn(), izvestaj.get(iznajmljivanje.getPrimerak().getNaslov().getIsbn()) + 1); 
+			}
+			else {
+				izvestaj.put(iznajmljivanje.getPrimerak().getNaslov().getIsbn(), 1);
+			}
+		}
+		HashMap<String, Integer> sortirana = sort(izvestaj, false);
+		
+		return sortirana;
+	}
+	
+	
+	public HashMap<String, Integer> sort(HashMap<String, Integer> unsortMap, final boolean order) {
+		
+		List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(unsortMap.entrySet());
+
+        Collections.sort(list, new Comparator<Entry<String, Integer>>()
+        {
+            public int compare(Entry<String, Integer> o1,
+                    Entry<String, Integer> o2)
+            {
+                if (order)
+                {
+                    return o1.getValue().compareTo(o2.getValue());
+                }
+                else
+                {
+                    return o2.getValue().compareTo(o1.getValue());
+                }
+            }
+        });
+
+        HashMap<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+        for (Entry<String, Integer> entry : list)
+        {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+        return sortedMap;
 	}
 }
 
