@@ -79,8 +79,7 @@ public class IznajmljivanjeKontroler {
 	
 	public List<Iznajmljivanje> dobaviPrimerke() throws ResultEmptyException {
 		for (Iznajmljivanje iznajmljivanje : SvaIznajmljivanja.getInstance().getIznajmljivanja()) {
-			if(SviPrimerci.instance.dobaviStanjePrimerka(iznajmljivanje.getPrimerak().getInventarniBroj())
-					==Stanje.IZNAJMLJEN) {
+			if(!iznajmljivanje.getZavrseno()) {
 			iznajmljivanja.add(new Iznajmljivanje(iznajmljivanje.getDatumIznjamljivanja(),iznajmljivanje.getProduzeno(),
 					iznajmljivanje.getPrimerak(),iznajmljivanje.getClan()));	
 		}

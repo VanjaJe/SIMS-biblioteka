@@ -10,6 +10,7 @@ public class Iznajmljivanje {
 	private Boolean produzeno;
 	private Primerak primerak;
 	private Clan clan;
+	private Boolean zavrseno;
 	
 	
 	public Iznajmljivanje(Date datumIznjamljivanja, Boolean produzeno, Primerak primerak, Clan clan) {
@@ -18,9 +19,20 @@ public class Iznajmljivanje {
 		this.produzeno = produzeno;
 		this.primerak = primerak;
 		this.clan = clan;
+		this.zavrseno=false;
 	}
 	
 	
+	public Boolean getZavrseno() {
+		return zavrseno;
+	}
+
+
+	public void setZavrseno(Boolean zavrseno) {
+		this.zavrseno = zavrseno;
+	}
+
+
 	public Date getDatumIznjamljivanja() {
 		return datumIznjamljivanja;
 	}
