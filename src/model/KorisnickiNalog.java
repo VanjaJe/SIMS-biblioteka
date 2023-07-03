@@ -1,7 +1,10 @@
 package model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import enums.TipKorisnika;
 
+@XStreamAlias("korisnickiNalog")
 public class KorisnickiNalog {
 	
 	private String korisnickoIme;

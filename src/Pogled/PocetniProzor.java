@@ -47,6 +47,12 @@ public class PocetniProzor extends JFrame implements WindowListener {
 	}
 	
 	protected void zatvori() {
+		Serijalizacija serijalizacija = new Serijalizacija();
+		try {
+			serijalizacija.sacuvaj();
+		} catch (IOException e1) {
+			JOptionPane.showMessageDialog(null, "Nije moguce sacuvati aplikaciju.", "Greska pri cuvanju aplikacije", JOptionPane.ERROR_MESSAGE);
+		}
 		this.dispose();
 	}
 

@@ -14,7 +14,7 @@ import model.Naslov;
 import model.podaci.SviNaslovi;
 
 public class NaslovKontroler {
-private List<Naslov>naslovi;
+	private List<Naslov>naslovi;
 	
 	public NaslovKontroler() {
 		naslovi = new ArrayList<Naslov>();

@@ -2,14 +2,17 @@ package model;
 
 import java.util.Date;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("iznajmljivanje")
 public class Iznajmljivanje {
-	private Date datumIznjamljivanja;
+	private String datumIznjamljivanja;
 	private Boolean produzeno;
 	private Primerak primerak;
 	private Clan clan;
 	
 	
-	public Iznajmljivanje(Date datumIznjamljivanja, Boolean produzeno, Primerak primerak, Clan clan) {
+	public Iznajmljivanje(String datumIznjamljivanja, Boolean produzeno, Primerak primerak, Clan clan) {
 		super();
 		this.datumIznjamljivanja = datumIznjamljivanja;
 		this.produzeno = produzeno;
@@ -18,10 +21,10 @@ public class Iznajmljivanje {
 	}
 	
 	
-	public Date getDatumIznjamljivanja() {
+	public String getDatumIznjamljivanja() {
 		return datumIznjamljivanja;
 	}
-	public void setDatumIznjamljivanja(Date datumIznjamljivanja) {
+	public void setDatumIznjamljivanja(String datumIznjamljivanja) {
 		this.datumIznjamljivanja = datumIznjamljivanja;
 	}
 	public Boolean getProduzeno() {
