@@ -39,6 +39,7 @@ import model.Iznajmljivanje;
 import model.Korisnik;
 import model.Naslov;
 import model.Primerak;
+import model.podaci.SvaIznajmljivanja;
 import model.podaci.SviClanovi;
 import model.podaci.SviPrimerci;
 import net.miginfocom.swing.MigLayout;
@@ -132,6 +133,7 @@ public class PanelVracanje extends JPanel implements Observer {
 							SviPrimerci.getInstance().postaviStanjePrimerka(invBroj,Stanje.DOSTUPAN);
 						}
 					}
+					SvaIznajmljivanja.getInstance().postaviZavrseno(invBroj);
 				}else {
 					System.out.println("Selektujte red u tabeli");
 				}

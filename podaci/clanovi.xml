@@ -30,6 +30,12 @@
           <iznos>35.0</iznos>
           <tipNadoknade>OSTECENA_KNJIGA</tipNadoknade>
         </placanje>
+        <placanje>
+          <razlog>04.07.2023.</razlog>
+          <datum>nema</datum>
+          <iznos>1235.0</iznos>
+          <tipNadoknade>OSTECENA_KNJIGA</tipNadoknade>
+        </placanje>
       </placanja>
       <popust>0</popust>
     </clan>
