@@ -2,11 +2,13 @@ package model;
 
 import java.util.Date;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("clanskaKarta")
 public class ClanskaKarta {
 	private String datumUclanjivanja;
 	private int brojClanskeKarte;
 	private VrstaClanstva vrstaClanstva;
-	
 	
 	
 	public ClanskaKarta(String datumUclanjivanja, int brojClanskeKarte, VrstaClanstva vrstaClanstva) {

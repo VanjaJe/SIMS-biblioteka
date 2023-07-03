@@ -2,6 +2,10 @@ package model;
 
 import java.util.List;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+
+@XStreamAlias("izdavac")
 public class Izdavac {
 	private String naziv;
 	private String datumOsnivanja;

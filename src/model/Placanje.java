@@ -14,6 +14,13 @@ public class Placanje {
 	private TipNadoknade tipNadoknade;
 	
 	
+	public Placanje(String razlog, String datum, double iznos, TipNadoknade tipNadoknade) {
+		super();
+		this.razlog = razlog;
+		this.datum = datum;
+		this.iznos = iznos;
+		this.tipNadoknade = tipNadoknade;
+	}
 	public String getRazlog() {
 		return razlog;
 	}

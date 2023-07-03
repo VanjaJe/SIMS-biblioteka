@@ -8,6 +8,7 @@ public class MeniClan extends Meni {
 	private static final long serialVersionUID = -670002200747993656L;
 	private MeniStavka stavkaRezervacije;
 	private MeniStavka stavkaOdjava;
+
 	
 	public MeniClan() {
 		super();

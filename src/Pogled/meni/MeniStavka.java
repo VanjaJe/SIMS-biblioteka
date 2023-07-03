@@ -12,12 +12,8 @@ import javax.swing.JPanel;
 import Pogled.FormaDugme;
 
 public class MeniStavka extends JPanel {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 7627665089080505037L;
-	//private JLabel lblIkonica;
 	private FormaDugme btnStavka;
 	
 	public MeniStavka() {}
@@ -27,18 +23,11 @@ public class MeniStavka extends JPanel {
 		setPreferredSize(new Dimension(250, 30));
 		setBackground(new Color(228,242,242,255));
 		
-		//lblIkonica = new JLabel("");
-		//Image image = new ImageIcon(this.getClass().getResource(ikonica)).getImage();
-		//lblIkonica.setIcon(new ImageIcon(image));
 		btnStavka = new FormaDugme(naziv, new Color(228,242,242,255), Color.BLACK, 170, 30);
-		
-		//add(lblIkonica);
 		add(btnStavka);
-		
 	}
 	
 	public JButton getDugmeStavke() {
 		return this.btnStavka;
 	}
-	
 }

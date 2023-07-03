@@ -1,9 +1,9 @@
 package enums;
 
 public enum Stanje {
-	IZGUBLJEN {
+	UKLONJEN {
 		public String toString() {
-			return "izgubljen";
+			return "uklonjen";
 		}
 	},
 	OSTECEN {

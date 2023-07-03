@@ -18,10 +18,122 @@
       <jezik>Hrvatski</jezik>
       <format>A4</format>
       <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>OSTECEN</stanje>
+      <izdavac>
+        <naziv>Laguna</naziv>
+        <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>Zov divljine</naslovDela>
+        <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
+        <udk>821.111(73)-312.4</udk>
+        <isbn>978-953-220-000-1</isbn>
+        <autori>
+          <autor>
+            <ime>Jack</ime>
+            <prezime>London</prezime>
+            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>5</inventarniBroj>
+      <jezik>Srpski</jezik>
+      <format>A3</format>
+      <tipKoricenja>TVRDO</tipKoricenja>
       <stanje>DOSTUPAN</stanje>
       <izdavac>
         <naziv>Laguna</naziv>
         <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>Zov divljine</naslovDela>
+        <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
+        <udk>821.111(73)-312.4</udk>
+        <isbn>978-953-220-000-1</isbn>
+        <autori>
+          <autor>
+            <ime>Jack</ime>
+            <prezime>London</prezime>
+            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>167878</inventarniBroj>
+      <jezik>Italijanski</jezik>
+      <format>A199</format>
+      <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>DOSTUPAN</stanje>
+      <izdavac>
+        <naziv>Laguna</naziv>
+        <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>Zov divljine</naslovDela>
+        <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
+        <udk>821.111(73)-312.4</udk>
+        <isbn>978-953-220-000-1</isbn>
+        <autori>
+          <autor>
+            <ime>Jack</ime>
+            <prezime>London</prezime>
+            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>16</inventarniBroj>
+      <jezik>Kineski</jezik>
+      <format>A</format>
+      <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>DOSTUPAN</stanje>
+      <izdavac>
+        <naziv>Laguna</naziv>
+        <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>Aa</naslovDela>
+        <opis>aa</opis>
+        <udk>11</udk>
+        <isbn>12</isbn>
+        <autori>
+          <autor>
+            <ime>Lev</ime>
+            <prezime>Tolstoj</prezime>
+            <datumRodjenja>9. jun 1828.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>38</inventarniBroj>
+      <jezik>srpski</jezik>
+      <format>a</format>
+      <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>DOSTUPAN</stanje>
+      <izdavac>
+        <naziv>Delfi</naziv>
+        <datumOsnivanja>01.11.1998.</datumOsnivanja>
       </izdavac>
       <inventar>
         <naziv>Knjige na srpskom</naziv>

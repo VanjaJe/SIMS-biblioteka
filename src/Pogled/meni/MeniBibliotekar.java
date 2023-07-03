@@ -9,7 +9,7 @@ public class MeniBibliotekar extends Meni {
 	private MeniStavka stavkaRezervacije;
 	private MeniStavka stavkaOdjava;
 	private MeniStavka stavkaRegistracija;
-	
+	private MeniStavka stavkaVracanje;	
 	public MeniBibliotekar() {
 		super();
 		
@@ -19,9 +19,17 @@ public class MeniBibliotekar extends Meni {
 		
 		add(stavkaRezervacije, "wrap, align center");
 		add(stavkaRegistracija, "wrap, align center");
+		stavkaVracanje=new MeniStavka("Vracanje");
+		stavkaOdjava = new MeniStavka("Odjava");
+		
+		add(stavkaRezervacije, "wrap, align center");
+		add(stavkaVracanje, "wrap, align center");
 		add(stavkaOdjava, "wrap, align center");
 	}
 	
+	public MeniStavka getStavkaVracanje() {
+		return this.stavkaVracanje;
+	}
 	public MeniStavka getStavkaRezervacije() {
 		return this.stavkaRezervacije;
 	}

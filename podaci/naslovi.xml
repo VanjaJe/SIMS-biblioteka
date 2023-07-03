@@ -12,23 +12,6 @@
           <datumRodjenja>12. oktobar 1876.</datumRodjenja>
         </autor>
       </autori>
-      <primerci>
-        <primerak>
-          <inventarniBroj>12</inventarniBroj>
-          <jezik>Srpski</jezik>
-          <format>a</format>
-          <tipKoricenja>MEKO</tipKoricenja>
-          <stanje>DOSTUPAN</stanje>
-          <izdavac>
-            <naziv>Laguna</naziv>
-            <datumOsnivanja>01.01.1999.</datumOsnivanja>
-          </izdavac>
-          <inventar>
-            <naziv>Knjige na srpskom</naziv>
-            <identifikacioniBroj>1A</identifikacioniBroj>
-          </inventar>
-        </primerak>
-      </primerci>
     </naslov>
     <naslov>
       <naslovDela>Gospodar prstenova</naslovDela>
@@ -43,23 +26,6 @@
           <datumRodjenja>3. avgust 1892.</datumRodjenja>
         </autor>
       </autori>
-      <primerci>
-        <primerak>
-          <inventarniBroj>13</inventarniBroj>
-          <jezik>Engleski</jezik>
-          <format>a</format>
-          <tipKoricenja>TVRDO</tipKoricenja>
-          <stanje>DOSTUPAN</stanje>
-          <izdavac>
-            <naziv>Laguna</naziv>
-            <datumOsnivanja>01.01.1999.</datumOsnivanja>
-          </izdavac>
-          <inventar>
-            <naziv>Knjige na engleskom</naziv>
-            <identifikacioniBroj>1B</identifikacioniBroj>
-          </inventar>
-        </primerak>
-      </primerci>
     </naslov>
     <naslov>
       <naslovDela>Rat i mir</naslovDela>
@@ -73,23 +39,55 @@
           <datumRodjenja>9. jun 1828.</datumRodjenja>
         </autor>
       </autori>
-      <primerci>
-        <primerak>
-          <inventarniBroj>15</inventarniBroj>
-          <jezik>Srpski</jezik>
-          <format>a</format>
-          <tipKoricenja>TVRDO</tipKoricenja>
-          <stanje>DOSTUPAN</stanje>
-          <izdavac>
-            <naziv>Laguna</naziv>
-            <datumOsnivanja>01.01.1999.</datumOsnivanja>
-          </izdavac>
-          <inventar>
-            <naziv>Knjige na srpskom</naziv>
-            <identifikacioniBroj>1A</identifikacioniBroj>
-          </inventar>
-        </primerak>
-      </primerci>
+    </naslov>
+    <naslov>
+      <naslovDela>Razum i osecajnost</naslovDela>
+      <opis>ljubavni roman</opis>
+      <udk>1234445</udk>
+      <isbn>12346543</isbn>
+      <autori>
+        <autor>
+          <ime>Lev</ime>
+          <prezime>Tolstoj</prezime>
+          <datumRodjenja>9. jun 1828.</datumRodjenja>
+        </autor>
+      </autori>
+    </naslov>
+    <naslov>
+      <naslovDela>blabla</naslovDela>
+      <opis>blabla</opis>
+      <udk>123456</udk>
+      <isbn>98877665443</isbn>
+      <autori>
+        <autor>
+          <ime>Jack</ime>
+          <prezime>London</prezime>
+          <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+        </autor>
+        <autor>
+          <ime>J.R.R.</ime>
+          <prezime>Tolkien</prezime>
+          <datumRodjenja>3. avgust 1892.</datumRodjenja>
+        </autor>
+        <autor>
+          <ime>Lev</ime>
+          <prezime>Tolstoj</prezime>
+          <datumRodjenja>9. jun 1828.</datumRodjenja>
+        </autor>
+      </autori>
+    </naslov>
+    <naslov>
+      <naslovDela>Aa</naslovDela>
+      <opis>aa</opis>
+      <udk>11</udk>
+      <isbn>12</isbn>
+      <autori>
+        <autor>
+          <ime>Lev</ime>
+          <prezime>Tolstoj</prezime>
+          <datumRodjenja>9. jun 1828.</datumRodjenja>
+        </autor>
+      </autori>
     </naslov>
   </naslovi>
 </sviNaslovi>

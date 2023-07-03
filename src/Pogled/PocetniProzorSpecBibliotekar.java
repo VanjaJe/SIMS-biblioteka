@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 import Pogled.meni.MeniBiblioteka;
 import Pogled.meni.MeniSpecBibliotekar;
+import Pogled.paneli.PanelDodavanjePrimerka;
 import Pogled.paneli.PanelNaslovi;
 import Pogled.paneli.PanelProfil;
 import Pogled.paneli.PanelRezervacije;
@@ -16,20 +17,16 @@ import model.PrijavljenKorisnik;
 
 public class PocetniProzorSpecBibliotekar extends PocetniProzor {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5303103792307993741L;
-private MeniSpecBibliotekar meni;
+	private MeniSpecBibliotekar meni;
 	
 	public PocetniProzorSpecBibliotekar() throws ResultEmptyException {
 		this.setName("SpecijalniBibliotekarPocetniMeni");
 		MeniBiblioteka meniBiblioteka = new MeniBiblioteka();
 		meni = (MeniSpecBibliotekar) meniBiblioteka.napraviMeni("Specijalni bibliotekar");
-		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije()));	    
-//	                          new PanelTipoviJela(),
-//	                          new PanelZahteviZaJelo()));
-//		
+		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije(),
+				new PanelDodavanjePrimerka(this)));	    
+		
 		add(paneli.get(0), BorderLayout.CENTER);
 		add(meni, BorderLayout.WEST);
 		
@@ -55,7 +52,16 @@ private MeniSpecBibliotekar meni;
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				postaviPanel("TipoviJela");
+				postaviPanel("Rezervacije");
+				osveziProzor();
+			}
+		});
+		
+		meni.getStavkaDodavanjePrimerka().getDugmeStavke().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				postaviPanel("Dodavanje primerka");
 				osveziProzor();
 			}
 		});
