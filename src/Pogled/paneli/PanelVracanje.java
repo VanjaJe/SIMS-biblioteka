@@ -33,10 +33,13 @@ import enums.Stanje;
 import enums.TipNadoknade;
 import izuzeci.ResultEmptyException;
 import kontroler.IznajmljivanjeKontroler;
+import kontroler.LogInKontroler;
 import kontroler.NaslovKontroler;
 import model.Iznajmljivanje;
+import model.Korisnik;
 import model.Naslov;
 import model.Primerak;
+import model.podaci.SviClanovi;
 import model.podaci.SviPrimerci;
 import net.miginfocom.swing.MigLayout;
 import util.PogledUtil;
@@ -114,15 +117,15 @@ public class PanelVracanje extends JPanel implements Observer {
 				{
 					int row=tabelaIznajmljivanje.getSelectedRow();
 					int invBroj=Integer.parseInt(tabelaIznajmljivanje.getValueAt(row,3).toString());
-					
+					String korIme=tabelaIznajmljivanje.getValueAt(row,4).toString();
 					if(comboBox.getSelectedItem()==Stanje.OSTECEN) {
 						SviPrimerci.getInstance().postaviStanjePrimerka(invBroj,Stanje.OSTECEN);
-						NadoknadaPrimerakDijalog dijalog=new NadoknadaPrimerakDijalog(TipNadoknade.OSTECENA_KNJIGA);
+						NadoknadaPrimerakDijalog dijalog=new NadoknadaPrimerakDijalog(korIme,TipNadoknade.OSTECENA_KNJIGA);
 						dijalog.show();
 					}else {
 						if(comboBox.getSelectedItem()==Stanje.UKLONJEN) {
 							SviPrimerci.getInstance().postaviStanjePrimerka(invBroj,Stanje.UKLONJEN);
-							NadoknadaPrimerakDijalog dijalog=new NadoknadaPrimerakDijalog(TipNadoknade.IZGUBLJENA_KNJIGA);
+							NadoknadaPrimerakDijalog dijalog=new NadoknadaPrimerakDijalog(korIme,TipNadoknade.IZGUBLJENA_KNJIGA);
 							dijalog.show();
 							
 						}else {

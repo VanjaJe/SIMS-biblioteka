@@ -7,6 +7,8 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -17,7 +19,11 @@ import izuzeci.BadFormatException;
 import izuzeci.MissingValueException;
 import izuzeci.UniqueValueException;
 import kontroler.IznajmljivanjeKontroler;
+import model.Clan;
 import model.Korisnik;
+import model.Placanje;
+import model.podaci.SviClanovi;
+import model.podaci.SviKorisnici;
 import net.miginfocom.swing.MigLayout;
 import Pogled.FormaDugme;
 import Pogled.Labela;
@@ -30,7 +36,7 @@ public class NadoknadaPrimerakDijalog extends JDialog{
 	private TekstPolje tfRazlog;
 	private TekstPolje tfCena;
 	
-	public NadoknadaPrimerakDijalog(TipNadoknade tipNadoknade) {
+	public NadoknadaPrimerakDijalog(String korIme,TipNadoknade tipNadoknade) {
 		setSize(new Dimension(400, 250));
 		setLocationRelativeTo(null);
 		setTitle("Nadoknada za primerak");
@@ -48,16 +54,22 @@ public class NadoknadaPrimerakDijalog extends JDialog{
 		Labela lblCena = new Labela("Iznos nadoknade:", fntLabela, Color.black);
 		tfCena = new TekstPolje("",fntTekstPolje, 140, 30);
 		
-		
-		
 		FormaDugme btnPotvrdi = new FormaDugme("Potvrdi", Color.LIGHT_GRAY, clrForeground, 150, 20);
 		btnPotvrdi.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				IznajmljivanjeKontroler kontrolner=new IznajmljivanjeKontroler();
-				kontrolner.naplatiNadoknadu(tipNadoknade,tfRazlog.getText(),tfCena.getText());
-				
+				Placanje placanje=kontrolner.naplatiNadoknadu(tipNadoknade,tfRazlog.getText(),tfCena.getText());
+				ArrayList<Clan>clanovi=SviClanovi.instance.getClanovi();
+				for(Clan clan:clanovi) {
+					if(clan.getKorisnickiNalog().getKorisnickoIme()==korIme) {
+						List<Placanje>placanja=clan.getPlacanja();
+						placanja.add(placanje);
+						clan.setPlacanja(placanja);
+					}
+				}
+				SviClanovi.instance.setClanovi(clanovi);
 			}
 		});
 		
@@ -67,7 +79,6 @@ public class NadoknadaPrimerakDijalog extends JDialog{
 		add(tfRazlog, "wrap,span 2, align left, gapleft 20px");
 		add(lblCena);
 		add(tfCena, "wrap,span 2, align left, gapleft 20px");
-		
 		add(btnPotvrdi,  "span 2, align left, gaptop 30px");
 	}
 	

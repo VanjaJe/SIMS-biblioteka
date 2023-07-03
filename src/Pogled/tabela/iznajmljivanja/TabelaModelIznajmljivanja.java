@@ -6,12 +6,14 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import kontroler.RegistracijaKontroler;
 import model.Autor;
 import model.Clan;
 import model.Iznajmljivanje;
 import model.Korisnik;
 import model.Naslov;
 import model.Primerak;
+import model.podaci.SviClanovi;
 import observer.Observer;
 import observer.Publisher;
 
@@ -83,7 +85,7 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 		Iznajmljivanje iznajmljivanje = iznajmljivanja.get(rowIndex);
 		switch (columnIndex) {
 		case 0:
-			return iznajmljivanje.getDatumIznjamljivanja();
+			return iznajmljivanje.getDatumIznjamljivanja().toLocaleString();
 		case 1:
 			return iznajmljivanje.getProduzeno().toString();
 		case 2:

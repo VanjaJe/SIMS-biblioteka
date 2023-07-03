@@ -37,7 +37,7 @@ public class SviClanovi {
 		instance = sviClanovi;
 	}
 	
-	public ArrayList<Clan> getNaslovi() {
+	public ArrayList<Clan> getClanovi() {
 		return this.clanovi;
 	}
 	
