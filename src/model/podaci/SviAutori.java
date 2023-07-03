@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import model.Autor;
 import model.Naslov;
 
-//@XStreamAlias("sviAutori")	
+@XStreamAlias("sviAutori")	
 public class SviAutori {
 public static SviAutori instance = null;
 	
@@ -47,5 +47,12 @@ public static SviAutori instance = null;
 		this.autori.add(autor);
 		return autor;
 	}
-
+	
+	public ArrayList<String> dobaviNaziveAutora() {
+		ArrayList<String> nazivi = new ArrayList<String>();
+		autori.forEach(autor -> {
+			nazivi.add(autor.getIme() + " " + autor.getPrezime());
+		});
+		return nazivi;
+	}
 }

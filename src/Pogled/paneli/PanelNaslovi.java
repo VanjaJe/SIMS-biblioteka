@@ -41,14 +41,13 @@ import observer.Observer;
 import util.PogledUtil;
 
 public class PanelNaslovi extends JPanel implements Observer {
-//
+
 //	/**
 //	 * 
 //	 */
 	private static final long serialVersionUID = -7893396793228337113L;
 	private List<Naslov> naslovi;
 	private NaslovKontroler naslovKontroler;
-//	private TipJelaKontroler tipJelaKontroler;
 //	private String[] naziviTipovaJela = new String[] {"Rostilj", "Paste", "Supe"};
 	
 	private TabelaNaslovi tabelaKnjiga;
@@ -62,7 +61,7 @@ public class PanelNaslovi extends JPanel implements Observer {
 		Color clrPrimarna = PogledUtil.getPrimarnaBoja();
 		Color clrForeground = PogledUtil.getForegroundColor();
 		
-		setBackground(Color.LIGHT_GRAY);
+		setBackground(Color.WHITE);
 		
 		naslovKontroler = new NaslovKontroler();
 		this.naslovi=naslovKontroler.dobaviNaslove();
@@ -131,7 +130,7 @@ public class PanelNaslovi extends JPanel implements Observer {
 		    }
 		
 
-		tabelaKnjiga.setPreferredScrollableViewportSize(new Dimension(600,300));
+		tabelaKnjiga.setPreferredScrollableViewportSize(new Dimension(630,300));
 		tabelaKnjiga.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		JScrollPane scrollPane = new JScrollPane(tabelaKnjiga);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);

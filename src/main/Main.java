@@ -8,7 +8,7 @@ import serijalizacija.Serijalizacija;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 //		Pokretanje.inicijalizujJela();
 		Serijalizacija serijalizacija = new Serijalizacija();
 		try {
@@ -19,5 +19,6 @@ public class Main {
 		}
 		PrijavaProzor prijavaProzor = new PrijavaProzor();
 		prijavaProzor.setVisible(true);
+		serijalizacija.sacuvaj();
 	}
 }

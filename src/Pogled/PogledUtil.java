@@ -30,7 +30,6 @@ public class PogledUtil {
 		return getRobotoFont(24, true);
 	}
 	
-	// zelena
 	public static Color getPrimarnaBoja() {
 		return new Color(255, 255, 255);
 	}

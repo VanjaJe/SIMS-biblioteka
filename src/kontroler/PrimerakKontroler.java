@@ -4,19 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import izuzeci.ResultEmptyException;
-//import model.Cena;
-//import model.Jelo;
-//import model.JeloCena;
-//import model.Knjiga;
-//import model.podaci.CenovnikLista;
-//import model.podaci.JelaLista;
 import model.Naslov;
 import model.podaci.SviNaslovi;
 
-public class NaslovKontroler {
+public class PrimerakKontroler {
+	
 	private List<Naslov>naslovi;
 	
-	public NaslovKontroler() {
+	public PrimerakKontroler() {
 		naslovi = new ArrayList<Naslov>();
 	}
 	
@@ -30,17 +25,4 @@ public class NaslovKontroler {
 		}
 		return naslovi;
 	}
-	
-	
-	public Naslov dobaviNaslovPoISBN(String isbn){
-		for (Naslov naslov : SviNaslovi.getInstance().getNaslovi()) {
-			if (naslov.getIsbn().equals(isbn)) {
-				return naslov;
-			}
-		}
-		return null;
-	}
 }
-	
-	
-	
