@@ -30,6 +30,15 @@ public class RezervacijaKontroler {
 		
 	}
 	
+	private Rezervacija DobaviRezervaciju(long id) {
+		for (Rezervacija rezervacija : DobaviRezervacije()) {
+			if (rezervacija.getId() == id) {
+				return rezervacija;
+			}
+		}
+		return null;
+	}
+	
 	public List<Rezervacija> DobaviRezervacije() {
 		List<Rezervacija> rezervacije = new ArrayList<Rezervacija>();
 		for (Rezervacija rezervacija : SveRezervacije.getInstance().getRezervacije()) {
@@ -136,11 +145,11 @@ public class RezervacijaKontroler {
 				// rezervacija uspesna, moze da dodje u roku od 2 dana
 				Primerak primerak = DobaviDostupanPrimerak(DobaviPrimerke(naslov));
 				primerak.setStanje(Stanje.REZERVISAN);
-				rezervacija = new Rezervacija(danasnjiDatum, LocalDate.now(), false, naslov, clan);
+				rezervacija = new Rezervacija(SveRezervacije.getInstance().generisiId(), danasnjiDatum, LocalDate.now(), false, naslov, clan);
 				JOptionPane.showMessageDialog(null, "Kreirana rezervacija! Mozete preuzeti knjigu u narednih 48 sati.", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
 			} else {
 				// rezervacija uspesna, obavesti kad bude dostupan primerak
-				rezervacija = new Rezervacija(danasnjiDatum, LocalDate.of(9999, 12, 31), false, naslov, clan);
+				rezervacija = new Rezervacija(SveRezervacije.getInstance().generisiId(), danasnjiDatum, LocalDate.of(9999, 12, 31), false, naslov, clan);
 				JOptionPane.showMessageDialog(null, "Kreirana rezervacija! Obavesticemo Vas kada primerak bude dostupan.", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
 			}
 			SveRezervacije.getInstance().dodajRezervaciju(rezervacija);
@@ -149,6 +158,22 @@ public class RezervacijaKontroler {
 				serijalizacija.sacuvaj();
 			} catch (IOException e) {
 				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void ProveriDostupnostRezervisanih() throws PrimerciNePostojeException {
+		List<Rezervacija> rezervacije = DobaviLicneRezervacije();
+		for (Rezervacija rezervacija : rezervacije) {
+			Naslov naslov = rezervacija.getNaslov();
+			if (ImaLiDostupnihPrimeraka(naslov) && !rezervacija.getPreuzeto()) {
+				Primerak primerak = DobaviDostupanPrimerak(DobaviPrimerke(naslov));
+				primerak.setStanje(Stanje.REZERVISAN);
+				rezervacija = DobaviRezervaciju(rezervacija.getId());
+				rezervacija.setDatumPocetkaRezervacije(LocalDate.now());
+				String obavestenje = "Knjiga \"" + naslov.getNaslovDela() + "\" je sada dostupna.\n"
+	                    + "Imate 48 sati da je preuzmete.";
+				JOptionPane.showMessageDialog(null, obavestenje, "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}

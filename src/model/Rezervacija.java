@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Rezervacija {
+	private long id;
 	private LocalDateTime datumZahtevaRezervacije;
 	private LocalDate datumPocetkaRezervacije;
 	private Boolean preuzeto;
@@ -12,9 +13,10 @@ public class Rezervacija {
 	private Clan clan;
 	
 	
-	public Rezervacija(LocalDateTime datumZahtevaRezervacije, LocalDate datumPocetkaRezervacije, Boolean preuzeto, Naslov naslov,
+	public Rezervacija(long id, LocalDateTime datumZahtevaRezervacije, LocalDate datumPocetkaRezervacije, Boolean preuzeto, Naslov naslov,
 			Clan clan) {
 		super();
+		this.id = id;
 		this.datumZahtevaRezervacije = datumZahtevaRezervacije;
 		this.datumPocetkaRezervacije = datumPocetkaRezervacije;
 		this.preuzeto = preuzeto;
@@ -22,6 +24,13 @@ public class Rezervacija {
 		this.clan = clan;
 	}
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 	public LocalDateTime getDatumZahtevaRezervacije() {
 		return datumZahtevaRezervacije;

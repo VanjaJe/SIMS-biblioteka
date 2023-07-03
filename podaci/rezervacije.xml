@@ -1,8 +1,9 @@
 <sveRezervacije>
   <rezervacije>
     <model.Rezervacija>
-      <datumZahtevaRezervacije>2023-07-03T20:47:27.8958057</datumZahtevaRezervacije>
-      <datumPocetkaRezervacije>2023-07-03</datumPocetkaRezervacije>
+      <id>1</id>
+      <datumZahtevaRezervacije>2023-07-03T23:48:38.4861118</datumZahtevaRezervacije>
+      <datumPocetkaRezervacije>2023-07-04</datumPocetkaRezervacije>
       <preuzeto>false</preuzeto>
       <naslov>
         <naslovDela>Zov divljine</naslovDela>
@@ -18,17 +19,17 @@
         </autori>
       </naslov>
       <clan>
-        <id>2</id>
-        <ime>Bojan</ime>
-        <prezime>Bojanic</prezime>
+        <id>3</id>
+        <ime>Nikola</ime>
+        <prezime>Nikolic</prezime>
         <telefon>678678</telefon>
-        <jmbg>54852184542</jmbg>
-        <email>bojan@maildrop.cc</email>
+        <jmbg>987654321</jmbg>
+        <email>nikola@maildrop.cc</email>
         <datumRodjenja>1990-07-04</datumRodjenja>
         <korisnickiNalog>
-          <korisnickoIme>boki</korisnickoIme>
-          <lozinka>boki</lozinka>
-          <tipKorisnika>OBICNI_BIBLIOTEKAR</tipKorisnika>
+          <korisnickoIme>nikola</korisnickoIme>
+          <lozinka>nikola</lozinka>
+          <tipKorisnika>CLAN</tipKorisnika>
         </korisnickiNalog>
         <popust>0</popust>
       </clan>

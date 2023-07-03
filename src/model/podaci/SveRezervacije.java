@@ -24,6 +24,9 @@ public class SveRezervacije {
     }
 
     public long generisiId() {
+    	if (this.rezervacije == null) {
+	        this.rezervacije = new ArrayList<Rezervacija>();
+	    }
         int brojRez = rezervacije.size();
         return ++brojRez;
     }
