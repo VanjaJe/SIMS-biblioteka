@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -28,9 +29,13 @@ import model.Cenovnik;
 import model.Clan;
 import model.ClanskaKarta;
 import model.KorisnickiNalog;
+import model.Korisnik;
 import model.Placanje;
 import model.VrstaClanstva;
+import model.podaci.SviClanovi;
+import model.podaci.SviKorisnici;
 import net.miginfocom.swing.MigLayout;
+import serijalizacija.Serijalizacija;
 import util.PogledUtil;
 
 public class PanelRegistracija extends JPanel {
@@ -109,7 +114,7 @@ public class PanelRegistracija extends JPanel {
 			public void actionPerformed(ActionEvent event) {
 				try {
 					registruj();
-				} catch (ResultEmptyException e) {
+				} catch (ResultEmptyException | IOException e) {
 					e.printStackTrace();
 				}
 			}
@@ -137,10 +142,9 @@ public class PanelRegistracija extends JPanel {
 		add(btnRegistracija, "span2, split2, align center");
 	}
 	
-	public void registruj() throws ResultEmptyException {
+	public void registruj() throws ResultEmptyException, IOException {
 		//id
-		Random random = new Random();
-        long id = random.nextLong();
+		long id = SviKorisnici.getInstance().generisiId();
 
         //ime
     	String ime = Ime.getText();
@@ -164,7 +168,7 @@ public class PanelRegistracija extends JPanel {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             datum = LocalDate.parse(datRodj, formatter);
     	} catch(Exception e) {
-			JOptionPane.showMessageDialog(this, "Niste uneli datum u ispravnom formatu. Pokusajte sa yyyy-MM-dd");
+			JOptionPane.showMessageDialog(this, "Niste uneli datum u ispravnom formatu. Pokusajte ponovo!");
     		return;
     	}
 
@@ -173,6 +177,32 @@ public class PanelRegistracija extends JPanel {
 
     	//lozinka
     	String lozinka = Lozinka.getText();
+    	
+
+    	if(ime==null || prezime==null || telefon==null || email==null || jmbg==null || korisnicko==null || lozinka==null) {
+    		JOptionPane.showMessageDialog(this, "Niste uneli sve podatke. Popunite sva polja pa pokusajte opet!");
+    		return;
+    	}
+    	if(ime.equals("") || prezime.equals("") || telefon.equals("") || email.equals("") || jmbg.equals("") || korisnicko.equals("") || lozinka.equals("")) {
+    		JOptionPane.showMessageDialog(this, "Niste uneli podatke. Popunite sva polja pa pokusajte opet!");
+    		return;
+    	}
+    	if(!email.contains("@")) {
+    		JOptionPane.showMessageDialog(this, "Niste uneli ispravan email! Pokusajte ponovo!");
+    		return;
+    	}
+    	if(lozinka.length()<8) {
+    		JOptionPane.showMessageDialog(this, "Lozinka mora da ima bar 8 karaktera, pokusajte opet!");
+    		return;
+    	}
+    	if(!telefon.matches("\\d+")) {
+    		JOptionPane.showMessageDialog(this, "Niste uneli ispravan broj telefona!");
+    		return;
+    	}
+    	if(!jmbg.matches("\\d+")) {
+    		JOptionPane.showMessageDialog(this, "Niste uneli ispravan jmbg!");
+    		return;
+    	}
 		
 		//datum uclanjivanja
 		LocalDate today = LocalDate.now();
@@ -180,6 +210,7 @@ public class PanelRegistracija extends JPanel {
         String todayString = today.format(formatter);
         
         //broj clanske karte
+        Random random = new Random();
         int brClKarte = random.nextInt();
         
         //placanja
@@ -219,14 +250,21 @@ public class PanelRegistracija extends JPanel {
 				return;
 			}
 		}
-		Clan noviKorisnik = new Clan(id, ime, prezime, telefon, jmbg, email, datum, 
+		
+		Clan noviClan = new Clan(id, ime, prezime, telefon, jmbg, email, datum, 
 				new KorisnickiNalog(korisnicko, lozinka, TipKorisnika.CLAN), popust, 
 				new ClanskaKarta(todayString, brClKarte, vrstaClanstva), placanja);
+		Korisnik noviKorisnik = new Korisnik(id, ime, prezime, telefon, jmbg, email, datum, 
+				new KorisnickiNalog(korisnicko, lozinka, TipKorisnika.CLAN));
 		
-		//dodaj clana u sistem
-		//zahtev za izradu clanske karte
-		//cekanje...
-		//clanska karta izradjena
+		SviKorisnici.getInstance().dodajKorisnika(noviKorisnik);
+		SviClanovi.getInstance().dodajClana(noviClan);
+		
+		Serijalizacija s = new Serijalizacija();
+		s.sacuvaj();
+		
+		JOptionPane.showMessageDialog(this, "Clanska karta se izradjuje! Bicete obavesteni kada bude spremna.");
+		return;
 	}
 	
 }
