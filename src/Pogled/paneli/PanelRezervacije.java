@@ -1,28 +1,36 @@
 package Pogled.paneli;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.EventObject;
 import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.TableColumnModel;
 
 import Pogled.FormaDugme;
 import Pogled.Labela;
 import Pogled.TekstPolje;
+import Pogled.tabela.rezervacije.TabelaModelRezervacije;
+import Pogled.tabela.rezervacije.TabelaRezervacija;
 import izuzeci.MissingValueException;
 import izuzeci.NaslovNePostojiException;
 import izuzeci.PrimerciNePostojeException;
 import kontroler.RezervacijaKontroler;
 import model.Naslov;
-import model.Primerak;
+import model.Rezervacija;
 import net.miginfocom.swing.MigLayout;
+import observer.Observer;
 import util.PogledUtil;
 
-public class PanelRezervacije extends JPanel {
+public class PanelRezervacije extends JPanel implements Observer {
 
 	private static final long serialVersionUID = 2428310626343765569L;
 	private Font fntTekstPolje;
@@ -31,6 +39,8 @@ public class PanelRezervacije extends JPanel {
 	private TekstPolje poljeNaslov;
     private FormaDugme dugme; 
     private RezervacijaKontroler kontroler;
+    private List<Rezervacija> rezervacije;
+    private TabelaRezervacija tabelaRezervacija;
 
 	public PanelRezervacije() {
 		setName("Rezervacije");
@@ -40,10 +50,10 @@ public class PanelRezervacije extends JPanel {
 		lblNaslov = new Labela("Unesi naslov knjige: ", fntTekstPolje, clrForeground);
 		poljeNaslov = new TekstPolje("", fntTekstPolje, 100, 30);
         dugme = new FormaDugme("Rezervacija knjige", new Color(228,242,242,255), Color.BLACK, 170, 30);
-        setLayout(new MigLayout("", "[][]", "50[]50[]10[]20[]"));
+        setLayout(new MigLayout("", "[][]", "50[]50[]10[]20[]50[]"));
         add(lblNaslov, "gapleft 30");
         add(poljeNaslov, "wrap, pushx, growx, gapright 30");
-        add(dugme, "span2, split2, align center");
+        add(dugme, "span2, split2, align center, wrap");
 		setVisible(true);
 		
 		dugme.addActionListener(new ActionListener() {
@@ -62,5 +72,46 @@ public class PanelRezervacije extends JPanel {
 				}
 			}
 		});
+		
+		Font fntNaslov = PogledUtil.getVelikiNaslovFont();
+		Font fntTekstPolje = PogledUtil.getTeksPoljeFont();
+		Color clrPrimarna = PogledUtil.getPrimarnaBoja();
+		Color clrForeground = PogledUtil.getForegroundColor();
+		setBackground(Color.WHITE);
+		kontroler = new RezervacijaKontroler();
+		this.rezervacije = kontroler.DobaviLicneRezervacije();
+		this.InicijalizujTabeluRezervacija();
+	}
+	
+	public void InicijalizujTabeluRezervacija() {
+		TabelaModelRezervacije tabelaModelRezervacije = new TabelaModelRezervacije(rezervacije);
+		tabelaModelRezervacije.addObserver(this);
+		this.tabelaRezervacija = new TabelaRezervacija(tabelaModelRezervacije);
+		final TableColumnModel columnModel = tabelaRezervacija.getColumnModel();
+			for (int column = 0; column < tabelaRezervacija.getColumnCount(); column++) {
+		        int width = 200;
+		        if(width > 300)
+		            width=300;
+		        columnModel.getColumn(column).setPreferredWidth(width);
+			}
+			tabelaRezervacija.setPreferredScrollableViewportSize(new Dimension(630,300));
+			tabelaRezervacija.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+			JScrollPane scrollPane = new JScrollPane(tabelaRezervacija);
+			scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+			scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+			add(scrollPane, "wrap, span2, align center");
+			
+			this.azurirajPrikaz();
+	}
+	
+	private void azurirajPrikaz() {
+		TabelaModelRezervacije model = (TabelaModelRezervacije) tabelaRezervacija.getModel();
+		model.fireTableDataChanged();
+		validate();
+	}
+	
+	@Override
+	public void updatePerformed(EventObject e) {
+		azurirajPrikaz();
 	}
 }

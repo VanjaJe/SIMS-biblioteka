@@ -38,6 +38,17 @@ public class RezervacijaKontroler {
 		return rezervacije;
 	}
 	
+	public List<Rezervacija> DobaviLicneRezervacije() {
+		List<Rezervacija> rezervacije = new ArrayList<Rezervacija>();
+		Clan clan = DobaviClana();
+		for (Rezervacija rezervacija : DobaviRezervacije()) {
+			if (rezervacija.getClan().equals(clan)) {
+				rezervacije.add(rezervacija);
+			}
+		}
+		return rezervacije;
+	}
+	
 	private boolean DaLiJeValidno(String tekst) {
 		return tekst == null || tekst.equals("");
 	}
