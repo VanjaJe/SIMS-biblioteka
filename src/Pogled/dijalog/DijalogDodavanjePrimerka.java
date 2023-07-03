@@ -94,6 +94,8 @@ public class DijalogDodavanjePrimerka extends JDialog{
 					Inventar inventar = SviInventari.getInstance().dobaviInventarPoNazivu(plInventar.getSelectedItem().toString());
 					SviPrimerci.getInstance().dodajPrimerak(new Primerak(Integer.parseInt(tfInventarniBroj.getText()), 
 							tfJezik.getText(), tfFormat.getText(), TipKoricenja.valueOf(koricenje), Stanje.DOSTUPAN, izdavac, inventar, naslov));
+					JOptionPane.showMessageDialog(null, "Primerak je dodat");
+					zatvori();
 				}
 			}
 		});
@@ -121,7 +123,7 @@ public class DijalogDodavanjePrimerka extends JDialog{
 	
 	
 	private Boolean validacija() {
-		if (tfInventarniBroj.getText().equals("")) {
+		if (tfInventarniBroj.getText().equals("") || !isNumeric(tfInventarniBroj.getText())) {
 			JOptionPane.showMessageDialog(null, "Unesite inventarni broj");
 			return false;
 		}
@@ -134,5 +136,17 @@ public class DijalogDodavanjePrimerka extends JDialog{
 			return false;
 		}
 		return true;
+	}
+	
+	public static boolean isNumeric(String strNum) {
+	    if (strNum == null) {
+	        return false;
+	    }
+	    try {
+	        double d = Double.parseDouble(strNum);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
 	}
 }

@@ -108,6 +108,10 @@ public class DijalogDodavanjeNaslova extends JDialog{
 					
 					SviNaslovi.getInstance().dodajNaslov(new Naslov(tfNaslov.getText(), tfOpis.getText(),
 							tfISBN.getText(), tfUDK.getText(), autori));
+					JOptionPane.showMessageDialog(null, "Naslov je dodat");
+					zatvori();
+					DijalogDodavanjePrimerka primerakDijalog = new DijalogDodavanjePrimerka(tfISBN.getText());
+					primerakDijalog.setVisible(true);
 				}
 			}
 		});

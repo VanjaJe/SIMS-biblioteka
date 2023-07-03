@@ -140,5 +140,20 @@
         <identifikacioniBroj>1A</identifikacioniBroj>
       </inventar>
     </primerak>
+    <primerak>
+      <inventarniBroj>1587</inventarniBroj>
+      <jezik>Engleski</jezik>
+      <format>A1</format>
+      <tipKoricenja>TVRDO</tipKoricenja>
+      <stanje>DOSTUPAN</stanje>
+      <izdavac>
+        <naziv>Delfi</naziv>
+        <datumOsnivanja>01.11.1998.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na engleskom</naziv>
+        <identifikacioniBroj>1B</identifikacioniBroj>
+      </inventar>
+    </primerak>
   </primerci>
 </sviPrimerci>
