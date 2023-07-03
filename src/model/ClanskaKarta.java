@@ -7,21 +7,26 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 @XStreamAlias("clanskaKarta")
 public class ClanskaKarta {
 	private String datumUclanjivanja;
-	private String brojClanskeKarte;
+	private int brojClanskeKarte;
 	private VrstaClanstva vrstaClanstva;
 	
 	
-	
+	public ClanskaKarta(String datumUclanjivanja, int brojClanskeKarte, VrstaClanstva vrstaClanstva) {
+		super();
+		this.datumUclanjivanja = datumUclanjivanja;
+		this.brojClanskeKarte = brojClanskeKarte;
+		this.vrstaClanstva = vrstaClanstva;
+	}
 	public String getDatumUclanjivanja() {
 		return datumUclanjivanja;
 	}
 	public void setDatumUclanjivanja(String datumUclanjivanja) {
 		this.datumUclanjivanja = datumUclanjivanja;
 	}
-	public String getBrojClanskeKarte() {
+	public int getBrojClanskeKarte() {
 		return brojClanskeKarte;
 	}
-	public void setBrojClanskeKarte(String brojClanskeKarte) {
+	public void setBrojClanskeKarte(int brojClanskeKarte) {
 		this.brojClanskeKarte = brojClanskeKarte;
 	}
 	public VrstaClanstva getVrstaClanstva() {

@@ -44,6 +44,7 @@
           <lozinka>nikola</lozinka>
           <tipKorisnika>CLAN</tipKorisnika>
         </korisnickiNalog>
+        <popust>0</popust>
       </clan>
     </iznajmljivanje>
     <iznajmljivanje>
@@ -90,6 +91,7 @@
           <lozinka>nikola</lozinka>
           <tipKorisnika>CLAN</tipKorisnika>
         </korisnickiNalog>
+        <popust>0</popust>
       </clan>
     </iznajmljivanje>
   </iznajmljivanja>

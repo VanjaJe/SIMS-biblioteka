@@ -14,6 +14,7 @@ import com.thoughtworks.xstream.security.AnyTypePermission;
 
 import model.podaci.SviNaslovi;
 import model.podaci.SviPrimerci;
+import model.podaci.SviClanovi;
 
 import model.podaci.SviAutori;
 import model.podaci.SviInventari;
@@ -35,6 +36,7 @@ public class Serijalizacija {
 		xstream.processAnnotations(SviKorisnici.class);
 		xstream.processAnnotations(SviNaslovi.class);
 		xstream.processAnnotations(SviPrimerci.class);
+		xstream.processAnnotations(SviClanovi.class);
 		xstream.processAnnotations(SviInventari.class);
 		xstream.processAnnotations(SviIzdavaci.class);
 		xstream.processAnnotations(SviAutori.class);
@@ -47,6 +49,7 @@ public class Serijalizacija {
 		File fajlKorisnici = new File("./podaci/korisnici.xml");
 		File fajlNaslovi = new File("./podaci/naslovi.xml");
 		File fajlPrimerci = new File("./podaci/primerci.xml");
+		File fajlClanovi = new File("./podaci/clanovi.xml");
 		File fajlInventari = new File("./podaci/inventari.xml");
 		File fajlIzdavaci = new File("./podaci/izdavaci.xml");
 		File fajlIznajmljivanja = new File("./podaci/iznajmljivanja.xml");
@@ -56,6 +59,7 @@ public class Serijalizacija {
 		OutputStream osKorisnici = new BufferedOutputStream(new FileOutputStream(fajlKorisnici));
 		OutputStream osNaslovi = new BufferedOutputStream(new FileOutputStream(fajlNaslovi));
 		OutputStream osPrimerci = new BufferedOutputStream(new FileOutputStream(fajlPrimerci));
+		OutputStream osClanovi = new BufferedOutputStream(new FileOutputStream(fajlClanovi));
 		OutputStream osInventari = new BufferedOutputStream(new FileOutputStream(fajlInventari));
 		OutputStream osIzdavaci = new BufferedOutputStream(new FileOutputStream(fajlIzdavaci));
 		OutputStream osIznjamljivanja = new BufferedOutputStream(new FileOutputStream(fajlIznajmljivanja));
@@ -66,6 +70,7 @@ public class Serijalizacija {
 	
 		try {
 			xstream.toXML(SviKorisnici.getInstance(), osKorisnici);
+			xstream.toXML(SviClanovi.getInstance(),osClanovi);
 			xstream.toXML(SviNaslovi.getInstance(), osNaslovi);
 			xstream.toXML(SviPrimerci.getInstance(), osPrimerci);
 			xstream.toXML(SviInventari.getInstance(), osInventari);
@@ -77,6 +82,7 @@ public class Serijalizacija {
 		} finally {
 			osKorisnici.close();
 			osNaslovi.close();
+			osClanovi.close();
 			osPrimerci.close();
 			osIzdavaci.close();
 			osInventari.close();
@@ -89,6 +95,7 @@ public class Serijalizacija {
 		File fajlKorisnici = new File("./podaci/korisnici.xml");
 		File fajlNaslovi = new File("./podaci/naslovi.xml");
 		File fajlPrimerci = new File("./podaci/primerci.xml");
+		File fajlClanovi = new File("./podaci/clanovi.xml");
 		File fajlInvenatri = new File("./podaci/inventari.xml");
 		File fajlIzdavaci = new File("./podaci/izdavaci.xml");
 		File fajlAutori = new File("./podaci/autori.xml");
@@ -99,6 +106,7 @@ public class Serijalizacija {
 		InputStream isKorisnici = new BufferedInputStream(new FileInputStream(fajlKorisnici));
 		InputStream isNaslovi = new BufferedInputStream(new FileInputStream(fajlNaslovi));
 		InputStream isPrimerci = new BufferedInputStream(new FileInputStream(fajlPrimerci));
+		InputStream isClanovi = new BufferedInputStream(new FileInputStream(fajlClanovi));
 		InputStream isInventari = new BufferedInputStream(new FileInputStream(fajlInvenatri));
 		InputStream isIzdavaci = new BufferedInputStream(new FileInputStream(fajlIzdavaci));
 		InputStream isAutori = new BufferedInputStream(new FileInputStream(fajlAutori));
@@ -109,6 +117,7 @@ public class Serijalizacija {
 		SviKorisnici korisniciLista = null;
 		SviNaslovi nasloviLista=null;
 		SviPrimerci primerciLista=null;
+		SviClanovi clanoviLista = null;
 		SviInventari inventariLista=null;
 		SviIzdavaci izdavaciLista=null;
 		SviAutori autoriLista=null;
@@ -119,17 +128,18 @@ public class Serijalizacija {
 			korisniciLista = ((SviKorisnici) xstream.fromXML(isKorisnici));
 			nasloviLista = ((SviNaslovi)xstream.fromXML(isNaslovi));
 			primerciLista = ((SviPrimerci)xstream.fromXML(isPrimerci));
+			clanoviLista= ((SviClanovi)xstream.fromXML(isClanovi));
 			inventariLista = ((SviInventari)xstream.fromXML(isInventari));
 			izdavaciLista = ((SviIzdavaci)xstream.fromXML(isIzdavaci));
 			autoriLista = ((SviAutori)xstream.fromXML(isAutori));
 			iznajmljivanjaLista=((SvaIznajmljivanja)xstream.fromXML(isIznajmljivanja));
 			placanjaLista=((SvaPlacanja)xstream.fromXML(isPlacanja));
 
-
 		} finally {
 			isKorisnici.close();
 			isNaslovi.close();
 			isPrimerci.close();
+			isClanovi.close();
 			isInventari.close();
 			isIzdavaci.close();
 			isAutori.close();
@@ -139,7 +149,8 @@ public class Serijalizacija {
 		
 		SviKorisnici.setInstance(korisniciLista);
 		SviNaslovi.setInstance(nasloviLista);
-		SviPrimerci.setInstance(primerciLista);
+		SviPrimerci.setInstance(primerciLista);		
+		SviClanovi.setInstance(clanoviLista);
 		SviInventari.setInstance(inventariLista);
 		SviIzdavaci.setInstance(izdavaciLista);
 		SviAutori.setInstance(autoriLista);
