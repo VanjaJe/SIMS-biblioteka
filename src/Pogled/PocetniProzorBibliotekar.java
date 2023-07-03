@@ -9,6 +9,7 @@ import java.util.Arrays;
 import Pogled.meni.MeniBiblioteka;
 import Pogled.meni.MeniBibliotekar;
 import Pogled.meni.MeniSpecBibliotekar;
+import Pogled.paneli.PanelIzvestaj;
 import Pogled.paneli.PanelNaslovi;
 import Pogled.paneli.PanelProfil;
 import Pogled.paneli.PanelRegistracija;
@@ -35,7 +36,7 @@ public class PocetniProzorBibliotekar extends PocetniProzor {
 	public PocetniProzorBibliotekar() throws ResultEmptyException {
 		this.setName("BibliotekarPocetniMeni");
 		MeniBiblioteka meniBiblioteka = new MeniBiblioteka();
-		meni = (MeniBibliotekar) meniBiblioteka.napraviMeni("Obicni bibliotekar");		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije(), new PanelRegistracija(), new PanelVracanje()));	    
+		meni = (MeniBibliotekar) meniBiblioteka.napraviMeni("Obicni bibliotekar");		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije(), new PanelRegistracija(), new PanelVracanje(), new PanelIzvestaj()));	    
 
 		add(paneli.get(0), BorderLayout.CENTER);
 		add(meni, BorderLayout.WEST);
@@ -91,6 +92,16 @@ public class PocetniProzorBibliotekar extends PocetniProzor {
 				zatvori();
 				PrijavaProzor prijavaProzor = new PrijavaProzor();
 				prijavaProzor.setVisible(true);
+			}
+		});
+		
+		
+		meni.getStavkaIzvestaj().getDugmeStavke().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				postaviPanel("Izvestaj");
+				osveziProzor();
 			}
 		});
 	}

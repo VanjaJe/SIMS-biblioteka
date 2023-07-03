@@ -6,6 +6,7 @@ public class MeniSpecBibliotekar extends Meni {
 	private MeniStavka stavkaRezervacije;
 	private MeniStavka stavkaOdjava;
 	private MeniStavka stavkaDodavanjePrimerka;
+	private MeniStavka stavkaIzvestaj;
 	
 	public MeniSpecBibliotekar() {
 		super();
