@@ -17,7 +17,7 @@ public class RegistracijaKontroler {
 	}
 	public List<Clan> dobaviClanove() throws ResultEmptyException {
 		clanovi.removeAll(clanovi);
-		for (Clan clan : SviClanovi.getInstance().getNaslovi()) {
+		for (Clan clan : SviClanovi.getInstance().getClanovi()) {
 			clanovi.add(clan);	
 		}
 		

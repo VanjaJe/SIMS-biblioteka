@@ -25,6 +25,15 @@ public class Clan extends Korisnik{
 		this.clanskaKarta = clanskaKarta;
 		this.placanja = placanja;
 	}
+	
+
+	public List<Placanje> getPlacanja() {
+		return placanja;
+	}
+
+	public void setPlacanja(List<Placanje> placanja) {
+		this.placanja = placanja;
+	}
 
 	public ClanskaKarta getClanskaKarta() {
 		return clanskaKarta;

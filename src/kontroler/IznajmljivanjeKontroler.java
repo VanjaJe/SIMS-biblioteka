@@ -24,6 +24,7 @@ import model.PrijavljenKorisnik;
 import model.Primerak;
 import model.podaci.SvaIznajmljivanja;
 import model.podaci.SvaPlacanja;
+import model.podaci.SviClanovi;
 import model.podaci.SviKorisnici;
 import model.podaci.SviNaslovi;
 import model.podaci.SviPrimerci;
@@ -79,13 +80,13 @@ public class IznajmljivanjeKontroler {
 		return iznajmljivanja;
 
 	}
-	public void naplatiNadoknadu(TipNadoknade tipNadokande, String razlog, String iznos) {
+	public Placanje naplatiNadoknadu(TipNadoknade tipNadokande, String razlog, String iznos) {
 		LocalDate currentDate = LocalDate.now();
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
         String dateString = currentDate.format(dateFormatter);
         Placanje placanje=new Placanje(dateString,razlog,Double.parseDouble(iznos),tipNadokande);
         SvaPlacanja.instance.dodajPlacanje(placanje);
-
+        return placanje;
 	}
 
 

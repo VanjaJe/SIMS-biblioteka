@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+import model.Clan;
 import model.Korisnik;
 
 @XStreamAlias("sviKorisnici")
