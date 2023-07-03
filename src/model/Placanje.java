@@ -35,4 +35,10 @@ public class Placanje {
 	public void setTipNadoknade(TipNadoknade tipNadoknade) {
 		this.tipNadoknade = tipNadoknade;
 	}
+	@Override
+	public String toString() {
+		return "Placanje [razlog=" + razlog + ", datum=" + datum + ", iznos=" + iznos + ", tipNadoknade=" + tipNadoknade
+				+ "]";
+	}
+	
 }

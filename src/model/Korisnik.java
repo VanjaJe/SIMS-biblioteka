@@ -114,6 +114,13 @@ public class Korisnik{
 //		this.notifyObservers();
 	}
 
+	@Override
+	public String toString() {
+		return "Korisnik [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", telefon=" + telefon + ", jmbg="
+				+ jmbg + ", email=" + email + ", datumRodjenja=" + datumRodjenja + ", korisnickiNalog="
+				+ korisnickiNalog + "]";
+	}
+
 //	@Override
 //	public void addObserver(Observer observer) {
 //		if (observers == null)
@@ -135,4 +142,7 @@ public class Korisnik{
 //			observer.updatePerformed(izmenaKorisnikaEvent);
 //		}		
 //	}
+	
+	
 }
+

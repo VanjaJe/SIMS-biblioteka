@@ -45,4 +45,10 @@ public class Izdavac {
 	public void setPrimerci(List<Primerak> primerci) {
 		this.primerci = primerci;
 	}
+
+	@Override
+	public String toString() {
+		return "Izdavac [naziv=" + naziv + ", datumOsnivanja=" + datumOsnivanja + ", primerci=" + primerci + "]";
+	}
+	
 }

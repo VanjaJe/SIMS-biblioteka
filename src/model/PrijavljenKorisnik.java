@@ -16,7 +16,6 @@ public class PrijavljenKorisnik {
 		if (instance == null) {
 			instance = new PrijavljenKorisnik();
 		}
-		
 		return instance;
 	}
 	
@@ -39,4 +38,10 @@ public class PrijavljenKorisnik {
 	public TipKorisnika getTipKorisnika() {
 		return this.tipKorisnika;
 	}
+
+	@Override
+	public String toString() {
+		return "PrijavljenKorisnik [korisnickoIme=" + korisnickoIme + ", tipKorisnika=" + tipKorisnika + "]";
+	}
+	
 }

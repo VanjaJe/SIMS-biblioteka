@@ -68,4 +68,12 @@ public class Biblioteka {
 	public void setDrzavniPraznici(List<DrzavniPraznik> drzavniPraznici) {
 		this.drzavniPraznici = drzavniPraznici;
 	}
+
+	@Override
+	public String toString() {
+		return "Biblioteka [naslov=" + naslov + ", ogranci=" + ogranci + ", korisnici=" + korisnici + ", clanskeKarte="
+				+ clanskeKarte + ", vrsteClanstva=" + vrsteClanstva + ", placanja=" + placanja + ", drzavniPraznici="
+				+ drzavniPraznici + "]";
+	}
+	
 }

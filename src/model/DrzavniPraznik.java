@@ -29,4 +29,11 @@ public class DrzavniPraznik {
 	public void setDatum(Date datum) {
 		this.datum = datum;
 	}
+
+
+	@Override
+	public String toString() {
+		return "DrzavniPraznik [naziv=" + naziv + ", datum=" + datum + "]";
+	}
+	
 }

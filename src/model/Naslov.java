@@ -80,4 +80,11 @@ public class Naslov {
 	public void setPrimerci(List<Primerak> primerci) {
 		this.primerci = primerci;
 	}
+
+	@Override
+	public String toString() {
+		return "Naslov [naslovDela=" + naslovDela + ", opis=" + opis + ", udk=" + udk + ", isbn=" + isbn + ", autori="
+				+ autori + ", primerci=" + primerci + "]";
+	}
+	
 }

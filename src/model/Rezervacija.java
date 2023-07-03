@@ -51,4 +51,12 @@ public class Rezervacija {
 	public void setClan(Clan clan) {
 		this.clan = clan;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Rezervacija [datumZahtevaRezervacije=" + datumZahtevaRezervacije + ", datumPocetkaRezervacije="
+				+ datumPocetkaRezervacije + ", preuzeto=" + preuzeto + ", naslov=" + naslov + ", clan=" + clan + "]";
+	}
+	
 }

@@ -107,4 +107,12 @@ public class Primerak {
 	public void setNaslov(Naslov naslov) {
 		this.naslov = naslov;
 	}
+
+	@Override
+	public String toString() {
+		return "Primerak [naslov=" + naslov + ", inventarniBroj=" + inventarniBroj + ", jezik=" + jezik + ", format="
+				+ format + ", tipKoricenja=" + tipKoricenja + ", stanje=" + stanje + ", izdavac=" + izdavac
+				+ ", inventar=" + inventar + "]";
+	}
+	
 }

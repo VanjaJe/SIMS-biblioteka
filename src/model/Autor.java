@@ -52,4 +52,12 @@ public class Autor {
 	public void setNaslovi(List<Naslov> naslovi) {
 		this.naslovi = naslovi;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Autor [ime=" + ime + ", prezime=" + prezime + ", datumRodjenja=" + datumRodjenja + ", naslovi="
+				+ naslovi + "]";
+	}
+	
 }

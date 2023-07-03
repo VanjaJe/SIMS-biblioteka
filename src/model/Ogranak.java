@@ -72,5 +72,12 @@ public class Ogranak {
 	public void setAdresa(Adresa adresa) {
 		this.adresa = adresa;
 	}
+
+	@Override
+	public String toString() {
+		return "Ogranak [primerci=" + primerci + ", inventari=" + inventari + ", bibliotekari=" + bibliotekari
+				+ ", kontaktBroj=" + kontaktBroj + ", id=" + id + ", adresa=" + adresa + "]";
+	}
+	
 	
 }

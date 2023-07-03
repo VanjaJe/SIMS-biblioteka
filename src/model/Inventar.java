@@ -25,5 +25,11 @@ public class Inventar {
 	
 	public void setIdentifikacioniBroj(String identifikacioniBroj) {
 		this.identifikacioniBroj = identifikacioniBroj;
+	}
+
+	@Override
+	public String toString() {
+		return "Inventar [naziv=" + naziv + ", identifikacioniBroj=" + identifikacioniBroj + "]";
 	}	
+	
 }

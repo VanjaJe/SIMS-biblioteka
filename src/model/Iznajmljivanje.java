@@ -42,6 +42,14 @@ public class Iznajmljivanje {
 	public void setClan(Clan clan) {
 		this.clan = clan;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Iznajmljivanje [datumIznjamljivanja=" + datumIznjamljivanja + ", produzeno=" + produzeno + ", primerak="
+				+ primerak + ", clan=" + clan + "]";
+	}
+	
 	
 	
 	

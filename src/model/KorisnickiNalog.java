@@ -44,4 +44,11 @@ public class KorisnickiNalog {
 	public boolean promenaLozinke(String novaLozinka) {
 		return true; //TODO: Implementiraj metodu za promenu lozinke
 	}
+
+	@Override
+	public String toString() {
+		return "KorisnickiNalog [korisnickoIme=" + korisnickoIme + ", lozinka=" + lozinka + ", tipKorisnika="
+				+ tipKorisnika + "]";
+	}
+	
 }

@@ -10,9 +10,6 @@ public class VrstaClanstva {
 	private int maxBrDana;
 	private List<Cenovnik> cenovnici;
 	private List<ClanskaKarta> clanskeKarte;
-	
-	
-	
 	public VrstaClana getTipClanstva() {
 		return tipClanstva;
 	}
@@ -43,4 +40,10 @@ public class VrstaClanstva {
 	public void setClanskeKarte(List<ClanskaKarta> clanskeKarte) {
 		this.clanskeKarte = clanskeKarte;
 	}
+	@Override
+	public String toString() {
+		return "VrstaClanstva [tipClanstva=" + tipClanstva + ", maxBrKnjiga=" + maxBrKnjiga + ", maxBrDana=" + maxBrDana
+				+ ", cenovnici=" + cenovnici + ", clanskeKarte=" + clanskeKarte + "]";
+	}
+	
 }

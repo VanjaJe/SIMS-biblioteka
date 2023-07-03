@@ -37,4 +37,11 @@ public class Adresa {
 	public void setGrad(String grad) {
 		this.grad = grad;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Adresa [ulica=" + ulica + ", broj=" + broj + ", grad=" + grad + "]";
+	}
+	
 }

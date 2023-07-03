@@ -27,4 +27,10 @@ public class ClanskaKarta {
 	public void setVrstaClanstva(VrstaClanstva vrstaClanstva) {
 		this.vrstaClanstva = vrstaClanstva;
 	}
+	@Override
+	public String toString() {
+		return "ClanskaKarta [datumUclanjivanja=" + datumUclanjivanja + ", brojClanskeKarte=" + brojClanskeKarte
+				+ ", vrstaClanstva=" + vrstaClanstva + "]";
+	}
+	
 }
