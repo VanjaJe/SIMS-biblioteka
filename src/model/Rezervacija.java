@@ -1,16 +1,18 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Rezervacija {
-	private Date datumZahtevaRezervacije;
-	private Date datumPocetkaRezervacije;
+	private LocalDateTime datumZahtevaRezervacije;
+	private LocalDate datumPocetkaRezervacije;
 	private Boolean preuzeto;
 	private Naslov naslov;
 	private Clan clan;
 	
 	
-	public Rezervacija(Date datumZahtevaRezervacije, Date datumPocetkaRezervacije, Boolean preuzeto, Naslov naslov,
+	public Rezervacija(LocalDateTime datumZahtevaRezervacije, LocalDate datumPocetkaRezervacije, Boolean preuzeto, Naslov naslov,
 			Clan clan) {
 		super();
 		this.datumZahtevaRezervacije = datumZahtevaRezervacije;
@@ -21,16 +23,16 @@ public class Rezervacija {
 	}
 	
 	
-	public Date getDatumZahtevaRezervacije() {
+	public LocalDateTime getDatumZahtevaRezervacije() {
 		return datumZahtevaRezervacije;
 	}
-	public void setDatumZahtevaRezervacije(Date datumZahtevaRezervacije) {
+	public void setDatumZahtevaRezervacije(LocalDateTime datumZahtevaRezervacije) {
 		this.datumZahtevaRezervacije = datumZahtevaRezervacije;
 	}
-	public Date getDatumPocetkaRezervacije() {
+	public LocalDate getDatumPocetkaRezervacije() {
 		return datumPocetkaRezervacije;
 	}
-	public void setDatumPocetkaRezervacije(Date datumPocetkaRezervacije) {
+	public void setDatumPocetkaRezervacije(LocalDate datumPocetkaRezervacije) {
 		this.datumPocetkaRezervacije = datumPocetkaRezervacije;
 	}
 	public Boolean getPreuzeto() {

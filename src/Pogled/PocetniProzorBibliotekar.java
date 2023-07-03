@@ -35,8 +35,9 @@ public class PocetniProzorBibliotekar extends PocetniProzor {
 	public PocetniProzorBibliotekar() throws ResultEmptyException {
 		this.setName("BibliotekarPocetniMeni");
 		MeniBiblioteka meniBiblioteka = new MeniBiblioteka();
-		meni = (MeniBibliotekar) meniBiblioteka.napraviMeni("Obicni bibliotekar");		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije(), new PanelRegistracija(), new PanelVracanje()));	    
-
+		meni = (MeniBibliotekar) meniBiblioteka.napraviMeni("Obicni bibliotekar");		
+		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije(), 
+				new PanelRegistracija(), new PanelVracanje()));	    
 		add(paneli.get(0), BorderLayout.CENTER);
 		add(meni, BorderLayout.WEST);
 		
@@ -69,7 +70,7 @@ public class PocetniProzorBibliotekar extends PocetniProzor {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				postaviPanel("TipoviJela");
+				postaviPanel("Rezervacije");
 				osveziProzor();
 			}
 		});

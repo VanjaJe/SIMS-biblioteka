@@ -20,5 +20,10 @@ public enum Stanje {
 		public String toString() {
 			return "iznajmljen";
 		}
+	},
+	REZERVISAN {
+		public String toString() {
+			return "rezervisan";
+		}
 	}
 }
