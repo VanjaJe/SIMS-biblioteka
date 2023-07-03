@@ -1,6 +1,7 @@
 package model.podaci;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
@@ -49,7 +50,18 @@ public class SviNaslovi {
 		this.naslovi.add(naslov);
 		return naslov;
 	}
-//	
+
+		
+	public List<String> dobaviSveISBNBrojeve(String korisnickoIme) {
+		ArrayList<String> isbn = new ArrayList<String>();
+		naslovi.forEach(inventar -> {
+			isbn.add(inventar.getIsbn());
+		});
+		return isbn;
+	}
+	
+	
+	
 //	public void izmeniKorisnika(String ime,String prezime,String telefon,String email,String stariEmail) {
 //		Korisnik korisnik = dobaviKorisnikaPoEmailAdresi(stariEmail);
 //		korisnik.setIme(ime);

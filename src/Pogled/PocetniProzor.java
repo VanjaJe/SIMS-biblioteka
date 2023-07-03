@@ -21,7 +21,7 @@ public class PocetniProzor extends JFrame implements WindowListener {
 	 */
 	private static final long serialVersionUID = 7677437678594445511L;
 	protected List<JPanel> paneli;
-	
+
 	public PocetniProzor() {
 		setSize(new Dimension(1000, 600));
 		setTitle("Sistem za upravljanje bibliotekom");
@@ -30,12 +30,12 @@ public class PocetniProzor extends JFrame implements WindowListener {
 		setLayout(new BorderLayout());
 		addWindowListener(this);
 	}
-	
+
 	protected void osveziProzor() {
 		this.revalidate();
 		this.repaint();
 	}
-	
+
 	protected void postaviPanel(String imePanela) {
 		for (JPanel panel : paneli) {
 			if (panel.getName().equals(imePanela)) {
@@ -45,7 +45,7 @@ public class PocetniProzor extends JFrame implements WindowListener {
 			}
 		}
 	}
-	
+
 	protected void zatvori() {
 		this.dispose();
 	}
@@ -53,28 +53,29 @@ public class PocetniProzor extends JFrame implements WindowListener {
 	@Override
 	public void windowActivated(WindowEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowClosed(WindowEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowClosing(WindowEvent e) {
 		JFrame pocetniProzor = (JFrame) e.getComponent();
-		int code = JOptionPane.showConfirmDialog(pocetniProzor, "Da li ste sigurni da zelite da zatvorite aplikaciju?","Zatvaranje aplikacije?",JOptionPane.YES_NO_OPTION);
-		if (code != JOptionPane.YES_OPTION){
+		int code = JOptionPane.showConfirmDialog(pocetniProzor, "Da li ste sigurni da zelite da zatvorite aplikaciju?",
+				"Zatvaranje aplikacije?", JOptionPane.YES_NO_OPTION);
+		if (code != JOptionPane.YES_OPTION) {
 			pocetniProzor.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		}
-		else{
+		} else {
 			Serijalizacija serijalizacija = new Serijalizacija();
 			try {
 				serijalizacija.sacuvaj();
 			} catch (IOException e1) {
-				JOptionPane.showMessageDialog(null, "Nije moguce sacuvati aplikaciju.", "Greska pri cuvanju aplikacije", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Nije moguce sacuvati aplikaciju.", "Greska pri cuvanju aplikacije",
+						JOptionPane.ERROR_MESSAGE);
 			}
 			pocetniProzor.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		}
@@ -83,24 +84,24 @@ public class PocetniProzor extends JFrame implements WindowListener {
 	@Override
 	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowDeiconified(WindowEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowIconified(WindowEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

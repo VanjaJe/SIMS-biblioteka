@@ -1,10 +1,12 @@
-<izdavaci>
+<sviIzdavaci>
+  <izdavaci>
     <izdavac>
-        <naziv>Laguna</naziv>
-        <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      <naziv>Laguna</naziv>
+      <datumOsnivanja>01.01.1999.</datumOsnivanja>
     </izdavac>
     <izdavac>
-        <naziv>Delfi</naziv>
-        <datumOsnivanja>01.11.1998.</datumOsnivanja>
+      <naziv>Delfi</naziv>
+      <datumOsnivanja>01.11.1998.</datumOsnivanja>
     </izdavac>
-</izdavaci>
+  </izdavaci>
+</sviIzdavaci>

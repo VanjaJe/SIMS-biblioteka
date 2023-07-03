@@ -93,7 +93,7 @@ public class PanelProfil extends JPanel {
 		
 		Labela lblDatumRodj = new Labela("Datum rodjenja:", fntLabela, Color.black);
 		Labela lblDatumRodjVr = new Labela(PogledUtil.getFormatDatuma().format(korisnik.getDatumRodjenja()), fntLabela, clrForeground);
-//	
+
 //		FormaDugme btnIzmena = new FormaDugme("Izmena", clrPrimarna, clrForeground, 150, 20);
 //		btnIzmena.addActionListener(new ActionListener() {
 //			
@@ -103,10 +103,9 @@ public class PanelProfil extends JPanel {
 //				dialogIzmenaProfila.setVisible(true);
 //			}
 //		});
-		
-		FormaDugme btnIzmenaLozinke = new FormaDugme("Promena lozinke", clrPrimarna, clrForeground, 150, 20);
+//		FormaDugme btnIzmenaLozinke = new FormaDugme("Promena lozinke", clrPrimarna, clrForeground, 150, 20);
 	
-		setLayout(new MigLayout("", "120[]5[]30[]5[]", "150[]30[]40[]15[]15[]15[]35[]150[]"));
+		setLayout(new MigLayout("", "115[]5[]30[]5[]", "150[]40[]15[]15[]15[]15[]35[]150[]"));
 		
 		add(lblNaslov, "wrap, span4, gapright 240, align center");
 		//add(lblImage, "wrap, span4, gapright 270, align center");
