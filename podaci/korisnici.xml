@@ -42,5 +42,19 @@
         <tipKorisnika>CLAN</tipKorisnika>
       </korisnickiNalog>
     </korisnik>
+    <korisnik>
+      <id>4</id>
+      <ime>mila</ime>
+      <prezime>m</prezime>
+      <telefon>2354</telefon>
+      <jmbg>28734</jmbg>
+      <email>mila@gamil.com</email>
+      <datumRodjenja>2003-05-02</datumRodjenja>
+      <korisnickiNalog>
+        <korisnickoIme>kimi</korisnickoIme>
+        <lozinka>milamila</lozinka>
+        <tipKorisnika>CLAN</tipKorisnika>
+      </korisnickiNalog>
+    </korisnik>
   </korisnici>
 </sviKorisnici>

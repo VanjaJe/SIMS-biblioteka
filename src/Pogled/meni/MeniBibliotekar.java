@@ -9,7 +9,7 @@ public class MeniBibliotekar extends Meni {
 	private MeniStavka stavkaRezervacije;
 	private MeniStavka stavkaOdjava;
 	private MeniStavka stavkaRegistracija;
-	private MeniStavka stavkaVracanje;	
+	private MeniStavka stavkaVracanje;
 	public MeniBibliotekar() {
 		super();
 		

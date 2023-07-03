@@ -33,5 +33,31 @@
       </placanja>
       <popust>0</popust>
     </clan>
+    <clan>
+      <id>4</id>
+      <ime>mila</ime>
+      <prezime>m</prezime>
+      <telefon>2354</telefon>
+      <jmbg>28734</jmbg>
+      <email>mila@gamil.com</email>
+      <datumRodjenja>2003-05-02</datumRodjenja>
+      <korisnickiNalog>
+        <korisnickoIme>kimi</korisnickoIme>
+        <lozinka>milamila</lozinka>
+        <tipKorisnika>CLAN</tipKorisnika>
+      </korisnickiNalog>
+      <clanskaKarta>
+        <datumUclanjivanja>2023-07-03</datumUclanjivanja>
+        <brojClanskeKarte>372151709</brojClanskeKarte>
+        <vrstaClanstva>
+          <tipClanstva>STUDENT</tipClanstva>
+          <maxBrKnjiga>5</maxBrKnjiga>
+          <maxBrDana>35</maxBrDana>
+          <cenovnici/>
+        </vrstaClanstva>
+      </clanskaKarta>
+      <placanja/>
+      <popust>100</popust>
+    </clan>
   </clanovi>
 </sviClanovi>
