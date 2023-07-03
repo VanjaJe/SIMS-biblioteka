@@ -6,5 +6,11 @@
       <iznos>1500.0</iznos>
       <tipNadoknade>OSTECENA_KNJIGA</tipNadoknade>
     </placanje>
+    <placanje>
+      <razlog>03.07.2023.</razlog>
+      <datum>hahha</datum>
+      <iznos>1500.0</iznos>
+      <tipNadoknade>OSTECENA_KNJIGA</tipNadoknade>
+    </placanje>
   </placanja>
 </svaPlacanja>

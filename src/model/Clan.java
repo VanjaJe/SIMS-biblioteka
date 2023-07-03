@@ -13,6 +13,10 @@ public class Clan extends Korisnik{
 	private List<Placanje> placanja;
 	private int popust;
 	
+	public Clan(long id, String ime, String prezime, String telefon, String jmbg, String email, LocalDate datumRodjenja,
+            KorisnickiNalog korisnickiNalog) {
+        super(id,ime,prezime,telefon,jmbg,email,datumRodjenja,korisnickiNalog);
+    }
 	
 	public Clan(long id, String ime, String prezime, String telefon, String jmbg, String email, LocalDate datumRodjenja,
 			KorisnickiNalog korisnickiNalog, int popust, ClanskaKarta clanskaKarta, List<Placanje> placanja) {
@@ -29,4 +33,9 @@ public class Clan extends Korisnik{
 	public void setClanskaKarta(ClanskaKarta clanskaKarta) {
 		this.clanskaKarta = clanskaKarta;
 	}
+	
+	 @Override
+	    public String toString() {
+	        return "Clan [clanskaKarta=" + clanskaKarta + ", placanja=" + placanja + "]";
+	 }
 }
