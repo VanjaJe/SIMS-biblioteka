@@ -76,5 +76,18 @@
         </autor>
       </autori>
     </naslov>
+    <naslov>
+      <naslovDela>Aa</naslovDela>
+      <opis>aa</opis>
+      <udk>11</udk>
+      <isbn>12</isbn>
+      <autori>
+        <autor>
+          <ime>Lev</ime>
+          <prezime>Tolstoj</prezime>
+          <datumRodjenja>9. jun 1828.</datumRodjenja>
+        </autor>
+      </autori>
+    </naslov>
   </naslovi>
 </sviNaslovi>

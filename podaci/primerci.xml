@@ -18,7 +18,7 @@
       <jezik>Hrvatski</jezik>
       <format>A4</format>
       <tipKoricenja>MEKO</tipKoricenja>
-      <stanje>DOSTUPAN</stanje>
+      <stanje>OSTECEN</stanje>
       <izdavac>
         <naziv>Laguna</naziv>
         <datumOsnivanja>01.01.1999.</datumOsnivanja>
@@ -106,6 +106,34 @@
       <izdavac>
         <naziv>Laguna</naziv>
         <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>Aa</naslovDela>
+        <opis>aa</opis>
+        <udk>11</udk>
+        <isbn>12</isbn>
+        <autori>
+          <autor>
+            <ime>Lev</ime>
+            <prezime>Tolstoj</prezime>
+            <datumRodjenja>9. jun 1828.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>38</inventarniBroj>
+      <jezik>srpski</jezik>
+      <format>a</format>
+      <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>DOSTUPAN</stanje>
+      <izdavac>
+        <naziv>Delfi</naziv>
+        <datumOsnivanja>01.11.1998.</datumOsnivanja>
       </izdavac>
       <inventar>
         <naziv>Knjige na srpskom</naziv>

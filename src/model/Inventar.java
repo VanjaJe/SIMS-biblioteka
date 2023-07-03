@@ -2,7 +2,6 @@ package model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-
 @XStreamAlias("inventar")
 public class Inventar {
 	private String naziv;
