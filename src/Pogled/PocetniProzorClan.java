@@ -29,10 +29,7 @@ private MeniClan meni;
 		this.setName("ClanPocetniMeni");
 		MeniBiblioteka meniBiblioteka = new MeniBiblioteka();
 		meni = (MeniClan) meniBiblioteka.napraviMeni("Clan");
-		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije()));	    
-//	                          new PanelTipoviJela(),
-//	                          new PanelZahteviZaJelo()));
-//		
+		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije()));	    	
 		add(paneli.get(0), BorderLayout.CENTER);
 		add(meni, BorderLayout.WEST);
 		

@@ -12,6 +12,7 @@ import Pogled.meni.MeniSpecBibliotekar;
 import Pogled.paneli.PanelNaslovi;
 import Pogled.paneli.PanelProfil;
 import Pogled.paneli.PanelRezervacije;
+import Pogled.paneli.PanelVracanje;
 import izuzeci.ResultEmptyException;
 import model.PrijavljenKorisnik;
 //import pogled.PrijavaProzor;
@@ -34,10 +35,8 @@ public class PocetniProzorBibliotekar extends PocetniProzor {
 		this.setName("BibliotekarPocetniMeni");
 		MeniBiblioteka meniBiblioteka = new MeniBiblioteka();
 		meni = (MeniBibliotekar) meniBiblioteka.napraviMeni("Obicni bibliotekar");
-		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije()));	    
-//	                          new PanelTipoviJela(),
-//	                          new PanelZahteviZaJelo()));
-//		
+		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije(),
+				new PanelVracanje()));	    	
 		add(paneli.get(0), BorderLayout.CENTER);
 		add(meni, BorderLayout.WEST);
 		
@@ -50,8 +49,15 @@ public class PocetniProzorBibliotekar extends PocetniProzor {
 			}
 		});
 		
-		meni.getStavkaKnjige().getDugmeStavke().addActionListener(new ActionListener() {
+		meni.getStavkaVracanje().getDugmeStavke().addActionListener(new ActionListener() {
 			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				postaviPanel("Vracanje");
+				osveziProzor();
+			}
+		});
+		meni.getStavkaKnjige().getDugmeStavke().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				postaviPanel("Knjige");
