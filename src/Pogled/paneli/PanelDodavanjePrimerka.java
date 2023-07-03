@@ -58,7 +58,6 @@ public class PanelDodavanjePrimerka extends JPanel implements Observer{
 			public void actionPerformed(ActionEvent e) {
 				Naslov naslov = naslovKontroler.dobaviNaslovPoISBN(isbnBroj.getText());
 				if (naslov != null) {
-					System.out.println("vanaj");
 					DijalogDodavanjePrimerka primerakDijalog = new DijalogDodavanjePrimerka(isbnBroj.getText());
 					primerakDijalog.setVisible(true);
 				}
@@ -81,8 +80,6 @@ public class PanelDodavanjePrimerka extends JPanel implements Observer{
 	}
 	
 	private void azurirajPrikaz() {
-//		TabelaModelNaslovi model = (TabelaModelNaslovi) tabelaKnjiga.getModel();
-//		model.fireTableDataChanged();
 		validate();
 	}
 
