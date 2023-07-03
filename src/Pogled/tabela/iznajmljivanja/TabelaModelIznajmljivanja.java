@@ -54,7 +54,7 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 		case 3:
 			return "Inventarni broj";
 		case 4:
-			return "Clanska karta";
+			return "Korisnicko ime";
 		default:
 			return "";
 		}
@@ -91,7 +91,7 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 		case 3:
 			return iznajmljivanje.getPrimerak().getInventarniBroj();
 		case 4:
-			return iznajmljivanje.getClan().getClanskaKarta().getBrojClanskeKarte();
+			return iznajmljivanje.getClan().getKorisnickiNalog().getKorisnickoIme();
 		default:
 			return "";
 		}

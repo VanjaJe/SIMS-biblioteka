@@ -1,9 +1,12 @@
-/Pogled/
-/enums/
-/izuzeci/
 /kontroler/
-/main/
 /model/
+<<<<<<< HEAD
 /observer/
 /serijalizacija/
 /util/
+=======
+/izuzeci/
+/Pogled/
+>>>>>>> 62c138b5878c69501ccf95c161e8646d2bfafaf8
+/enums/
+/main/
