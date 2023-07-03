@@ -30,6 +30,14 @@ public class RezervacijaKontroler {
 		
 	}
 	
+	public List<Rezervacija> DobaviRezervacije() {
+		List<Rezervacija> rezervacije = new ArrayList<Rezervacija>();
+		for (Rezervacija rezervacija : SveRezervacije.getInstance().getRezervacije()) {
+			rezervacije.add(rezervacija);
+		}
+		return rezervacije;
+	}
+	
 	private boolean DaLiJeValidno(String tekst) {
 		return tekst == null || tekst.equals("");
 	}
@@ -79,7 +87,7 @@ public class RezervacijaKontroler {
 		//throw new PrimerciNePostojeException("Nema dostupnih primeraka");
 	}
 	
-	public Clan dobaviClana() {
+	public Clan DobaviClana() {
 		PrijavljenKorisnik prijavljeniKorisnik = PrijavljenKorisnik.getInstance();
 		String korisnickoImeClana = prijavljeniKorisnik.getKorisnickoIme();
 		Korisnik korisnik = SviKorisnici.getInstance().dobaviKorisnikaPoKorisnickomImenu(korisnickoImeClana);
@@ -90,7 +98,7 @@ public class RezervacijaKontroler {
 		return clan;
 	}
 	
-	public List<Clan> getListaCekanja(Naslov naslov) {
+	public List<Clan> GetListaCekanja(Naslov naslov) {
 		List<Clan> clanovi = new ArrayList<Clan>();
 		List<Rezervacija> sveRezervacije = SveRezervacije.getInstance().getRezervacije();
 		// sortira rezervacije po vremenu, a onda tim redom dodaje clanove u listu
@@ -107,8 +115,8 @@ public class RezervacijaKontroler {
 	
 	public void Rezervisi(Naslov naslov) throws PrimerciNePostojeException {
 		LocalDateTime danasnjiDatum = LocalDateTime.now();
-		Clan clan = dobaviClana();
-		if (getListaCekanja(naslov).contains(clan)) {
+		Clan clan = DobaviClana();
+		if (GetListaCekanja(naslov).contains(clan)) {
 			JOptionPane.showMessageDialog(null, "Vec ste napravili rezervaciju za ovaj naslov!", "Greska", JOptionPane.WARNING_MESSAGE);
 		}
 		else {

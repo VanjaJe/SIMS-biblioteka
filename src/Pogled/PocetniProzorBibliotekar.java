@@ -13,6 +13,7 @@ import Pogled.paneli.PanelNaslovi;
 import Pogled.paneli.PanelProfil;
 import Pogled.paneli.PanelRegistracija;
 import Pogled.paneli.PanelRezervacije;
+import Pogled.paneli.PanelTabelaRezervacija;
 import Pogled.paneli.PanelVracanje;
 import izuzeci.ResultEmptyException;
 import model.PrijavljenKorisnik;
@@ -36,7 +37,7 @@ public class PocetniProzorBibliotekar extends PocetniProzor {
 		this.setName("BibliotekarPocetniMeni");
 		MeniBiblioteka meniBiblioteka = new MeniBiblioteka();
 		meni = (MeniBibliotekar) meniBiblioteka.napraviMeni("Obicni bibliotekar");		
-		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije(), 
+		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelTabelaRezervacija(), 
 				new PanelRegistracija(), new PanelVracanje()));	    
 		add(paneli.get(0), BorderLayout.CENTER);
 		add(meni, BorderLayout.WEST);
@@ -70,7 +71,7 @@ public class PocetniProzorBibliotekar extends PocetniProzor {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				postaviPanel("Rezervacije");
+				postaviPanel("Tabela Rezervacija");
 				osveziProzor();
 			}
 		});
