@@ -201,5 +201,33 @@
         <identifikacioniBroj>1A</identifikacioniBroj>
       </inventar>
     </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>Hobit</naslovDela>
+        <opis>avantura hobita sa zmajevima</opis>
+        <udk>asdlfj</udk>
+        <isbn>99</isbn>
+        <autori>
+          <autor>
+            <ime>J.R.R.</ime>
+            <prezime>Tolkien</prezime>
+            <datumRodjenja>3. avgust 1892.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>100</inventarniBroj>
+      <jezik>srpski</jezik>
+      <format>a1</format>
+      <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>DOSTUPAN</stanje>
+      <izdavac>
+        <naziv>Laguna</naziv>
+        <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
   </primerci>
 </sviPrimerci>
