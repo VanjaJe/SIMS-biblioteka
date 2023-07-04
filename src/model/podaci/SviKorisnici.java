@@ -65,6 +65,23 @@ public class SviKorisnici {
 		}
 	}
 	
+	public void izmeniKorisnika(Korisnik korisnik) {
+		Korisnik stariKorisnik = dobaviKorisnikaPoJmbg(korisnik.getJmbg());
+		stariKorisnik.setIme(korisnik.getIme());
+		stariKorisnik.setPrezime(korisnik.getPrezime());
+		stariKorisnik.setTelefon(korisnik.getTelefon());
+		stariKorisnik.setEmail(korisnik.getEmail());
+		stariKorisnik.setDatumRodjenja(korisnik.getDatumRodjenja());
+		stariKorisnik.setKorisnickiNalog(korisnik.getKorisnickiNalog());
+		
+		for (int i = 0; i < korisnici.size(); i++) {
+			if (korisnici.get(i).getId() == stariKorisnik.getId()) {
+				korisnici.remove(i);
+				korisnici.add(i, stariKorisnik);
+			}
+		}
+	}
+	
 	public Korisnik dobaviKorisnikaPoKorisnickomImenu(String korisnickoIme) {
 		ArrayList<Korisnik> korisnikLista = (ArrayList<Korisnik>) korisnici
 				.stream()
@@ -81,6 +98,18 @@ public class SviKorisnici {
 		ArrayList<Korisnik> korisnikLista = (ArrayList<Korisnik>) korisnici
 				.stream()
 				.filter(korisnik -> korisnik.getEmail().equals(email))
+				.collect(Collectors.toList());
+		if (korisnikLista.size() == 0) {
+			return null;
+		}
+		
+		return korisnikLista.get(0);
+	}
+	
+	public Korisnik dobaviKorisnikaPoJmbg(String jmbg) {
+		ArrayList<Korisnik> korisnikLista = (ArrayList<Korisnik>) korisnici
+				.stream()
+				.filter(korisnik -> korisnik.getJmbg().equals(jmbg))
 				.collect(Collectors.toList());
 		if (korisnikLista.size() == 0) {
 			return null;

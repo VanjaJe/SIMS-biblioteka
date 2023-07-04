@@ -242,14 +242,31 @@ public class PanelRegistracija extends JPanel {
 		System.out.println(clanovi.size());
 		for(Clan clan : clanovi) {
 			if(clan.getJmbg().equals(jmbg)) {
-				JOptionPane.showMessageDialog(this, "korisnik sa ovim jmbg-om se vec nalazi u sistemu!");
-				return;
+				int izmena = JOptionPane.showConfirmDialog(null, "Korisnik sa ovim jmbg-om  vec postoji. Da li zelite da mu izmenite podatke?", "Potvrda", JOptionPane.YES_NO_OPTION);
+		        if (izmena == JOptionPane.YES_OPTION) {
+		        	//izmeni
+		        	Clan noviClan = new Clan(id, ime, prezime, telefon, jmbg, email, datum, 
+		    				new KorisnickiNalog(korisnicko, lozinka, TipKorisnika.CLAN), popust, 
+		    				new ClanskaKarta(todayString, brClKarte, vrstaClanstva), placanja);
+		    		Korisnik noviKorisnik = new Korisnik(id, ime, prezime, telefon, jmbg, email, datum, 
+		    				new KorisnickiNalog(korisnicko, lozinka, TipKorisnika.CLAN));
+		        	SviKorisnici.getInstance().izmeniKorisnika(noviKorisnik);
+		        	SviClanovi.getInstance().izmeniClana(noviClan);
+		        	Serijalizacija s = new Serijalizacija();
+		    		s.sacuvaj();
+		        	JOptionPane.showMessageDialog(this, "Podaci za ovog clana su izmenjeni!");
+		            return;
+		        } else {
+		        	JOptionPane.showMessageDialog(this, "Izmenite jmbg!");
+		        	return;
+		        }
 			}
 			if(clan.getKorisnickiNalog().getKorisnickoIme().equals(korisnicko)) {
 				JOptionPane.showMessageDialog(this, "ovo korisnicko ime je zauzeto");
 				return;
 			}
 		}
+		
 		
 		Clan noviClan = new Clan(id, ime, prezime, telefon, jmbg, email, datum, 
 				new KorisnickiNalog(korisnicko, lozinka, TipKorisnika.CLAN), popust, 
@@ -263,7 +280,7 @@ public class PanelRegistracija extends JPanel {
 		Serijalizacija s = new Serijalizacija();
 		s.sacuvaj();
 		
-		JOptionPane.showMessageDialog(this, "Clanska karta se izradjuje! Bicete obavesteni kada bude spremna.");
+		JOptionPane.showMessageDialog(this, "Clan je registrovan! Clanska karta ce biti spremna za 10 minuta!");
 		return;
 	}
 	

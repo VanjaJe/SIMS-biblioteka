@@ -43,7 +43,15 @@ public class Clan extends Korisnik{
 		this.clanskaKarta = clanskaKarta;
 	}
 	
-	 @Override
+	 public int getPopust() {
+		return popust;
+	}
+
+	public void setPopust(int popust) {
+		this.popust = popust;
+	}
+
+	@Override
 	    public String toString() {
 	        return "Clan [clanskaKarta=" + clanskaKarta + ", placanja=" + placanja + "]";
 	 }

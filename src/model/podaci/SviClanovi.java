@@ -49,6 +49,38 @@ public class SviClanovi {
 		this.clanovi.add(clan);
 		return clan;
 	}
+	
+	public void izmeniClana(Clan clan) {
+		Clan stariClan = dobaviClanaPoJmbg(clan.getJmbg());
+		stariClan.setIme(clan.getIme());
+		stariClan.setPrezime(clan.getPrezime());
+		stariClan.setTelefon(clan.getTelefon());
+		stariClan.setEmail(clan.getEmail());
+		stariClan.setDatumRodjenja(clan.getDatumRodjenja());
+		stariClan.setKorisnickiNalog(clan.getKorisnickiNalog());
+		stariClan.setClanskaKarta(clan.getClanskaKarta());
+		stariClan.setPlacanja(clan.getPlacanja());
+		stariClan.setPopust(clan.getPopust());
+		
+		for (int i = 0; i < clanovi.size(); i++) {
+			if (clanovi.get(i).getId() == stariClan.getId()) {
+				clanovi.remove(i);
+				clanovi.add(i, stariClan);
+			}
+		}
+	}
+	
+	public Clan dobaviClanaPoJmbg(String jmbg) {
+		ArrayList<Clan> clanLista = (ArrayList<Clan>) clanovi
+				.stream()
+				.filter(clan -> clan.getJmbg().equals(jmbg))
+				.collect(Collectors.toList());
+		if (clanLista.size() == 0) {
+			return null;
+		}
+		
+		return clanLista.get(0);
+	}
 //	
 //	public void izmeniKorisnika(String ime,String prezime,String telefon,String email,String stariEmail) {
 //		Korisnik korisnik = dobaviKorisnikaPoEmailAdresi(stariEmail);
