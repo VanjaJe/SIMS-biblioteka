@@ -1,3 +1,15 @@
+<<<<<<< HEAD
 /Pogled/
 /model/
 /kontroler/
+=======
+/kontroler/
+/main/
+/model/
+/observer/
+/serijalizacija/
+/util/
+/Pogled/
+>>>>>>> master
+/izuzeci/
+/enums/

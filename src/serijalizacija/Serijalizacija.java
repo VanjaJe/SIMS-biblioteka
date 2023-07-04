@@ -22,7 +22,7 @@ import model.podaci.SviIzdavaci;
 
 import model.podaci.SvaIznajmljivanja;
 import model.podaci.SvaPlacanja;
-
+import model.podaci.SveRezervacije;
 import model.podaci.SviKorisnici;
 
 
@@ -42,6 +42,7 @@ public class Serijalizacija {
 		xstream.processAnnotations(SviAutori.class);
 		xstream.processAnnotations(SvaIznajmljivanja.class);
 		xstream.processAnnotations(SvaPlacanja.class);
+		xstream.processAnnotations(SveRezervacije.class);
 
 	}
 	
@@ -54,6 +55,7 @@ public class Serijalizacija {
 		File fajlIzdavaci = new File("./podaci/izdavaci.xml");
 		File fajlIznajmljivanja = new File("./podaci/iznajmljivanja.xml");
 		File fajlPlacanja = new File("./podaci/placanja.xml");
+		File fajlRezervacije = new File("./podaci/rezervacije.xml");
 		
 		
 		OutputStream osKorisnici = new BufferedOutputStream(new FileOutputStream(fajlKorisnici));
@@ -64,6 +66,7 @@ public class Serijalizacija {
 		OutputStream osIzdavaci = new BufferedOutputStream(new FileOutputStream(fajlIzdavaci));
 		OutputStream osIznjamljivanja = new BufferedOutputStream(new FileOutputStream(fajlIznajmljivanja));
 		OutputStream osPlacanja = new BufferedOutputStream(new FileOutputStream(fajlPlacanja));
+		OutputStream osRezervacije = new BufferedOutputStream(new FileOutputStream(fajlRezervacije));
 
 
 
@@ -77,6 +80,7 @@ public class Serijalizacija {
 			xstream.toXML(SviIzdavaci.getInstance(), osIzdavaci);
 			xstream.toXML(SvaIznajmljivanja.getInstance(),osIznjamljivanja);
 			xstream.toXML(SvaPlacanja.getInstance(),osPlacanja);
+			xstream.toXML(SveRezervacije.getInstance(), osRezervacije);
 
 
 		} finally {
@@ -88,6 +92,7 @@ public class Serijalizacija {
 			osInventari.close();
 			osIznjamljivanja.close();
 			osPlacanja.close();
+			osRezervacije.close();
 		}
 	}
 	
@@ -101,6 +106,7 @@ public class Serijalizacija {
 		File fajlAutori = new File("./podaci/autori.xml");
 		File fajlIznajmljivanja = new File("./podaci/iznajmljivanja.xml");
 		File fajlPlacanja = new File("./podaci/placanja.xml");
+		File fajlRezervacije = new File("./podaci/rezervacije.xml");
 
 
 		InputStream isKorisnici = new BufferedInputStream(new FileInputStream(fajlKorisnici));
@@ -112,6 +118,7 @@ public class Serijalizacija {
 		InputStream isAutori = new BufferedInputStream(new FileInputStream(fajlAutori));
 		InputStream isIznajmljivanja = new BufferedInputStream(new FileInputStream(fajlIznajmljivanja));
 		InputStream isPlacanja = new BufferedInputStream(new FileInputStream(fajlPlacanja));
+		InputStream isRezervacije = new BufferedInputStream(new FileInputStream(fajlRezervacije));
 
 
 		SviKorisnici korisniciLista = null;
@@ -123,6 +130,7 @@ public class Serijalizacija {
 		SviAutori autoriLista=null;
 		SvaIznajmljivanja iznajmljivanjaLista=null;
 		SvaPlacanja placanjaLista=null;
+		SveRezervacije rezervacijeLista=null;
 
 		try {
 			korisniciLista = ((SviKorisnici) xstream.fromXML(isKorisnici));
@@ -134,6 +142,7 @@ public class Serijalizacija {
 			autoriLista = ((SviAutori)xstream.fromXML(isAutori));
 			iznajmljivanjaLista=((SvaIznajmljivanja)xstream.fromXML(isIznajmljivanja));
 			placanjaLista=((SvaPlacanja)xstream.fromXML(isPlacanja));
+			rezervacijeLista=((SveRezervacije)xstream.fromXML(isRezervacije));
 
 		} finally {
 			isKorisnici.close();
@@ -145,6 +154,7 @@ public class Serijalizacija {
 			isAutori.close();
 			isIznajmljivanja.close();
 			isPlacanja.close();
+			isRezervacije.close();
 		}
 		
 		SviKorisnici.setInstance(korisniciLista);
@@ -156,6 +166,7 @@ public class Serijalizacija {
 		SviAutori.setInstance(autoriLista);
 		SvaIznajmljivanja.setInstance(iznajmljivanjaLista);
 		SvaPlacanja.setInstance(placanjaLista);
+		SveRezervacije.setInstance(rezervacijeLista);
 	}
 
 	public XStream getXStream() {

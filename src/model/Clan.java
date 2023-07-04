@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
@@ -43,8 +44,32 @@ public class Clan extends Korisnik{
 		this.clanskaKarta = clanskaKarta;
 	}
 	
-	 @Override
+	 public int getPopust() {
+		return popust;
+	}
+
+	public void setPopust(int popust) {
+		this.popust = popust;
+	}
+
+	@Override
 	    public String toString() {
 	        return "Clan [clanskaKarta=" + clanskaKarta + ", placanja=" + placanja + "]";
 	 }
+	 
+	 public boolean equals(Object obj) {
+		    if (this == obj) {
+		        return true;
+		    }
+		    if (obj == null || getClass() != obj.getClass()) {
+		        return false;
+		    }
+		    Clan clan = (Clan) obj;
+		    return getId() == clan.getId() &&
+		           Objects.equals(getIme(), clan.getIme()) &&
+		           Objects.equals(getPrezime(), clan.getPrezime()) &&
+		           Objects.equals(getTelefon(), clan.getTelefon()) &&
+		           Objects.equals(getJmbg(), clan.getJmbg()) &&
+		           Objects.equals(getEmail(), clan.getEmail());
+		}
 }
