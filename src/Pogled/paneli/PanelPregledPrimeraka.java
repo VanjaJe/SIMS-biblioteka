@@ -26,6 +26,8 @@ import observer.Observer;
 import util.PogledUtil;
 
 public class PanelPregledPrimeraka extends JPanel implements Observer {
+
+	private static final long serialVersionUID = 5984267447935651526L;
 	private List<Primerak> primerci;
 	private PrimerakKontroler primerakKontroler;
 	

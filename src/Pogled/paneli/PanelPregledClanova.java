@@ -26,6 +26,8 @@ import observer.Observer;
 import util.PogledUtil;
 
 public class PanelPregledClanova extends JPanel implements Observer {
+
+	private static final long serialVersionUID = -5450000009958416915L;
 	private List<Clan> clanovi;
 	private RegistracijaKontroler clanKontroler;
 	

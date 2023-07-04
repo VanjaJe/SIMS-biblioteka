@@ -81,44 +81,4 @@ public class SviClanovi {
 		
 		return clanLista.get(0);
 	}
-//	
-//	public void izmeniKorisnika(String ime,String prezime,String telefon,String email,String stariEmail) {
-//		Korisnik korisnik = dobaviKorisnikaPoEmailAdresi(stariEmail);
-//		korisnik.setIme(ime);
-//		korisnik.setPrezime(prezime);
-//		korisnik.setTelefon(telefon);
-//		korisnik.setEmail(email);
-//		
-//		for (int i = 0; i < korisnici.size(); i++) {
-//			if (korisnici.get(i).getId() == korisnik.getId()) {
-//				korisnici.remove(i);
-//				korisnici.add(i, korisnik);
-//			}
-//		}
-//	}
-//	
-//	public Korisnik dobaviKorisnikaPoKorisnickomImenu(String korisnickoIme) {
-//		ArrayList<Korisnik> korisnikLista = (ArrayList<Korisnik>) korisnici
-//				.stream()
-//				.filter(korisnik -> korisnik.getKorisnickiNalog().getKorisnickoIme().equals(korisnickoIme))
-//				.collect(Collectors.toList());
-//		if (korisnikLista.size() == 0) {
-//			return null;
-//		}
-//		
-//		return korisnikLista.get(0);
-//	}
-//	
-//	public Korisnik dobaviKorisnikaPoEmailAdresi(String email) {
-//		ArrayList<Korisnik> korisnikLista = (ArrayList<Korisnik>) korisnici
-//				.stream()
-//				.filter(korisnik -> korisnik.getEmail().equals(email))
-//				.collect(Collectors.toList());
-//		if (korisnikLista.size() == 0) {
-//			return null;
-//		}
-//		
-//		return korisnikLista.get(0);
-//	}
-
 }
