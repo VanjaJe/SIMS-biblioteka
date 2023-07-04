@@ -8,6 +8,7 @@ public class MeniSpecBibliotekar extends Meni {
 	private MeniStavka stavkaDodavanjePrimerka;
 	private MeniStavka stavkaPrimerci;
 	private MeniStavka stavkaClanovi;
+	private MeniStavka stavkaIzmenaNaslova;
 	
 	public MeniSpecBibliotekar() {
 		super();
@@ -16,13 +17,15 @@ public class MeniSpecBibliotekar extends Meni {
 		stavkaDodavanjePrimerka = new MeniStavka("Dodavanje primerka");
 		stavkaPrimerci = new MeniStavka("Pregled primeraka");
 		stavkaClanovi = new MeniStavka("Pregled clanova");
+		stavkaIzmenaNaslova = new MeniStavka("Izmena naslova");
+
 
 		add(stavkaRezervacije, "wrap, align center");
 		add(stavkaDodavanjePrimerka, "wrap, align center");
 		add(stavkaPrimerci, "wrap, align center");
 		add(stavkaClanovi, "wrap, align center");
+		add(stavkaIzmenaNaslova, "wrap, align center");
 		add(stavkaOdjava, "wrap, align center");
-		
 	}
 	
 	public MeniStavka getStavkaRezervacije() {
@@ -43,5 +46,9 @@ public class MeniSpecBibliotekar extends Meni {
 	
 	public MeniStavka getStavkaClanovi() {
 		return this.stavkaClanovi;
+	}
+	
+	public MeniStavka getStavkaIzmenaNaslova() {
+		return this.stavkaIzmenaNaslova;
 	}
 }

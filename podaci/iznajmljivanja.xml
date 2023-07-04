@@ -195,7 +195,7 @@
         </korisnickiNalog>
         <popust>0</popust>
       </clan>
-      <zavrseno>false</zavrseno>
+      <zavrseno>true</zavrseno>
     </iznajmljivanje>
     <iznajmljivanje>
       <datumIznjamljivanja>2023-07-03 23:43:19.57 UTC</datumIznjamljivanja>

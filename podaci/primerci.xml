@@ -3,7 +3,7 @@
     <primerak>
       <naslov>
         <naslovDela>Zov divljine</naslovDela>
-        <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
+        <opis>Uzbudljiva prica o psu Bucku koji se suocava s svijetom Aljaske.</opis>
         <udk>821.111(73)-312.4</udk>
         <isbn>978-953-220-000-1</isbn>
         <autori>
@@ -29,19 +29,7 @@
       </inventar>
     </primerak>
     <primerak>
-      <naslov>
-        <naslovDela>Zov divljine</naslovDela>
-        <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
-        <udk>821.111(73)-312.4</udk>
-        <isbn>978-953-220-000-1</isbn>
-        <autori>
-          <autor>
-            <ime>Jack</ime>
-            <prezime>London</prezime>
-            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
-          </autor>
-        </autori>
-      </naslov>
+      <naslov reference="../../primerak/naslov"/>
       <inventarniBroj>5</inventarniBroj>
       <jezik>Srpski</jezik>
       <format>A3</format>
@@ -57,19 +45,7 @@
       </inventar>
     </primerak>
     <primerak>
-      <naslov>
-        <naslovDela>Zov divljine</naslovDela>
-        <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
-        <udk>821.111(73)-312.4</udk>
-        <isbn>978-953-220-000-1</isbn>
-        <autori>
-          <autor>
-            <ime>Jack</ime>
-            <prezime>London</prezime>
-            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
-          </autor>
-        </autori>
-      </naslov>
+      <naslov reference="../../primerak/naslov"/>
       <inventarniBroj>167878</inventarniBroj>
       <jezik>Italijanski</jezik>
       <format>A199</format>
@@ -85,19 +61,7 @@
       </inventar>
     </primerak>
     <primerak>
-      <naslov>
-        <naslovDela>Zov divljine</naslovDela>
-        <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
-        <udk>821.111(73)-312.4</udk>
-        <isbn>978-953-220-000-1</isbn>
-        <autori>
-          <autor>
-            <ime>Jack</ime>
-            <prezime>London</prezime>
-            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
-          </autor>
-        </autori>
-      </naslov>
+      <naslov reference="../../primerak/naslov"/>
       <inventarniBroj>16</inventarniBroj>
       <jezik>Kineski</jezik>
       <format>A</format>
@@ -115,14 +79,14 @@
     <primerak>
       <naslov>
         <naslovDela>Aa</naslovDela>
-        <opis>aa</opis>
+        <opis>PROBAAA</opis>
         <udk>11</udk>
         <isbn>12</isbn>
         <autori>
           <autor>
-            <ime>Lev</ime>
-            <prezime>Tolstoj</prezime>
-            <datumRodjenja>9. jun 1828.</datumRodjenja>
+            <ime>Jack</ime>
+            <prezime>London</prezime>
+            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
           </autor>
         </autori>
       </naslov>
@@ -163,7 +127,7 @@
       <jezik>a</jezik>
       <format>a</format>
       <tipKoricenja>MEKO</tipKoricenja>
-      <stanje>IZNAJMLJEN</stanje>
+      <stanje>DOSTUPAN</stanje>
       <izdavac>
         <naziv>Laguna</naziv>
         <datumOsnivanja>01.01.1999.</datumOsnivanja>
@@ -218,6 +182,62 @@
       <inventarniBroj>100</inventarniBroj>
       <jezik>srpski</jezik>
       <format>a1</format>
+      <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>DOSTUPAN</stanje>
+      <izdavac>
+        <naziv>Laguna</naziv>
+        <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>Vanja</naslovDela>
+        <opis>Vanja</opis>
+        <udk>11111</udk>
+        <isbn>11111</isbn>
+        <autori>
+          <autor>
+            <ime>Jack</ime>
+            <prezime>London</prezime>
+            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>1111111111</inventarniBroj>
+      <jezik>FRANCUSKI</jezik>
+      <format>eee</format>
+      <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>DOSTUPAN</stanje>
+      <izdavac>
+        <naziv>Laguna</naziv>
+        <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>dunja</naslovDela>
+        <opis>dunja</opis>
+        <udk>37737</udk>
+        <isbn>63263282</isbn>
+        <autori>
+          <autor>
+            <ime>Lev</ime>
+            <prezime>Tolstoj</prezime>
+            <datumRodjenja>9. jun 1828.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>245678</inventarniBroj>
+      <jezik>KINESKII</jezik>
+      <format>dfsf</format>
       <tipKoricenja>MEKO</tipKoricenja>
       <stanje>DOSTUPAN</stanje>
       <izdavac>

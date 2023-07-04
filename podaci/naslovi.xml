@@ -2,7 +2,7 @@
   <naslovi>
     <naslov>
       <naslovDela>Zov divljine</naslovDela>
-      <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
+      <opis>Uzbudljiva prica o psu Bucku koji se suocava s svijetom Aljaske.</opis>
       <udk>821.111(73)-312.4</udk>
       <isbn>978-953-220-000-1</isbn>
       <autori>
@@ -54,38 +54,15 @@
       </autori>
     </naslov>
     <naslov>
-      <naslovDela>blabla</naslovDela>
-      <opis>blabla</opis>
-      <udk>123456</udk>
-      <isbn>98877665443</isbn>
+      <naslovDela>Aa</naslovDela>
+      <opis>PROBAAA</opis>
+      <udk>11</udk>
+      <isbn>12</isbn>
       <autori>
         <autor>
           <ime>Jack</ime>
           <prezime>London</prezime>
           <datumRodjenja>12. oktobar 1876.</datumRodjenja>
-        </autor>
-        <autor>
-          <ime>J.R.R.</ime>
-          <prezime>Tolkien</prezime>
-          <datumRodjenja>3. avgust 1892.</datumRodjenja>
-        </autor>
-        <autor>
-          <ime>Lev</ime>
-          <prezime>Tolstoj</prezime>
-          <datumRodjenja>9. jun 1828.</datumRodjenja>
-        </autor>
-      </autori>
-    </naslov>
-    <naslov>
-      <naslovDela>Aa</naslovDela>
-      <opis>aa</opis>
-      <udk>11</udk>
-      <isbn>12</isbn>
-      <autori>
-        <autor>
-          <ime>Lev</ime>
-          <prezime>Tolstoj</prezime>
-          <datumRodjenja>9. jun 1828.</datumRodjenja>
         </autor>
       </autori>
     </naslov>
@@ -121,19 +98,6 @@
       </autori>
     </naslov>
     <naslov>
-      <naslovDela>novi</naslovDela>
-      <opis>a</opis>
-      <udk>87</udk>
-      <isbn>999</isbn>
-      <autori>
-        <autor>
-          <ime>Jack</ime>
-          <prezime>London</prezime>
-          <datumRodjenja>12. oktobar 1876.</datumRodjenja>
-        </autor>
-      </autori>
-    </naslov>
-    <naslov>
       <naslovDela>Hobit</naslovDela>
       <opis>avantura hobita sa zmajevima</opis>
       <udk>asdlfj</udk>
@@ -143,6 +107,32 @@
           <ime>J.R.R.</ime>
           <prezime>Tolkien</prezime>
           <datumRodjenja>3. avgust 1892.</datumRodjenja>
+        </autor>
+      </autori>
+    </naslov>
+    <naslov>
+      <naslovDela>Vanja</naslovDela>
+      <opis>Vanja probaaa</opis>
+      <udk>11111</udk>
+      <isbn>11111</isbn>
+      <autori>
+        <autor>
+          <ime>Jack</ime>
+          <prezime>London</prezime>
+          <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+        </autor>
+      </autori>
+    </naslov>
+    <naslov>
+      <naslovDela>dunja</naslovDela>
+      <opis>dunja</opis>
+      <udk>37737</udk>
+      <isbn>63263282</isbn>
+      <autori>
+        <autor>
+          <ime>Lev</ime>
+          <prezime>Tolstoj</prezime>
+          <datumRodjenja>9. jun 1828.</datumRodjenja>
         </autor>
       </autori>
     </naslov>

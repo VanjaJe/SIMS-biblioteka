@@ -78,16 +78,17 @@ public class IznajmljivanjeKontroler {
 	
 	
 	public List<Iznajmljivanje> dobaviPrimerke() throws ResultEmptyException {
-		for (Iznajmljivanje iznajmljivanje : SvaIznajmljivanja.getInstance().getIznajmljivanja()) {
-			if(!iznajmljivanje.getZavrseno()) {
-			iznajmljivanja.add(new Iznajmljivanje(iznajmljivanje.getDatumIznjamljivanja(),iznajmljivanje.getProduzeno(),
-					iznajmljivanje.getPrimerak(),iznajmljivanje.getClan()));	
-		}
-		}
-		
-		return iznajmljivanja;
-
-	}
+        List<Iznajmljivanje>aktivnaIznajmljivanja=new ArrayList<Iznajmljivanje>();
+        for (Iznajmljivanje iznajmljivanje : SvaIznajmljivanja.getInstance().getIznajmljivanja()) {
+            if(!iznajmljivanje.getZavrseno()) {
+                aktivnaIznajmljivanja.add(new Iznajmljivanje(iznajmljivanje.getDatumIznjamljivanja(),iznajmljivanje.getProduzeno(),
+                    iznajmljivanje.getPrimerak(),iznajmljivanje.getClan()));
+        }
+        }
+        return aktivnaIznajmljivanja;
+    }
+	
+	
 	public Placanje naplatiNadoknadu(TipNadoknade tipNadokande, String razlog, String iznos) {
 		LocalDate currentDate = LocalDate.now();
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy.");

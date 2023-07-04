@@ -1,8 +1,13 @@
 package model.podaci;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import enums.Stanje;
+import model.Autor;
+import model.Naslov;
 import model.Primerak;
 
 
@@ -65,5 +70,41 @@ public class SviPrimerci {
 		}
 		return null;
 	}
-
+	
+	public void izmeniNaslov(Naslov naslov, int inventarniBr) {
+		Primerak primerak = dobaviPrimerakPoInventaru(inventarniBr);
+		
+		primerak.setNaslov(naslov);
+		
+		for (int i = 0; i < primerci.size(); i++) {
+			if (primerci.get(i).getInventarniBroj() == inventarniBr) {
+				primerci.remove(i);
+				primerci.add(i, primerak);
+			}
+		}
+	}
+	
+	public Primerak dobaviPrimerakPoInventaru(int inventarniBr) {
+		ArrayList<Primerak> primerakLista = (ArrayList<Primerak>) primerci
+				.stream()
+				.filter(primerak -> primerak.getInventarniBroj() == inventarniBr)
+				.collect(Collectors.toList());
+		if (primerakLista.size() == 0) {
+			return null;
+		}
+		
+		return primerakLista.get(0);
+	}
+	
+	public List<Primerak> dobaviPrimerkePoISBN(String isbn) {
+		ArrayList<Primerak> primerakLista = (ArrayList<Primerak>) primerci
+				.stream()
+				.filter(primerak -> primerak.getNaslov().getIsbn().equals(isbn))
+				.collect(Collectors.toList());
+		if (primerakLista.size() == 0) {
+			return null;
+		}
+		
+		return primerakLista;
+	}
 }
