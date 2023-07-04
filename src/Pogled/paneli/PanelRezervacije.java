@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.util.EventObject;
 import java.util.List;
 
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -72,15 +71,35 @@ public class PanelRezervacije extends JPanel implements Observer {
 				}
 			}
 		});
-		
-		Font fntNaslov = PogledUtil.getVelikiNaslovFont();
-		Font fntTekstPolje = PogledUtil.getTeksPoljeFont();
 		Color clrPrimarna = PogledUtil.getPrimarnaBoja();
 		Color clrForeground = PogledUtil.getForegroundColor();
 		setBackground(Color.WHITE);
 		kontroler = new RezervacijaKontroler();
 		this.rezervacije = kontroler.DobaviLicneRezervacije(kontroler.DobaviClana());
 		this.InicijalizujTabeluRezervacija();
+		FormaDugme btnPreuzmi = new FormaDugme("Preuzmi", clrPrimarna, clrForeground, 150, 20);
+		btnPreuzmi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(!tabelaRezervacija.getSelectionModel().isSelectionEmpty())
+				{
+					int row=tabelaRezervacija.getSelectedRow();
+					long id=Integer.parseInt(tabelaRezervacija.getValueAt(row,0).toString());
+					Rezervacija rezervacija = kontroler.DobaviRezervaciju(id);
+					boolean preuzeta = kontroler.PreuzmiRezervaciju(rezervacija);
+					if(preuzeta) {
+						JOptionPane.showMessageDialog(null, "Preuzeta knjiga.\nMolimo da je vratite u odredjenom roku, bez ostecenja!\nHvala!",
+								"Potvrda", JOptionPane.INFORMATION_MESSAGE);
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Selektujte red u tabeli", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
+			}
+		});
+		add(btnPreuzmi, "wrap, span2, align center");
+		this.azurirajPrikaz();
 	}
 	
 	public void InicijalizujTabeluRezervacija() {
