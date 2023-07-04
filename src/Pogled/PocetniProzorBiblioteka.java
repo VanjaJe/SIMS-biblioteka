@@ -17,7 +17,8 @@ public class PocetniProzorBiblioteka {
 		case "Clan":
 			RezervacijaKontroler rk = new RezervacijaKontroler();
 			try {
-				rk.ProveriDostupnostRezervisanih();
+				rk.ProveriDostupnostRezervisanih(rk.DobaviClana());
+				rk.ObavestiSledeceg();
 			} catch (PrimerciNePostojeException e) {
 				e.printStackTrace();
 			}

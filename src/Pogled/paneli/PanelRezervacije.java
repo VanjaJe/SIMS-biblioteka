@@ -79,7 +79,7 @@ public class PanelRezervacije extends JPanel implements Observer {
 		Color clrForeground = PogledUtil.getForegroundColor();
 		setBackground(Color.WHITE);
 		kontroler = new RezervacijaKontroler();
-		this.rezervacije = kontroler.DobaviLicneRezervacije();
+		this.rezervacije = kontroler.DobaviLicneRezervacije(kontroler.DobaviClana());
 		this.InicijalizujTabeluRezervacija();
 	}
 	

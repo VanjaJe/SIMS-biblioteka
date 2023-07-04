@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 import model.Rezervacija;
+import observer.IzmenaTabeleEvent;
 import observer.Observer;
 import observer.Publisher;
 
@@ -32,22 +33,26 @@ public class TabelaModelRezervacije extends AbstractTableModel implements Publis
 	@Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub
-		return 5;
+		return 7;
 	}
 
 	@Override
 	public String getColumnName(int column) {
 		switch (column) {
 		case 0:
-			return "Datum zahteva";
+			return "ID rezervacije";
 		case 1:
-			return "Datum pocetka";
+			return "Datum zahteva";
 		case 2:
-			return "Korisnicko ime";
+			return "Datum pocetka";
 		case 3:
-			return "Naslov";
+			return "Korisnicko ime";
 		case 4:
+			return "Naslov";
+		case 5:
 			return "Preuzeto";
+		case 6:
+			return "Istekla";
 		default:
 			return "";
 		}
@@ -57,10 +62,13 @@ public class TabelaModelRezervacije extends AbstractTableModel implements Publis
 	public Class<?> getColumnClass(int columnIndex) {
 		switch (columnIndex) {
 		case 0:
+			return long.class;
 		case 1:
 		case 2:
 		case 3:
 		case 4:
+		case 5:
+		case 6:
 			return String.class;
 		default:
 			return null;
@@ -73,15 +81,19 @@ public class TabelaModelRezervacije extends AbstractTableModel implements Publis
 		Rezervacija rezervacija = rezervacije.get(rowIndex);
 		switch (columnIndex) {
 		case 0:
-			return rezervacija.getDatumZahtevaRezervacije().toString();
+			return rezervacija.getId();
 		case 1:
-			return rezervacija.getDatumPocetkaRezervacije().toString();
+			return rezervacija.getDatumZahtevaRezervacije().toString();
 		case 2:
-			return rezervacija.getClan().getKorisnickiNalog().getKorisnickoIme();
+			return rezervacija.getDatumPocetkaRezervacije().toString();
 		case 3:
-			return rezervacija.getNaslov().getNaslovDela();
+			return rezervacija.getClan().getKorisnickiNalog().getKorisnickoIme();
 		case 4:
+			return rezervacija.getNaslov().getNaslovDela();
+		case 5:
 			return rezervacija.getPreuzeto().toString();
+		case 6:
+			return rezervacija.getIstekla().toString();
 		default:
 			return "";
 		}
@@ -108,7 +120,9 @@ public class TabelaModelRezervacije extends AbstractTableModel implements Publis
 	@Override
 	public void notifyObservers() {
 		// TODO Auto-generated method stub
-		
+		for (Observer observer : observers) {
+			observer.updatePerformed(new IzmenaTabeleEvent());
+		}
 	}
 
 }

@@ -2,9 +2,10 @@
   <rezervacije>
     <model.Rezervacija>
       <id>1</id>
-      <datumZahtevaRezervacije>2023-07-03T23:48:38.4861118</datumZahtevaRezervacije>
+      <datumZahtevaRezervacije>2023-07-04T02:06:33.8272078</datumZahtevaRezervacije>
       <datumPocetkaRezervacije>2023-07-04</datumPocetkaRezervacije>
       <preuzeto>false</preuzeto>
+      <istekla>false</istekla>
       <naslov>
         <naslovDela>Zov divljine</naslovDela>
         <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
@@ -18,6 +19,7 @@
           </autor>
         </autori>
       </naslov>
+      <invBrPrimerka>16</invBrPrimerka>
       <clan>
         <id>3</id>
         <ime>Nikola</ime>

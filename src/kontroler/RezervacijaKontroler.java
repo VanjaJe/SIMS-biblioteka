@@ -47,9 +47,9 @@ public class RezervacijaKontroler {
 		return rezervacije;
 	}
 	
-	public List<Rezervacija> DobaviLicneRezervacije() {
+	public List<Rezervacija> DobaviLicneRezervacije(Clan clan) {
 		List<Rezervacija> rezervacije = new ArrayList<Rezervacija>();
-		Clan clan = DobaviClana();
+		//Clan clan = DobaviClana();
 		for (Rezervacija rezervacija : DobaviRezervacije()) {
 			if (rezervacija.getClan().equals(clan)) {
 				rezervacije.add(rezervacija);
@@ -72,6 +72,15 @@ public class RezervacijaKontroler {
 			}
 		}
 		throw new NaslovNePostojiException("Naslov knjige koji ste uneli se ne nalazi u sistemu biblioteke.");
+	}
+	
+	public Primerak DobaviPrimerak(int invBr) {
+		for (Primerak primerak : SviPrimerci.getInstance().getPrimerci()) {
+			if (primerak.getInventarniBroj() == invBr) {
+				return primerak;
+			}
+		}
+		return null;
 	}
 	
 	public List<Primerak> DobaviPrimerke(Naslov unetNaslov) throws PrimerciNePostojeException {
@@ -125,7 +134,7 @@ public class RezervacijaKontroler {
 		if (sveRezervacije!=null) {
 			sveRezervacije.sort((r1, r2) -> r1.getDatumZahtevaRezervacije().compareTo(r2.getDatumZahtevaRezervacije()));
 			for(Rezervacija rezervacija : sveRezervacije) {
-				if (rezervacija.getNaslov().equals(naslov)) {
+				if (rezervacija.getNaslov().equals(naslov) && !rezervacija.getIstekla() && !rezervacija.getPreuzeto()) {
 					clanovi.add(rezervacija.getClan());
 				}
 			}
@@ -145,11 +154,11 @@ public class RezervacijaKontroler {
 				// rezervacija uspesna, moze da dodje u roku od 2 dana
 				Primerak primerak = DobaviDostupanPrimerak(DobaviPrimerke(naslov));
 				primerak.setStanje(Stanje.REZERVISAN);
-				rezervacija = new Rezervacija(SveRezervacije.getInstance().generisiId(), danasnjiDatum, LocalDate.now(), false, naslov, clan);
+				rezervacija = new Rezervacija(SveRezervacije.getInstance().generisiId(), danasnjiDatum, LocalDate.now(), false, false, naslov, primerak.getInventarniBroj(), clan);
 				JOptionPane.showMessageDialog(null, "Kreirana rezervacija! Mozete preuzeti knjigu u narednih 48 sati.", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
 			} else {
 				// rezervacija uspesna, obavesti kad bude dostupan primerak
-				rezervacija = new Rezervacija(SveRezervacije.getInstance().generisiId(), danasnjiDatum, LocalDate.of(9999, 12, 31), false, naslov, clan);
+				rezervacija = new Rezervacija(SveRezervacije.getInstance().generisiId(), danasnjiDatum, LocalDate.of(9999, 12, 31), false, false, naslov, 0, clan);
 				JOptionPane.showMessageDialog(null, "Kreirana rezervacija! Obavesticemo Vas kada primerak bude dostupan.", "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
 			}
 			SveRezervacije.getInstance().dodajRezervaciju(rezervacija);
@@ -162,11 +171,11 @@ public class RezervacijaKontroler {
 		}
 	}
 	
-	public void ProveriDostupnostRezervisanih() throws PrimerciNePostojeException {
-		List<Rezervacija> rezervacije = DobaviLicneRezervacije();
+	public void ProveriDostupnostRezervisanih(Clan clan) throws PrimerciNePostojeException {
+		List<Rezervacija> rezervacije = DobaviLicneRezervacije(clan);
 		for (Rezervacija rezervacija : rezervacije) {
 			Naslov naslov = rezervacija.getNaslov();
-			if (ImaLiDostupnihPrimeraka(naslov) && !rezervacija.getPreuzeto()) {
+			if (ImaLiDostupnihPrimeraka(naslov) && !rezervacija.getPreuzeto() && !rezervacija.getIstekla()) {
 				Primerak primerak = DobaviDostupanPrimerak(DobaviPrimerke(naslov));
 				primerak.setStanje(Stanje.REZERVISAN);
 				rezervacija = DobaviRezervaciju(rezervacija.getId());
@@ -178,4 +187,40 @@ public class RezervacijaKontroler {
 		}
 	}
 	
+	public boolean DaLiJeIsteklaRezervacija(Rezervacija rezervacija) {
+		if(!rezervacija.getPreuzeto() && !rezervacija.getIstekla() && LocalDate.now().isAfter(rezervacija.getDatumPocetkaRezervacije().plusDays(2))) {
+			rezervacija.setIstekla(true);
+			String obavestenje = "Vasa rezervacija za knjigu \"" + rezervacija.getNaslov().getNaslovDela() + "\" je istekla.\n"
+	                    + "Niste je preuzeli 2 dana.";
+			JOptionPane.showMessageDialog(null, obavestenje, "Obavestenje", JOptionPane.INFORMATION_MESSAGE);
+			return true;
+		}
+		return false;
+	}
+	
+	public void ObavestiSledeceg() throws PrimerciNePostojeException {
+		// za sve rezervacije prijavljenog
+		for (Rezervacija rezervacija : DobaviLicneRezervacije(DobaviClana())) {
+			// ako je istekla rez
+			if (DaLiJeIsteklaRezervacija(rezervacija)) {
+				// primerak koji je bio u rez
+				Primerak primerak = DobaviPrimerak(rezervacija.getInvBrPrimerka());
+				primerak.setStanje(Stanje.DOSTUPAN);
+				// ako ima vise njih na cekanju tj nije samo prijavljen
+				if (GetListaCekanja(rezervacija.getNaslov()).size() >= 1) {
+					// za sve rez od sledeceg ko je na cekanju
+					for (Rezervacija rez : DobaviLicneRezervacije(GetListaCekanja(rezervacija.getNaslov()).get(0))) {
+						// ako je rez od novog ista kao rez koja je istekla
+						if (rez.getNaslov().equals(rezervacija.getNaslov())) {
+							// stavimo taj primerak u novu rez
+							rez.setInvBrPrimerka(rezervacija.getInvBrPrimerka());
+							rez.setDatumPocetkaRezervacije(LocalDate.now());
+						}
+					}
+				}
+				
+			}
+		}
+		
+	}
 }
