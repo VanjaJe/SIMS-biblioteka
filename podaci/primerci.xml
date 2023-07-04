@@ -74,7 +74,7 @@
       <jezik>Italijanski</jezik>
       <format>A199</format>
       <tipKoricenja>MEKO</tipKoricenja>
-      <stanje>DOSTUPAN</stanje>
+      <stanje>IZNAJMLJEN</stanje>
       <izdavac>
         <naziv>Laguna</naziv>
         <datumOsnivanja>01.01.1999.</datumOsnivanja>
@@ -102,7 +102,7 @@
       <jezik>Kineski</jezik>
       <format>A</format>
       <tipKoricenja>MEKO</tipKoricenja>
-      <stanje>DOSTUPAN</stanje>
+      <stanje>REZERVISAN</stanje>
       <izdavac>
         <naziv>Laguna</naziv>
         <datumOsnivanja>01.01.1999.</datumOsnivanja>

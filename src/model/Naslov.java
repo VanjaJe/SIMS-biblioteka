@@ -1,6 +1,7 @@
 package model;
 
 import java.util.List;
+import java.util.Objects;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
@@ -59,5 +60,18 @@ public class Naslov {
 	
 	public void setAutori(List<Autor> autori) {
 		this.autori = autori;
+	}
+	
+	public boolean equals(Object obj) {
+	    if (this == obj) {
+	        return true;
+	    }
+	    if (obj == null || getClass() != obj.getClass()) {
+	        return false;
+	    }
+	    Naslov naslov = (Naslov) obj;
+	    return Objects.equals(naslovDela, naslov.naslovDela) &&
+	           Objects.equals(udk, naslov.udk) &&
+	           Objects.equals(isbn, naslov.isbn);
 	}
 }

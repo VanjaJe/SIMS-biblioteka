@@ -18,10 +18,10 @@ public class MeniSpecBibliotekar extends Meni {
 		stavkaClanovi = new MeniStavka("Pregled clanova");
 
 		add(stavkaRezervacije, "wrap, align center");
-		add(stavkaOdjava, "wrap, align center");
 		add(stavkaDodavanjePrimerka, "wrap, align center");
 		add(stavkaPrimerci, "wrap, align center");
 		add(stavkaClanovi, "wrap, align center");
+		add(stavkaOdjava, "wrap, align center");
 		
 	}
 	

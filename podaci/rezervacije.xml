@@ -1,0 +1,40 @@
+<sveRezervacije>
+  <rezervacije>
+    <model.Rezervacija>
+      <id>1</id>
+      <datumZahtevaRezervacije>2023-07-04T02:06:33.8272078</datumZahtevaRezervacije>
+      <datumPocetkaRezervacije>2023-07-04</datumPocetkaRezervacije>
+      <preuzeto>false</preuzeto>
+      <istekla>false</istekla>
+      <naslov>
+        <naslovDela>Zov divljine</naslovDela>
+        <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
+        <udk>821.111(73)-312.4</udk>
+        <isbn>978-953-220-000-1</isbn>
+        <autori>
+          <autor>
+            <ime>Jack</ime>
+            <prezime>London</prezime>
+            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <invBrPrimerka>16</invBrPrimerka>
+      <clan>
+        <id>3</id>
+        <ime>Nikola</ime>
+        <prezime>Nikolic</prezime>
+        <telefon>678678</telefon>
+        <jmbg>987654321</jmbg>
+        <email>nikola@maildrop.cc</email>
+        <datumRodjenja>1990-07-04</datumRodjenja>
+        <korisnickiNalog>
+          <korisnickoIme>nikola</korisnickoIme>
+          <lozinka>nikola</lozinka>
+          <tipKorisnika>CLAN</tipKorisnika>
+        </korisnickiNalog>
+        <popust>0</popust>
+      </clan>
+    </model.Rezervacija>
+  </rezervacije>
+</sveRezervacije>

@@ -1,6 +1,8 @@
 package Pogled;
 
+import izuzeci.PrimerciNePostojeException;
 import izuzeci.ResultEmptyException;
+import kontroler.RezervacijaKontroler;
 
 public class PocetniProzorBiblioteka {
 
@@ -13,6 +15,13 @@ public class PocetniProzorBiblioteka {
 		case "Specijalni bibliotekar":
 		return new PocetniProzorSpecBibliotekar();
 		case "Clan":
+			RezervacijaKontroler rk = new RezervacijaKontroler();
+			try {
+				rk.ProveriDostupnostRezervisanih(rk.DobaviClana());
+				rk.ObavestiSledeceg();
+			} catch (PrimerciNePostojeException e) {
+				e.printStackTrace();
+			}
 			return new PocetniProzorClan();
 
 		default:
