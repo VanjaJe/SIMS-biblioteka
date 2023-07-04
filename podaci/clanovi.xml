@@ -30,8 +30,40 @@
           <iznos>35.0</iznos>
           <tipNadoknade>OSTECENA_KNJIGA</tipNadoknade>
         </placanje>
+        <placanje>
+          <razlog>04.07.2023.</razlog>
+          <datum>nema</datum>
+          <iznos>1235.0</iznos>
+          <tipNadoknade>OSTECENA_KNJIGA</tipNadoknade>
+        </placanje>
       </placanja>
       <popust>0</popust>
+    </clan>
+    <clan>
+      <id>4</id>
+      <ime>milaNovoIme</ime>
+      <prezime>milovic</prezime>
+      <telefon>019234578</telefon>
+      <jmbg>28734</jmbg>
+      <email>milanovi@gmail.com</email>
+      <datumRodjenja>2003-05-02</datumRodjenja>
+      <korisnickiNalog>
+        <korisnickoIme>milaNovo</korisnickoIme>
+        <lozinka>milamila</lozinka>
+        <tipKorisnika>CLAN</tipKorisnika>
+      </korisnickiNalog>
+      <clanskaKarta>
+        <datumUclanjivanja>2023-07-04</datumUclanjivanja>
+        <brojClanskeKarte>-665495351</brojClanskeKarte>
+        <vrstaClanstva>
+          <tipClanstva>PENZIONER</tipClanstva>
+          <maxBrKnjiga>5</maxBrKnjiga>
+          <maxBrDana>25</maxBrDana>
+          <cenovnici/>
+        </vrstaClanstva>
+      </clanskaKarta>
+      <placanja/>
+      <popust>200</popust>
     </clan>
   </clanovi>
 </sviClanovi>

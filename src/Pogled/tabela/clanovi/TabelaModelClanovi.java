@@ -1,37 +1,25 @@
-package Pogled.tabela.iznajmljivanja;
+package Pogled.tabela.clanovi;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import kontroler.RegistracijaKontroler;
 import model.Autor;
 import model.Clan;
-import model.Iznajmljivanje;
-import model.Korisnik;
-import model.Naslov;
-import model.Primerak;
-import model.podaci.SviClanovi;
 import observer.Observer;
 import observer.Publisher;
 
-public class TabelaModelIznajmljivanja extends AbstractTableModel implements Publisher {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2987067730871371449L;
-	private List<Iznajmljivanje> iznajmljivanja;
+public class TabelaModelClanovi extends AbstractTableModel implements Publisher {
+	private List<Clan> clanovi;
 	private List<Observer> observers;
 	
-	public TabelaModelIznajmljivanja(List<Iznajmljivanje> iznajmljivanja) {
-		this.iznajmljivanja = iznajmljivanja;
+	public TabelaModelClanovi(List<Clan> clanovi) {
+		this.clanovi = clanovi;
 	}
 	
-	public void dodajIznajmljivanje(Iznajmljivanje iznajmljivanje) {
-		this.iznajmljivanja.add(iznajmljivanje);
+	public void dodajClana(Clan clan) {
+		this.clanovi.add(clan);
 	}
 	
 	@Override
@@ -41,22 +29,22 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 
 	@Override
 	public int getRowCount() {
-		return iznajmljivanja.size();
+		return clanovi.size();
 	}
 	
 	@Override
 	public String getColumnName(int column) {
 		switch (column) {
 		case 0:
-			return "Datum";
+			return "Ime";
 		case 1:
-			return "Produzeno";
+			return "Prezime";
 		case 2:
-			return "Naslov primerka";
+			return "Email";
 		case 3:
-			return "Inventarni broj";
-		case 4:
 			return "Korisnicko ime";
+		case 4:
+			return "Broj clanske karte";
 		default:
 			return "";
 		}
@@ -66,15 +54,12 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 	public Class<?> getColumnClass(int columnIndex) {
 		switch (columnIndex) {
 		case 0:
-			return String.class;
 		case 1:
-			return String.class;
 		case 2:
-			return String.class;
 		case 3:
-			return int.class;
-		case 4:
 			return String.class;
+		case 4:
+			return Integer.class;
 		default:
 			return null;
 		}
@@ -82,18 +67,19 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		Iznajmljivanje iznajmljivanje = iznajmljivanja.get(rowIndex);
+		Clan clan = clanovi.get(rowIndex);
 		switch (columnIndex) {
 		case 0:
-			return iznajmljivanje.getDatumIznjamljivanja().toLocaleString();
+			return clan.getIme();
 		case 1:
-			return iznajmljivanje.getProduzeno().toString();
+			return clan.getPrezime();
 		case 2:
-			return iznajmljivanje.getPrimerak().getNaslov().getNaslovDela();
+			return clan.getEmail();
 		case 3:
-			return iznajmljivanje.getPrimerak().getInventarniBroj();
+			return clan.getKorisnickiNalog().getKorisnickoIme();
 		case 4:
-			return iznajmljivanje.getClan().getKorisnickiNalog().getKorisnickoIme();
+			return clan.getClanskaKarta().getBrojClanskeKarte();
+			
 		default:
 			return "";
 		}
@@ -119,5 +105,4 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 			//observer.updatePerformed(new IzmenaTabeleEvent());
 		}
 	}
-
 }

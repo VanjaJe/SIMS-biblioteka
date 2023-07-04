@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -26,6 +27,7 @@ import model.Naslov;
 import model.podaci.SviAutori;
 import model.podaci.SviNaslovi;
 import net.miginfocom.swing.MigLayout;
+import serijalizacija.Serijalizacija;
 import util.PogledUtil;
 
 public class DijalogDodavanjeNaslova extends JDialog{
@@ -106,8 +108,12 @@ public class DijalogDodavanjeNaslova extends JDialog{
 						autori.add(autor);
 					}
 					
-					SviNaslovi.getInstance().dodajNaslov(new Naslov(tfNaslov.getText(), tfOpis.getText(),
-							tfISBN.getText(), tfUDK.getText(), autori));
+					SviNaslovi.getInstance().dodajNaslov(new Naslov(tfNaslov.getText(), tfOpis.getText(), tfUDK.getText(),
+							tfISBN.getText(), autori));
+					JOptionPane.showMessageDialog(null, "Naslov je dodat");
+					zatvori();
+					DijalogDodavanjePrimerka primerakDijalog = new DijalogDodavanjePrimerka(tfISBN.getText());
+					primerakDijalog.setVisible(true);
 				}
 			}
 		});

@@ -4,56 +4,38 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.EventObject;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
-import Pogled.tabela.naslovi.TabelaNaslovi;
 import Pogled.tabela.naslovi.TabelaModelNaslovi;
-//import enums.Uloga;
+import Pogled.tabela.naslovi.TabelaNaslovi;
 import izuzeci.ResultEmptyException;
+import kontroler.IznajmljivanjeKontroler;
 import kontroler.NaslovKontroler;
-//import kontroler.JeloKontroler;
-//import kontroler.TipJelaKontroler;
-//import model.JeloCena;
 import model.Naslov;
-import model.PrijavljenKorisnik;
-import net.miginfocom.swing.MigLayout;
 import observer.Observer;
-//import pogled.FormaDugme;
-//import pogled.Labela;
-//import pogled.PadajucaLista;
-//import pogled.dijalog.DijalogDodavanjeJela;
-//import pogled.tabela.jelovnik.TabelaJelovnik;
-//import pogled.tabela.jelovnik.TabelaModelJelovnik;
 import util.PogledUtil;
 
-public class PanelNaslovi extends JPanel implements Observer {
+public class PanelIzvestaj  extends JPanel implements Observer {
 
-//	/**
-//	 * 
-//	 */
-	private static final long serialVersionUID = -7893396793228337113L;
+	private static final long serialVersionUID = 1186414723010863699L;
 	private List<Naslov> naslovi;
 	private NaslovKontroler naslovKontroler;
-//	private String[] naziviTipovaJela = new String[] {"Rostilj", "Paste", "Supe"};
+	private IznajmljivanjeKontroler iznajmljivanjeKontroler;
 	
 	private TabelaNaslovi tabelaKnjiga;
 
-	public PanelNaslovi() throws ResultEmptyException {
-		setName("Knjige");
+	public PanelIzvestaj() throws ResultEmptyException {
+		setName("Izvestaj");
 		setVisible(true);
 
 		Font fntNaslov = PogledUtil.getVelikiNaslovFont();
@@ -64,8 +46,28 @@ public class PanelNaslovi extends JPanel implements Observer {
 		setBackground(Color.WHITE);
 		
 		naslovKontroler = new NaslovKontroler();
-		this.naslovi=naslovKontroler.dobaviNaslove();
+		iznajmljivanjeKontroler = new IznajmljivanjeKontroler();
+		
+		//this.naslovi=naslovKontroler.dobaviNaslove();
+		
+		filtrirajNaslove();
+
 		this.inicijalizujTabeluKnjiga();
+	}
+	
+	public void filtrirajNaslove() {
+		HashMap<String, Integer> mapa = iznajmljivanjeKontroler.filtrirajNaslove();
+		this.naslovi = new ArrayList<Naslov>();
+		
+		int brojac = 0;
+		for (Entry<String, Integer> entry : mapa.entrySet())
+        {
+            brojac++;
+            if (brojac <= 3) {
+            	Naslov naslov = naslovKontroler.dobaviNaslovPoISBN(entry.getKey());
+            	naslovi.add(naslov);
+            }
+        }
 	}
 	
 	private void inicijalizujTabeluKnjiga() {
@@ -108,3 +110,5 @@ public class PanelNaslovi extends JPanel implements Observer {
 		azurirajPrikaz();
 	}
 }
+
+

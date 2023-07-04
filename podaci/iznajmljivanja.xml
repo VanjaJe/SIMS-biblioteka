@@ -46,6 +46,7 @@
         </korisnickiNalog>
         <popust>0</popust>
       </clan>
+      <zavrseno>true</zavrseno>
     </iznajmljivanje>
     <iznajmljivanje>
       <datumIznjamljivanja>2023-07-03 12:25:26.335 UTC</datumIznjamljivanja>
@@ -93,6 +94,156 @@
         </korisnickiNalog>
         <popust>0</popust>
       </clan>
+      <zavrseno>true</zavrseno>
+    </iznajmljivanje>
+    <iznajmljivanje>
+      <datumIznjamljivanja>2023-07-03 22:41:13.357 UTC</datumIznjamljivanja>
+      <produzeno>false</produzeno>
+      <primerak>
+        <naslov>
+          <naslovDela>Aa</naslovDela>
+          <opis>aa</opis>
+          <udk>11</udk>
+          <isbn>12</isbn>
+          <autori>
+            <autor>
+              <ime>Lev</ime>
+              <prezime>Tolstoj</prezime>
+              <datumRodjenja>9. jun 1828.</datumRodjenja>
+            </autor>
+          </autori>
+        </naslov>
+        <inventarniBroj>38</inventarniBroj>
+        <jezik>srpski</jezik>
+        <format>a</format>
+        <tipKoricenja>MEKO</tipKoricenja>
+        <stanje>IZNAJMLJEN</stanje>
+        <izdavac>
+          <naziv>Delfi</naziv>
+          <datumOsnivanja>01.11.1998.</datumOsnivanja>
+        </izdavac>
+        <inventar>
+          <naziv>Knjige na srpskom</naziv>
+          <identifikacioniBroj>1A</identifikacioniBroj>
+        </inventar>
+      </primerak>
+      <clan>
+        <id>3</id>
+        <ime>Nikola</ime>
+        <prezime>Nikolic</prezime>
+        <telefon>678678</telefon>
+        <jmbg>987654321</jmbg>
+        <email>nikola@maildrop.cc</email>
+        <datumRodjenja>1990-07-04</datumRodjenja>
+        <korisnickiNalog>
+          <korisnickoIme>nikola</korisnickoIme>
+          <lozinka>nikola</lozinka>
+          <tipKorisnika>CLAN</tipKorisnika>
+        </korisnickiNalog>
+        <popust>0</popust>
+      </clan>
+      <zavrseno>false</zavrseno>
+    </iznajmljivanje>
+    <iznajmljivanje>
+      <datumIznjamljivanja>2023-07-03 22:42:55.627 UTC</datumIznjamljivanja>
+      <produzeno>false</produzeno>
+      <primerak>
+        <naslov>
+          <naslovDela>Knjiga o dzungli</naslovDela>
+          <opis>Mogli zivi u dzungli</opis>
+          <udk>56</udk>
+          <isbn>98</isbn>
+          <autori>
+            <autor>
+              <ime>Jack</ime>
+              <prezime>London</prezime>
+              <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+            </autor>
+            <autor>
+              <ime>Lev</ime>
+              <prezime>Tolstoj</prezime>
+              <datumRodjenja>9. jun 1828.</datumRodjenja>
+            </autor>
+          </autori>
+        </naslov>
+        <inventarniBroj>234</inventarniBroj>
+        <jezik>a</jezik>
+        <format>a</format>
+        <tipKoricenja>MEKO</tipKoricenja>
+        <stanje>IZNAJMLJEN</stanje>
+        <izdavac>
+          <naziv>Laguna</naziv>
+          <datumOsnivanja>01.01.1999.</datumOsnivanja>
+        </izdavac>
+        <inventar>
+          <naziv>Knjige na srpskom</naziv>
+          <identifikacioniBroj>1A</identifikacioniBroj>
+        </inventar>
+      </primerak>
+      <clan>
+        <id>3</id>
+        <ime>Nikola</ime>
+        <prezime>Nikolic</prezime>
+        <telefon>678678</telefon>
+        <jmbg>987654321</jmbg>
+        <email>nikola@maildrop.cc</email>
+        <datumRodjenja>1990-07-04</datumRodjenja>
+        <korisnickiNalog>
+          <korisnickoIme>nikola</korisnickoIme>
+          <lozinka>nikola</lozinka>
+          <tipKorisnika>CLAN</tipKorisnika>
+        </korisnickiNalog>
+        <popust>0</popust>
+      </clan>
+      <zavrseno>false</zavrseno>
+    </iznajmljivanje>
+    <iznajmljivanje>
+      <datumIznjamljivanja>2023-07-03 23:43:19.57 UTC</datumIznjamljivanja>
+      <produzeno>false</produzeno>
+      <primerak>
+        <naslov>
+          <naslovDela>Zov divljine</naslovDela>
+          <opis>Uzbudljiva prica o psu Bucku koji se suocava s divljim svijetom Aljaske.</opis>
+          <udk>821.111(73)-312.4</udk>
+          <isbn>978-953-220-000-1</isbn>
+          <autori>
+            <autor>
+              <ime>Jack</ime>
+              <prezime>London</prezime>
+              <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+            </autor>
+          </autori>
+        </naslov>
+        <inventarniBroj>123456</inventarniBroj>
+        <jezik>Hrvatski</jezik>
+        <format>A4</format>
+        <tipKoricenja>MEKO</tipKoricenja>
+        <stanje>IZNAJMLJEN</stanje>
+        <izdavac>
+          <naziv>Laguna</naziv>
+          <datumOsnivanja>01.01.1999.</datumOsnivanja>
+        </izdavac>
+        <inventar>
+          <naziv>Knjige na srpskom</naziv>
+          <identifikacioniBroj>1A</identifikacioniBroj>
+        </inventar>
+      </primerak>
+      <clan>
+        <id>3</id>
+        <ime>Nikola</ime>
+        <prezime>Nikolic</prezime>
+        <telefon>678678</telefon>
+        <jmbg>987654321</jmbg>
+        <email>nikola@maildrop.cc</email>
+        <datumRodjenja>1990-07-04</datumRodjenja>
+        <korisnickiNalog>
+          <korisnickoIme>nikola</korisnickoIme>
+          <lozinka>nikola</lozinka>
+          <tipKorisnika>CLAN</tipKorisnika>
+        </korisnickiNalog>
+        <popust>0</popust>
+      </clan>
+      <zavrseno>true</zavrseno>
     </iznajmljivanje>
   </iznajmljivanja>
 </svaIznajmljivanja>

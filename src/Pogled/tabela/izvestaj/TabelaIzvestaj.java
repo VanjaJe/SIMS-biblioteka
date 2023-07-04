@@ -1,24 +1,22 @@
-package Pogled.tabela.naslovi;
+package Pogled.tabela.izvestaj;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dimension;
 
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableModel;
 
+import Pogled.tabela.naslovi.TabelaModelNaslovi;
 import util.PogledUtil;
 
-public class TabelaNaslovi extends JTable {
+public class TabelaIzvestaj extends JTable{
+	
+	private static final long serialVersionUID = -6123370628235524074L;
 
-	private static final long serialVersionUID = -5716755961802477234L;
-
-	public TabelaNaslovi(TabelaModelNaslovi tabelaModelNaslovi) {
+	public TabelaIzvestaj(TabelaModelNaslovi tabelaModelNaslovi) {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -34,6 +32,7 @@ public class TabelaNaslovi extends JTable {
         DefaultTableCellRenderer floatRenderer = (DefaultTableCellRenderer)floatCellRenderer;
         stringRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         floatRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        
 	}
 	
 	@Override

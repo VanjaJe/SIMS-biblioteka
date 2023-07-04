@@ -1,37 +1,27 @@
-package Pogled.tabela.iznajmljivanja;
+package Pogled.tabela.izvestaj;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import kontroler.RegistracijaKontroler;
 import model.Autor;
-import model.Clan;
-import model.Iznajmljivanje;
-import model.Korisnik;
 import model.Naslov;
-import model.Primerak;
-import model.podaci.SviClanovi;
 import observer.Observer;
 import observer.Publisher;
 
-public class TabelaModelIznajmljivanja extends AbstractTableModel implements Publisher {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2987067730871371449L;
-	private List<Iznajmljivanje> iznajmljivanja;
+public class TabelaModelIzvestaj extends AbstractTableModel implements Publisher{
+	
+	private static final long serialVersionUID = 6467984169838091681L;
+	private List<Naslov> naslovi;
 	private List<Observer> observers;
 	
-	public TabelaModelIznajmljivanja(List<Iznajmljivanje> iznajmljivanja) {
-		this.iznajmljivanja = iznajmljivanja;
+	public TabelaModelIzvestaj(List<Naslov> naslovi) {
+		this.naslovi = naslovi;
 	}
 	
-	public void dodajIznajmljivanje(Iznajmljivanje iznajmljivanje) {
-		this.iznajmljivanja.add(iznajmljivanje);
+	public void dodajNaslov(Naslov naslov) {
+		this.naslovi.add(naslov);
 	}
 	
 	@Override
@@ -41,22 +31,22 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 
 	@Override
 	public int getRowCount() {
-		return iznajmljivanja.size();
+		return naslovi.size();
 	}
 	
 	@Override
 	public String getColumnName(int column) {
 		switch (column) {
 		case 0:
-			return "Datum";
+			return "Naslov";
 		case 1:
-			return "Produzeno";
+			return "Opis";
 		case 2:
-			return "Naslov primerka";
+			return "Udk";
 		case 3:
-			return "Inventarni broj";
+			return "Isbn";
 		case 4:
-			return "Korisnicko ime";
+			return "Autor";
 		default:
 			return "";
 		}
@@ -66,13 +56,9 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 	public Class<?> getColumnClass(int columnIndex) {
 		switch (columnIndex) {
 		case 0:
-			return String.class;
 		case 1:
-			return String.class;
 		case 2:
-			return String.class;
 		case 3:
-			return int.class;
 		case 4:
 			return String.class;
 		default:
@@ -82,18 +68,24 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		Iznajmljivanje iznajmljivanje = iznajmljivanja.get(rowIndex);
+		Naslov naslov = naslovi.get(rowIndex);
 		switch (columnIndex) {
 		case 0:
-			return iznajmljivanje.getDatumIznjamljivanja().toLocaleString();
+			return naslov.getNaslovDela();
 		case 1:
-			return iznajmljivanje.getProduzeno().toString();
+			return naslov.getOpis();
 		case 2:
-			return iznajmljivanje.getPrimerak().getNaslov().getNaslovDela();
+			return naslov.getUdk();
 		case 3:
-			return iznajmljivanje.getPrimerak().getInventarniBroj();
+			return naslov.getIsbn();
 		case 4:
-			return iznajmljivanje.getClan().getKorisnickiNalog().getKorisnickoIme();
+			ArrayList<Autor> autori=(ArrayList<Autor>) naslov.getAutori();
+			String ispis="";
+			for(Autor a:autori) {
+				ispis+=a.getIme()+" "+a.getPrezime()+" ";
+			}
+			return ispis;
+			
 		default:
 			return "";
 		}
@@ -119,5 +111,4 @@ public class TabelaModelIznajmljivanja extends AbstractTableModel implements Pub
 			//observer.updatePerformed(new IzmenaTabeleEvent());
 		}
 	}
-
 }

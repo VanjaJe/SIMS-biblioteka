@@ -42,5 +42,19 @@
         <tipKorisnika>CLAN</tipKorisnika>
       </korisnickiNalog>
     </korisnik>
+    <korisnik>
+      <id>4</id>
+      <ime>milaNovoIme</ime>
+      <prezime>milovic</prezime>
+      <telefon>019234578</telefon>
+      <jmbg>28734</jmbg>
+      <email>milanovi@gmail.com</email>
+      <datumRodjenja>2003-05-02</datumRodjenja>
+      <korisnickiNalog>
+        <korisnickoIme>milaNovo</korisnickoIme>
+        <lozinka>milamila</lozinka>
+        <tipKorisnika>CLAN</tipKorisnika>
+      </korisnickiNalog>
+    </korisnik>
   </korisnici>
 </sviKorisnici>

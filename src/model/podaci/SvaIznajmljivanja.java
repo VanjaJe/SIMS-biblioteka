@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import model.Iznajmljivanje;
+import model.Primerak;
 
 @XStreamAlias("svaIznajmljivanja")
 public class SvaIznajmljivanja {
@@ -45,5 +46,15 @@ public class SvaIznajmljivanja {
         this.iznajmljivanja.add(iznajmljivanje);
         return iznajmljivanje;
     }
+
+	public void postaviZavrseno(int invBroj) {
+		for (Iznajmljivanje iznajmljivanje:iznajmljivanja) {
+			if (iznajmljivanje.getPrimerak().getInventarniBroj()==invBroj) 
+			{
+				iznajmljivanje.setZavrseno(true);
+			}
+		}
+		
+	}
 
 }

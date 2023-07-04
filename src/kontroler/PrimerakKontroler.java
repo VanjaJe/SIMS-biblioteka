@@ -5,24 +5,27 @@ import java.util.List;
 
 import izuzeci.ResultEmptyException;
 import model.Naslov;
+import model.Primerak;
 import model.podaci.SviNaslovi;
+import model.podaci.SviPrimerci;
 
 public class PrimerakKontroler {
 	
-	private List<Naslov>naslovi;
+	private List<Primerak>primerci;
 	
 	public PrimerakKontroler() {
-		naslovi = new ArrayList<Naslov>();
+		primerci = new ArrayList<Primerak>();
 	}
 	
-	public List<Naslov> dobaviNaslove() throws ResultEmptyException {
-		for (Naslov naslov : SviNaslovi.getInstance().getNaslovi()) {
-			naslovi.add(new Naslov(naslov.getNaslovDela(),naslov.getOpis(),naslov.getUdk(),naslov.getIsbn(),naslov.getAutori()));	
+	public List<Primerak> dobaviPrimerke() throws ResultEmptyException {
+		for (Primerak primerak : SviPrimerci.getInstance().getPrimerci()) {
+			primerci.add(new Primerak(primerak.getInventarniBroj(), primerak.getJezik(), primerak.getFormat(), 
+					primerak.getTipKoricenja(), primerak.getStanje(), primerak.getInventar(), primerak.getNaslov()));	
 		}
 		
-		if (naslovi.size() == 0) {
-			throw new ResultEmptyException("Nema naslova.");
+		if (primerci.size() == 0) {
+			throw new ResultEmptyException("Nema primerka.");
 		}
-		return naslovi;
+		return primerci;
 	}
 }

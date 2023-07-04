@@ -1,6 +1,7 @@
-/enums/
 /kontroler/
+/main/
 /model/
-/Pogled/
-/serijalizacija/
 /observer/
+/serijalizacija/
+/util/
+/Pogled/

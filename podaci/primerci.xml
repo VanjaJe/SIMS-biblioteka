@@ -130,10 +130,99 @@
       <jezik>srpski</jezik>
       <format>a</format>
       <tipKoricenja>MEKO</tipKoricenja>
-      <stanje>DOSTUPAN</stanje>
+      <stanje>IZNAJMLJEN</stanje>
       <izdavac>
         <naziv>Delfi</naziv>
         <datumOsnivanja>01.11.1998.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>Knjiga o dzungli</naslovDela>
+        <opis>Mogli zivi u dzungli</opis>
+        <udk>56</udk>
+        <isbn>98</isbn>
+        <autori>
+          <autor>
+            <ime>Jack</ime>
+            <prezime>London</prezime>
+            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+          </autor>
+          <autor>
+            <ime>Lev</ime>
+            <prezime>Tolstoj</prezime>
+            <datumRodjenja>9. jun 1828.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>234</inventarniBroj>
+      <jezik>a</jezik>
+      <format>a</format>
+      <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>IZNAJMLJEN</stanje>
+      <izdavac>
+        <naziv>Laguna</naziv>
+        <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>novi</naslovDela>
+        <opis>a</opis>
+        <udk>87</udk>
+        <isbn>999</isbn>
+        <autori>
+          <autor>
+            <ime>Jack</ime>
+            <prezime>London</prezime>
+            <datumRodjenja>12. oktobar 1876.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>84</inventarniBroj>
+      <jezik>a</jezik>
+      <format>a</format>
+      <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>DOSTUPAN</stanje>
+      <izdavac>
+        <naziv>Laguna</naziv>
+        <datumOsnivanja>01.01.1999.</datumOsnivanja>
+      </izdavac>
+      <inventar>
+        <naziv>Knjige na srpskom</naziv>
+        <identifikacioniBroj>1A</identifikacioniBroj>
+      </inventar>
+    </primerak>
+    <primerak>
+      <naslov>
+        <naslovDela>Hobit</naslovDela>
+        <opis>avantura hobita sa zmajevima</opis>
+        <udk>asdlfj</udk>
+        <isbn>99</isbn>
+        <autori>
+          <autor>
+            <ime>J.R.R.</ime>
+            <prezime>Tolkien</prezime>
+            <datumRodjenja>3. avgust 1892.</datumRodjenja>
+          </autor>
+        </autori>
+      </naslov>
+      <inventarniBroj>100</inventarniBroj>
+      <jezik>srpski</jezik>
+      <format>a1</format>
+      <tipKoricenja>MEKO</tipKoricenja>
+      <stanje>DOSTUPAN</stanje>
+      <izdavac>
+        <naziv>Laguna</naziv>
+        <datumOsnivanja>01.01.1999.</datumOsnivanja>
       </izdavac>
       <inventar>
         <naziv>Knjige na srpskom</naziv>

@@ -26,6 +26,15 @@ public class Clan extends Korisnik{
 		this.clanskaKarta = clanskaKarta;
 		this.placanja = placanja;
 	}
+	
+
+	public List<Placanje> getPlacanja() {
+		return placanja;
+	}
+
+	public void setPlacanja(List<Placanje> placanja) {
+		this.placanja = placanja;
+	}
 
 	public ClanskaKarta getClanskaKarta() {
 		return clanskaKarta;
@@ -35,7 +44,15 @@ public class Clan extends Korisnik{
 		this.clanskaKarta = clanskaKarta;
 	}
 	
-	 @Override
+	 public int getPopust() {
+		return popust;
+	}
+
+	public void setPopust(int popust) {
+		this.popust = popust;
+	}
+
+	@Override
 	    public String toString() {
 	        return "Clan [clanskaKarta=" + clanskaKarta + ", placanja=" + placanja + "]";
 	 }
