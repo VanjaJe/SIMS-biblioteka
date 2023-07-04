@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import model.Naslov;
+import model.Autor;
 import model.Korisnik;
 
 
@@ -61,44 +62,39 @@ public class SviNaslovi {
 	}
 	
 	
+	public void izmeniNaslov(String naslovDela, String opis, String udk, String isbn, List<Autor> autori) {
+		Naslov naslov = dobaviNaslovPoISBN(isbn);
+		naslov.setNaslovDela(naslovDela);
+		naslov.setOpis(opis);
+		naslov.setUdk(udk);
+		naslov.setIsbn(isbn);
+		naslov.setAutori(autori);
+		
+		for (int i = 0; i < naslovi.size(); i++) {
+			if (naslovi.get(i).getIsbn() == naslov.getIsbn()) {
+				naslovi.remove(i);
+				naslovi.add(i, naslov);
+			}
+		}
+	}
 	
-//	public void izmeniKorisnika(String ime,String prezime,String telefon,String email,String stariEmail) {
-//		Korisnik korisnik = dobaviKorisnikaPoEmailAdresi(stariEmail);
-//		korisnik.setIme(ime);
-//		korisnik.setPrezime(prezime);
-//		korisnik.setTelefon(telefon);
-//		korisnik.setEmail(email);
-//		
-//		for (int i = 0; i < korisnici.size(); i++) {
-//			if (korisnici.get(i).getId() == korisnik.getId()) {
-//				korisnici.remove(i);
-//				korisnici.add(i, korisnik);
-//			}
-//		}
-//	}
-//	
-//	public Korisnik dobaviKorisnikaPoKorisnickomImenu(String korisnickoIme) {
-//		ArrayList<Korisnik> korisnikLista = (ArrayList<Korisnik>) korisnici
-//				.stream()
-//				.filter(korisnik -> korisnik.getKorisnickiNalog().getKorisnickoIme().equals(korisnickoIme))
-//				.collect(Collectors.toList());
-//		if (korisnikLista.size() == 0) {
-//			return null;
-//		}
-//		
-//		return korisnikLista.get(0);
-//	}
-//	
-//	public Korisnik dobaviKorisnikaPoEmailAdresi(String email) {
-//		ArrayList<Korisnik> korisnikLista = (ArrayList<Korisnik>) korisnici
-//				.stream()
-//				.filter(korisnik -> korisnik.getEmail().equals(email))
-//				.collect(Collectors.toList());
-//		if (korisnikLista.size() == 0) {
-//			return null;
-//		}
-//		
-//		return korisnikLista.get(0);
-//	}
+	public Naslov obrisiNaslov(Naslov naslov) {
+		this.naslovi.remove(naslov);
+		return naslov;
+	}
+	
+
+	public Naslov dobaviNaslovPoISBN(String isbn) {
+		ArrayList<Naslov> naslovLista = (ArrayList<Naslov>) naslovi
+				.stream()
+				.filter(naslov -> naslov.getIsbn().equals(isbn))
+				.collect(Collectors.toList());
+		if (naslovLista.size() == 0) {
+			return null;
+		}
+		
+		return naslovLista.get(0);
+	}
+
 
 }

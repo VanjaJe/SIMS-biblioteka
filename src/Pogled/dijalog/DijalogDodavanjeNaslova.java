@@ -24,8 +24,10 @@ import kontroler.InventarKontroler;
 import kontroler.IzdavacKontroler;
 import model.Autor;
 import model.Naslov;
+import model.Primerak;
 import model.podaci.SviAutori;
 import model.podaci.SviNaslovi;
+import model.podaci.SviPrimerci;
 import net.miginfocom.swing.MigLayout;
 import serijalizacija.Serijalizacija;
 import util.PogledUtil;
@@ -39,14 +41,16 @@ public class DijalogDodavanjeNaslova extends JDialog{
 	private TekstPolje tfUDK;
 	private PadajucaLista lbAutori;
 	private AutorKontroler autorKontroler = new AutorKontroler();
+	private Boolean izmena;
 	
 	
-	public DijalogDodavanjeNaslova() {
+	public DijalogDodavanjeNaslova(String naslovn, String opisn, String udkb, String isbnb, Boolean izmena) {
 		
 		setSize(new Dimension(700, 550));
 		setLocationRelativeTo(null);
 		setTitle("Dodavanje naslova");
 		
+		this.izmena = izmena;
 		Font fntLabela = PogledUtil.getLabelaFont();
 		Font fntTekstPolje = PogledUtil.getTeksPoljeFont();
 		Color clrPrimarna = PogledUtil.getPrimarnaBoja();
@@ -56,16 +60,16 @@ public class DijalogDodavanjeNaslova extends JDialog{
 		
 		
 		Labela lblNaslov = new Labela("Naslov dela:", fntLabela, Color.BLACK);
-		tfNaslov = new TekstPolje("", fntTekstPolje, 140, 30);
+		tfNaslov = new TekstPolje(naslovn, fntTekstPolje, 140, 30);
 		
 		Labela lblOpis = new Labela("Kratak opis:", fntLabela, Color.BLACK);
-		tfOpis = new TekstPolje("", fntTekstPolje, 140, 30);
+		tfOpis = new TekstPolje(opisn, fntTekstPolje, 140, 30);
 				
 		Labela lblISBN = new Labela("ISBN:", fntLabela, Color.BLACK);
-		tfISBN = new TekstPolje("", fntTekstPolje, 140, 30);
+		tfISBN = new TekstPolje(isbnb, fntTekstPolje, 140, 30);
 		
 		Labela lblUDK = new Labela("UDK:", fntLabela, Color.BLACK);
-		tfUDK = new TekstPolje("", fntTekstPolje, 140, 30);
+		tfUDK = new TekstPolje(udkb, fntTekstPolje, 140, 30);
 			
 		Labela lblAutori = new Labela("Autori:", fntLabela, Color.BLACK);
 		lbAutori = new PadajucaLista(autorKontroler.dobaviNaziveAutora(), clrPrimarna, clrForeground, fntTekstPolje, 140, 30);
@@ -90,13 +94,14 @@ public class DijalogDodavanjeNaslova extends JDialog{
 				}
 			}
 		});
-		
-		
+				
 		FormaDugme btnPotvrda = new FormaDugme("Potvrdi", clrPrimarna, clrForeground, 150, 20);
 		btnPotvrda.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				List<Primerak> sviPrimerci = new ArrayList<Primerak>();
+
 				if (validacija()) {
 					String ime = lbAutori.getSelectedItem().toString().split(" ")[0];
 					String prezime = lbAutori.getSelectedItem().toString().split(" ")[1];
@@ -108,12 +113,27 @@ public class DijalogDodavanjeNaslova extends JDialog{
 						autori.add(autor);
 					}
 					
-					SviNaslovi.getInstance().dodajNaslov(new Naslov(tfNaslov.getText(), tfOpis.getText(), tfUDK.getText(),
-							tfISBN.getText(), autori));
-					JOptionPane.showMessageDialog(null, "Naslov je dodat");
-					zatvori();
-					DijalogDodavanjePrimerka primerakDijalog = new DijalogDodavanjePrimerka(tfISBN.getText());
-					primerakDijalog.setVisible(true);
+					if (izmena) {
+						SviNaslovi.getInstance().izmeniNaslov(tfNaslov.getText(), tfOpis.getText(), tfUDK.getText(), tfISBN.getText(), autori);
+						Naslov naslov = new Naslov(tfNaslov.getText(), tfOpis.getText(), tfUDK.getText(),
+								tfISBN.getText(), autori);
+						sviPrimerci = SviPrimerci.getInstance().dobaviPrimerkePoISBN(tfISBN.getText());
+						
+						if (sviPrimerci != null) {
+							for (Primerak primerak : sviPrimerci) {
+								SviPrimerci.getInstance().izmeniNaslov(naslov, primerak.getInventarniBroj());
+							}
+						}
+						JOptionPane.showMessageDialog(null, "Naslov je izmenjen");
+					}
+					else {
+						SviNaslovi.getInstance().dodajNaslov(new Naslov(tfNaslov.getText(), tfOpis.getText(), tfUDK.getText(),
+								tfISBN.getText(), autori));
+						JOptionPane.showMessageDialog(null, "Naslov je dodat");
+						zatvori();
+						DijalogDodavanjePrimerka primerakDijalog = new DijalogDodavanjePrimerka(tfISBN.getText());
+						primerakDijalog.setVisible(true);
+					}
 				}
 			}
 		});

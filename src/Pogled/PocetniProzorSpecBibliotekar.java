@@ -9,6 +9,7 @@ import java.util.Arrays;
 import Pogled.meni.MeniBiblioteka;
 import Pogled.meni.MeniSpecBibliotekar;
 import Pogled.paneli.PanelDodavanjePrimerka;
+import Pogled.paneli.PanelIzmenaNaslova;
 import Pogled.paneli.PanelNaslovi;
 import Pogled.paneli.PanelPregledClanova;
 import Pogled.paneli.PanelPregledPrimeraka;
@@ -27,7 +28,8 @@ public class PocetniProzorSpecBibliotekar extends PocetniProzor {
 		MeniBiblioteka meniBiblioteka = new MeniBiblioteka();
 		meni = (MeniSpecBibliotekar) meniBiblioteka.napraviMeni("Specijalni bibliotekar");
 		paneli = new ArrayList<>(Arrays.asList(new PanelProfil(this),new PanelNaslovi(),new PanelRezervacije(),
-				new PanelDodavanjePrimerka(this), new PanelPregledPrimeraka(), new PanelPregledClanova()));	    
+				new PanelDodavanjePrimerka(this), new PanelPregledPrimeraka(), new PanelPregledClanova(),
+				new PanelIzmenaNaslova()));	    
 		
 		add(paneli.get(0), BorderLayout.CENTER);
 		add(meni, BorderLayout.WEST);
@@ -93,6 +95,16 @@ public class PocetniProzorSpecBibliotekar extends PocetniProzor {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				postaviPanel("Clanovi");
+				osveziProzor();
+			}
+		});
+		
+		
+		meni.getStavkaIzmenaNaslova().getDugmeStavke().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				postaviPanel("Izmena naslova");
 				osveziProzor();
 			}
 		});

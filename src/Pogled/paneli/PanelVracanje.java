@@ -48,10 +48,7 @@ import observer.Observer;
 import serijalizacija.Serijalizacija;
 
 public class PanelVracanje extends JPanel implements Observer {
-	//
-//	/**
-//	 * 
-//	 */
+
 	private static final long serialVersionUID = -7893396793228337113L;
 	private List<Iznajmljivanje> iznajmljivanja;
 	private IznajmljivanjeKontroler iznajmljivanjeKontroler;
@@ -70,27 +67,11 @@ public class PanelVracanje extends JPanel implements Observer {
 		this.iznajmljivanja=iznajmljivanjeKontroler.dobaviPrimerke();
 		this.inicijalizujTabeluIznajmljivanja();
 	}
-	
 	private void inicijalizujTabeluIznajmljivanja() {
 		
 		TabelaModelIznajmljivanja tabelaModeIznajmljivanja= new TabelaModelIznajmljivanja(iznajmljivanja);
 		this.tabelaIznajmljivanje = new TabelaIznajmljivanja(tabelaModeIznajmljivanja);
-		 final TableColumnModel columnModel = tabelaIznajmljivanje.getColumnModel();
-		    for (int column = 0; column < tabelaIznajmljivanje.getColumnCount(); column++) {
-		        int width = 100; // Min width
-		        for (int row = 0; row < tabelaIznajmljivanje.getRowCount(); row++) {
-		            TableCellRenderer renderer = tabelaIznajmljivanje.getCellRenderer(row, column);
-		            Component comp = tabelaIznajmljivanje.prepareRenderer(renderer, row, column);
-		            width = Math.max(comp.getPreferredSize().width +1 , width);
-		        }
-		        if(width > 300)
-		            width=300;
-		        columnModel.getColumn(column).setPreferredWidth(width);
-		    }
-		
-
-		tabelaIznajmljivanje.setPreferredScrollableViewportSize(new Dimension(500,100));
-		tabelaIznajmljivanje.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		formatirajTabelu();
 		JScrollPane scrollPane = new JScrollPane(tabelaIznajmljivanje);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -119,6 +100,7 @@ public class PanelVracanje extends JPanel implements Observer {
 					int row=tabelaIznajmljivanje.getSelectedRow();
 					int invBroj=Integer.parseInt(tabelaIznajmljivanje.getValueAt(row,3).toString());
 					String korIme=tabelaIznajmljivanje.getValueAt(row,4).toString();
+					SvaIznajmljivanja.getInstance().postaviZavrseno(invBroj);
 					if(comboBox.getSelectedItem()==Stanje.OSTECEN) {
 						SviPrimerci.getInstance().postaviStanjePrimerka(invBroj,Stanje.OSTECEN);
 						NadoknadaPrimerakDijalog dijalog=new NadoknadaPrimerakDijalog(korIme,TipNadoknade.OSTECENA_KNJIGA);
@@ -133,7 +115,13 @@ public class PanelVracanje extends JPanel implements Observer {
 							SviPrimerci.getInstance().postaviStanjePrimerka(invBroj,Stanje.DOSTUPAN);
 						}
 					}
-					SvaIznajmljivanja.getInstance().postaviZavrseno(invBroj);
+					Serijalizacija s=new Serijalizacija();
+					try {
+						s.sacuvaj();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					azurirajPrikaz();
 				}else {
 					System.out.println("Selektujte red u tabeli");
 				}
@@ -142,13 +130,34 @@ public class PanelVracanje extends JPanel implements Observer {
 		});
 		
 		add(btnVrati, "wrap, span2, align left");
-		this.azurirajPrikaz();
+	}
+	private void formatirajTabelu() {
+		 final TableColumnModel columnModel = tabelaIznajmljivanje.getColumnModel();
+		    for (int column = 0; column < tabelaIznajmljivanje.getColumnCount(); column++) {
+		        int width = 100; // Min width
+		        for (int row = 0; row < tabelaIznajmljivanje.getRowCount(); row++) {
+		            TableCellRenderer renderer = tabelaIznajmljivanje.getCellRenderer(row, column);
+		            Component comp = tabelaIznajmljivanje.prepareRenderer(renderer, row, column);
+		            width = Math.max(comp.getPreferredSize().width +1 , width);
+		        }
+		        if(width > 300)
+		            width=300;
+		        columnModel.getColumn(column).setPreferredWidth(width);
+		    }
+		
+		tabelaIznajmljivanje.setPreferredScrollableViewportSize(new Dimension(500,100));
+		tabelaIznajmljivanje.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 	}
 	
 	private void azurirajPrikaz() {
-		TabelaModelIznajmljivanja model = (TabelaModelIznajmljivanja) tabelaIznajmljivanje.getModel();
-		model.fireTableDataChanged();
-		validate();
+		try {
+			iznajmljivanja=iznajmljivanjeKontroler.dobaviPrimerke();
+		} catch (ResultEmptyException e) {
+			e.printStackTrace();
+		}
+		TabelaModelIznajmljivanja tabelaModeIznajmljivanja= new TabelaModelIznajmljivanja(iznajmljivanja);
+		tabelaIznajmljivanje.setModel(tabelaModeIznajmljivanja);
+		formatirajTabelu();
 	}
 
 	@Override

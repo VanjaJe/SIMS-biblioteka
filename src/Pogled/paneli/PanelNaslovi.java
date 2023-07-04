@@ -22,22 +22,12 @@ import javax.swing.table.TableColumnModel;
 
 import Pogled.tabela.naslovi.TabelaNaslovi;
 import Pogled.tabela.naslovi.TabelaModelNaslovi;
-//import enums.Uloga;
 import izuzeci.ResultEmptyException;
 import kontroler.NaslovKontroler;
-//import kontroler.JeloKontroler;
-//import kontroler.TipJelaKontroler;
-//import model.JeloCena;
 import model.Naslov;
 import model.PrijavljenKorisnik;
 import net.miginfocom.swing.MigLayout;
 import observer.Observer;
-//import pogled.FormaDugme;
-//import pogled.Labela;
-//import pogled.PadajucaLista;
-//import pogled.dijalog.DijalogDodavanjeJela;
-//import pogled.tabela.jelovnik.TabelaJelovnik;
-//import pogled.tabela.jelovnik.TabelaModelJelovnik;
 import util.PogledUtil;
 
 public class PanelNaslovi extends JPanel implements Observer {
@@ -48,7 +38,6 @@ public class PanelNaslovi extends JPanel implements Observer {
 	private static final long serialVersionUID = -7893396793228337113L;
 	private List<Naslov> naslovi;
 	private NaslovKontroler naslovKontroler;
-//	private String[] naziviTipovaJela = new String[] {"Rostilj", "Paste", "Supe"};
 	
 	private TabelaNaslovi tabelaKnjiga;
 

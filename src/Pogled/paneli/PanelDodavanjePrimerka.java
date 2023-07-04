@@ -62,7 +62,7 @@ public class PanelDodavanjePrimerka extends JPanel implements Observer{
 					primerakDijalog.setVisible(true);
 				}
 				else {
-					DijalogDodavanjeNaslova naslovDijalog = new DijalogDodavanjeNaslova();
+					DijalogDodavanjeNaslova naslovDijalog = new DijalogDodavanjeNaslova("", "", "", "", false);
 					naslovDijalog.setVisible(true);
 				}
 			}
