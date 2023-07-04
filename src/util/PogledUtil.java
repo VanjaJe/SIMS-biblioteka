@@ -29,21 +29,10 @@ public class PogledUtil {
 	public static Font getVelikiNaslovFont() {
 		return getRobotoFont(24, true);
 	}
-	
-	// zelena
+
 	public static Color getPrimarnaBoja() {
 		return new Color(255, 255, 255);
 	}
-	
-//	// siva
-//	public static Color getSekundarnaBoja() {
-//		return new Color(64, 71, 62);
-//	}
-//	
-//	// svetlo siva
-//	public static Color getTercijarnaBoja() {
-//		return new Color(190, 196, 188);
-//	}
 	
 	public static Color getForegroundColor() {
 		return Color.BLACK;

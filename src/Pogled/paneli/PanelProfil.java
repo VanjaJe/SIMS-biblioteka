@@ -60,18 +60,9 @@ public class PanelProfil extends JPanel {
 		} catch (ResultEmptyException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), e.getNaslov(), JOptionPane.ERROR_MESSAGE);
 		}
-		//korisnikKontroler.setKorisnik(korisnik);
-		//korisnik.addObserver(this);
-//		if (pocetniProzor.getName().equals("VlasnikPocetniProzor")) {
-//			korisnik.addObserver((((PocetniProzorVlasnik)pocetniProzor).getPanelZaposleni()));
-//		}
+
 		
-		Labela lblNaslov = new Labela("Pregled profilnih podataka", fntNaslov, clrForeground);
-		
-//		JLabel lblImage = new JLabel("");
-//		lblImage.setPreferredSize(new Dimension(80, 80));
-//		Image image = new ImageIcon(this.getClass().getResource("/profile96.png")).getImage();
-//		lblImage.setIcon(new ImageIcon(image));
+		Labela lblNaslov = new Labela("Pregled profila", fntNaslov, clrForeground);
 		
 		Labela lblIme = new Labela("Ime:", fntLabela, Color.black);
 		lblImeVr = new Labela(korisnik.getIme(), fntLabela, clrForeground);
@@ -94,21 +85,9 @@ public class PanelProfil extends JPanel {
 		Labela lblDatumRodj = new Labela("Datum rodjenja:", fntLabela, Color.black);
 		Labela lblDatumRodjVr = new Labela(PogledUtil.getFormatDatuma().format(korisnik.getDatumRodjenja()), fntLabela, clrForeground);
 
-//		FormaDugme btnIzmena = new FormaDugme("Izmena", clrPrimarna, clrForeground, 150, 20);
-//		btnIzmena.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				DialogIzmenaProfila dialogIzmenaProfila = new DialogIzmenaProfila(korisnik, korisnikKontroler);
-//				dialogIzmenaProfila.setVisible(true);
-//			}
-//		});
-//		FormaDugme btnIzmenaLozinke = new FormaDugme("Promena lozinke", clrPrimarna, clrForeground, 150, 20);
-	
 		setLayout(new MigLayout("", "115[]5[]30[]5[]", "150[]40[]15[]15[]15[]15[]35[]150[]"));
 		
 		add(lblNaslov, "wrap, span4, gapright 240, align center");
-		//add(lblImage, "wrap, span4, gapright 270, align center");
 		add(lblIme);
 		add(lblImeVr);
 		add(lblPrezime);
@@ -123,8 +102,6 @@ public class PanelProfil extends JPanel {
 		add(lblEmailVr, "wrap");
 		add(lblDatumRodj);
 		add(lblDatumRodjVr, "wrap");
-//		add(btnIzmena, "wrap, span4, gapright 280, align center");
-//		add(btnIzmenaLozinke, "span4, gapleft 600, align right");
 	}
 
 }

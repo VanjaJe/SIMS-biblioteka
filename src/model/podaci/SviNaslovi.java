@@ -95,6 +95,4 @@ public class SviNaslovi {
 		
 		return naslovLista.get(0);
 	}
-
-
 }
